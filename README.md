@@ -4,10 +4,18 @@ YouTube の解説動画を、台本（JSON）から自動で組み立てる道�
 
 | 回 | チャンネル | 中身 | 3D の素材 |
 |---|---|---|---|
+| `kangaeru-01` | 考える夜 | 本編フル尺（約30分）。台本全文を `source.txt` に写し、章ごとの声と曲で組む。仕上げ方は `episodes/kangaeru-01/HANDOFF.md` | `blender/render_kangaeru.sh`（14場面） |
 | `kangaeru-01-1min` | 考える夜 | 「なぜ人間は『自分らしさ』に殺されるのか？」PROLOGUE の1分版。映画のような暗い画面・明朝体の字幕・黒帯 | `blender/render_kangaeru.sh`（`blender/kangaeru.py`） |
 | `uratori-01-1min` | ウラトリ | 「相次ぐ情報漏洩の裏側」の1分版。生成りの紙面＋黄色のマーカー | `blender/render_shots.sh`（`blender/shots.py`） |
 
 ```bash
+# フル尺（章ごと）: 原稿 → 台本 → 時刻表 → 音 → 区間ごとに書き出し
+.venv/bin/python tools/parse_source.py kangaeru-01
+.venv/bin/python tools/voice_temp_openjtalk.py kangaeru-01   # 声がまだ無い章だけ仮の声
+.venv/bin/python tools/build_timeline.py kangaeru-01
+.venv/bin/python tools/make_audio.py kangaeru-01
+tools/render_chunks.sh kangaeru-01                         # → out/kangaeru-01.mp4（途中から再開できる）
+
 blender/render_kangaeru.sh                       # 考える夜の3D（静止画5枚＋影のアニメ）
 VOICE=gemini ./make_video.sh kangaeru-01-1min    # Gemini の声（API キー）→ 時刻表 → 音 → 書き出し
 ```
