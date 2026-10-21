@@ -103,7 +103,8 @@ export const KenBurns: React.FC<{
   move?: 'push' | 'drift' | 'pullup' | 'pull';
   focus?: [number, number];
   filter?: string;
-}> = ({src, duration, move = 'push', focus = [50, 50], filter}) => {
+  offsetY?: number;
+}> = ({src, duration, move = 'push', focus = [50, 50], filter, offsetY = 0}) => {
   const frame = useCurrentFrame();
   const t = interpolate(frame, [0, duration], [0, 1], {...clamp, easing: Easing.inOut(Easing.sin)});
   let s = 1.0;
@@ -117,7 +118,7 @@ export const KenBurns: React.FC<{
   }
   if (move === 'pullup') {
     s = 1.07 - 0.03 * t;
-    ty = 30 - 60 * t;
+    ty = 20 - 40 * t;
   }
   // 手持ちのわずかな揺れ
   const sx = Math.sin(frame / 37) * 2.2 + Math.sin(frame / 13) * 0.6;
@@ -130,7 +131,7 @@ export const KenBurns: React.FC<{
           width: '100%',
           height: '100%',
           objectFit: 'cover',
-          transform: `translate(${tx + sx}px, ${ty + sy}px) scale(${s})`,
+          transform: `translate(${tx + sx}px, ${ty + sy + offsetY}px) scale(${s})`,
           transformOrigin: `${focus[0]}% ${focus[1]}%`,
           filter,
         }}

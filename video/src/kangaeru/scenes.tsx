@@ -23,12 +23,12 @@ const sentence = (scene: TLScene, i: number) => scene.sentences[Math.min(i, scen
 
 // ---------- 静止画（Blender）の場面 ----------
 
-const STILL_LOOK: Record<string, {focus: [number, number]; filter?: string; bloom?: number}> = {
+const STILL_LOOK: Record<string, {focus: [number, number]; filter?: string; bloom?: number; offsetY?: number}> = {
   louisville: {focus: [52, 40], bloom: 0.45},
   derby: {focus: [70, 45], bloom: 0.3},
   reporter: {focus: [45, 72], bloom: 0.35},
   us: {focus: [58, 45], filter: 'saturate(0.85)', bloom: 0.4},
-  strings: {focus: [50, 35], bloom: 0.3},
+  strings: {focus: [50, 0], bloom: 0.3, offsetY: 100}, // 上の黒帯で十字の板が隠れないよう下げる
 };
 
 export const StillScene: React.FC<{scene: TLScene}> = ({scene}) => {
@@ -42,6 +42,7 @@ export const StillScene: React.FC<{scene: TLScene}> = ({scene}) => {
       move={it.move}
       focus={look.focus}
       filter={look.filter}
+      offsetY={look.offsetY}
     />
   );
   return (

@@ -656,7 +656,7 @@ def city_material() -> bpy.types.Material:
     sep = nt.nodes.new("ShaderNodeSeparateColor")
     on = nt.nodes.new("ShaderNodeMath")
     on.operation = "GREATER_THAN"
-    on.inputs[1].default_value = 0.8
+    on.inputs[1].default_value = 0.84
     not_mortar = nt.nodes.new("ShaderNodeMath")
     not_mortar.operation = "SUBTRACT"
     not_mortar.inputs[0].default_value = 1.0
@@ -664,7 +664,7 @@ def city_material() -> bpy.types.Material:
     mask.operation = "MULTIPLY"
     strength = nt.nodes.new("ShaderNodeMath")
     strength.operation = "MULTIPLY"
-    strength.inputs[1].default_value = 2.5
+    strength.inputs[1].default_value = 1.1
     tint = nt.nodes.new("ShaderNodeMix")
     tint.data_type = "RGBA"
     tint.inputs["A"].default_value = (1.0, 0.72, 0.42, 1)
