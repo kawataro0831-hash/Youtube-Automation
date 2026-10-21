@@ -1,0 +1,59 @@
+# Youtube-Automation
+
+YouTube の解説動画を、台本（JSON）から自動で組み立てる道具一式。
+最初の1本は **ウラトリ #01「相次ぐ情報漏洩の裏側」の1分版**（雰囲気確認用の試作）。
+
+## しくみ
+
+```
+episodes/<回>/script.json   台本の正本（文・場面の型・画面の文字・出典・声の設定）
+        │
+        ├─ 声  tools/tts_gemini.py（Gemini 3.8 Flash TTS・1テイク）
+        │      または AI Studio で作った WAV を audio/narration.wav に置く（tts/ai_studio.md）
+        │      仮の声: tools/voice_temp_openjtalk.py（間合いの確認用）
+        │
+        ├─ 時刻表  tools/build_timeline.py  無音から文の切れ目を見つけ、場面のフレームと字幕 .srt を作る
+        ├─ 音      tools/make_audio.py      声＋BGM（合成）＋効果音、-16 LUFS
+        │
+        ├─ 3D     blender/shots.py           bpy（Blender 5.2）で紙面の3Dカットを描く
+        │          blender/textures/*.png    紙に貼る画像（Remotion の Still で作る）
+        │
+        └─ 画面    video/（Remotion 4）       場面の型ごとの部品で組んで MP4 に書き出す
+```
+
+- 見た目は試作1のトンマナ（生成りの地 #eeeeeb・黒 #1a1a1a・黄色のマーカー #f3dc7a・Noto Sans JP）。
+- 出どころの札: 公式発表＝黒地／調査報告＝白地に黒枠／本人の発言＝黄色／報道＝灰色（右下）。
+- 字幕は焼き込まず、`out/<回>.srt` を YouTube に上げる。
+
+## 使い方
+
+```bash
+# 準備（初回）
+uv venv --python 3.13 .venv && uv pip install --python .venv/bin/python numpy==2.3.3 soundfile==0.13.1 scipy==1.16.2
+(cd video && npm ci)
+(cd blender && uv venv --python 3.13 .venv && uv pip install --python .venv/bin/python -r requirements.txt)
+# Linux で EEVEE を使うとき: apt-get install -y libegl1 libegl-mesa0
+# 仮の声を使うとき: apt-get install -y open-jtalk open-jtalk-mecab-naist-jdic hts-voice-nitech-jp-atr503-m001
+
+# 3Dカット（GPU なしで約1時間。Mac なら RES=100 SAMPLES=32 で本番品質）
+blender/render_shots.sh
+
+# 声を Gemini で作って、通しで書き出す
+export GEMINI_API_KEY=...   # 環境変数で渡す（ファイルに書かない）
+VOICE=gemini ./make_video.sh uratori-01-1min
+# → out/uratori-01-1min.mp4 と .srt
+```
+
+AI Studio の画面で声を作る場合は `episodes/uratori-01-1min/tts/ai_studio.md` の手順で WAV を作り、
+`episodes/uratori-01-1min/audio/narration.wav` に置いて `./make_video.sh uratori-01-1min`。
+
+## Blender MCP について
+
+Blender MCP は、Claude Desktop から**起動中の Blender の画面**を操作するための橋渡し（中身は Blender の Python API＝bpy を実行する）。
+このリポジトリのクラウド環境には画面つきの Blender が無いので、同じ bpy を `blender/shots.py` から直接呼んでいる。
+Mac の Blender ＋ Blender MCP で手直ししたいときは、`blender/.venv/bin/python blender/shots.py --shot a --save-blend --frames 1 1`
+で `.blend` を書き出して開けばよい。
+
+## Remotion のライセンス
+
+Remotion は個人・従業員3人以下の会社は無料、それより大きい組織は有料ライセンスが必要（https://www.remotion.dev/license ）。

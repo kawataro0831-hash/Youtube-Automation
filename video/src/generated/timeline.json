@@ -1,0 +1,253 @@
+{
+  "episode": "uratori-01-1min",
+  "channel": "ウラトリ",
+  "tagline": "テクノロジーのニュースを、一次情報で深掘り",
+  "fps": 30,
+  "durationInFrames": 1997,
+  "audio": "ep/mix.wav",
+  "voiceSource": "openjtalk-temp",
+  "scenes": [
+    {
+      "id": "open",
+      "type": "blender",
+      "from": 0,
+      "duration": 179,
+      "items": {
+        "kicker": "2026年 秋",
+        "title": "相次ぐ情報漏洩の裏側"
+      },
+      "clip": "shot_a_papers",
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s0",
+          "text": "この秋、日本では、情報漏洩の公表が相次ぎました。",
+          "from": 19,
+          "to": 159
+        }
+      ]
+    },
+    {
+      "id": "news",
+      "type": "news",
+      "from": 179,
+      "duration": 173,
+      "items": {
+        "label": "ニュースでの言われ方（当チャンネルのまとめ）",
+        "quote": "AIを使った、\n新しい攻撃",
+        "words": [
+          "AI",
+          "新しい攻撃",
+          "過去最多"
+        ]
+      },
+      "clip": null,
+      "sources": [
+        {
+          "kind": "報道",
+          "name": "国内報道の言われ方（当チャンネルのまとめ。特定の記事の引用ではない）",
+          "url": "",
+          "status": "10分版の台帳（出典台帳.json）に合わせて差し替える。",
+          "id": "press"
+        }
+      ],
+      "sentences": [
+        {
+          "id": "s1",
+          "text": "ニュースでは「AIを使った新しい攻撃だ」とも言われています。",
+          "from": 9,
+          "to": 153
+        }
+      ]
+    },
+    {
+      "id": "turn",
+      "type": "blender",
+      "from": 352,
+      "duration": 171,
+      "items": {
+        "text": "一次情報を読むと",
+        "mark": "一次情報"
+      },
+      "clip": "shot_b_magnifier",
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s2",
+          "text": "でも、一次情報を読むと、見え方が少し変わります。",
+          "from": 9,
+          "to": 137
+        }
+      ]
+    },
+    {
+      "id": "npa",
+      "type": "dots",
+      "from": 523,
+      "duration": 389,
+      "items": {
+        "paper": "警察庁「令和8年上半期における\nサイバー空間をめぐる脅威の情勢等について」",
+        "heading": "ランサムウェアの侵入経路",
+        "total": 36,
+        "hit": 18,
+        "hitLabel": "VPN機器",
+        "unit": "件",
+        "caption": "侵入経路が分かった36件のうち"
+      },
+      "clip": null,
+      "sources": [
+        {
+          "kind": "公式発表",
+          "name": "警察庁「令和8年上半期におけるサイバー空間をめぐる脅威の情勢等について」",
+          "url": "https://www.npa.go.jp/publications/statistics/cybersecurity/",
+          "status": "数字（36件中18件）は二次情報（解説記事）で確認。PDF本文は未確認。",
+          "id": "npa_r8h1"
+        }
+      ],
+      "sentences": [
+        {
+          "id": "s3",
+          "text": "警察庁によると、今年の上半期、ランサムウェアの侵入経路が分かった36件のうち、半分の18件は、VPN機器からでした。",
+          "from": 9,
+          "to": 369
+        }
+      ]
+    },
+    {
+      "id": "dbir",
+      "type": "bars",
+      "from": 912,
+      "duration": 274,
+      "items": {
+        "paper": "Verizon「2026 Data Breach\nInvestigations Report（DBIR）」",
+        "heading": "侵入の入口に占める「脆弱性の悪用」",
+        "bars": [
+          {
+            "label": "2025年版",
+            "value": 20
+          },
+          {
+            "label": "2026年版",
+            "value": 31,
+            "mark": true
+          }
+        ],
+        "unit": "%",
+        "badge": "初めて1位",
+        "original": "Exploitation of vulnerabilities"
+      },
+      "clip": null,
+      "sources": [
+        {
+          "kind": "調査報告",
+          "name": "Verizon「2026 Data Breach Investigations Report」",
+          "url": "https://www.verizon.com/business/resources/reports/dbir/",
+          "status": "数字（20%→31%・初の1位）は二次情報（解説記事）で確認。報告書本文は未確認。",
+          "id": "dbir_2026"
+        }
+      ],
+      "sentences": [
+        {
+          "id": "s4",
+          "text": "アメリカのベライゾンの調査でも、侵入の入口のトップは、初めて「ソフトの穴を突く手口」になりました。",
+          "from": 9,
+          "to": 255
+        }
+      ]
+    },
+    {
+      "id": "key1",
+      "type": "keymsg",
+      "from": 1186,
+      "duration": 333,
+      "items": {
+        "lines": [
+          "新しいのは、",
+          "手口ではなく、速さ。"
+        ],
+        "mark": "速さ",
+        "sub": "AIが、古い穴を突くスピードを上げている",
+        "subAt": 1,
+        "tag": "有力な見方"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s5",
+          "text": "新しいのは、手口ではなく、速さ。",
+          "from": 9,
+          "to": 104
+        },
+        {
+          "id": "s6",
+          "text": "AIが、古い穴を突くスピードを上げている。いまのところ、それが有力な見方です。",
+          "from": 122,
+          "to": 315
+        }
+      ]
+    },
+    {
+      "id": "key2",
+      "type": "keymsg",
+      "from": 1519,
+      "duration": 158,
+      "items": {
+        "lines": [
+          "持っていないデータは、",
+          "漏れない。"
+        ],
+        "mark": "持っていない"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s7",
+          "text": "そして、もう一つ。持っていないデータは、漏れません。",
+          "from": 9,
+          "to": 137
+        }
+      ]
+    },
+    {
+      "id": "ask",
+      "type": "question",
+      "from": 1677,
+      "duration": 134,
+      "items": {
+        "text": "使っていないサービス、\nいくつ残っていますか？"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s8",
+          "text": "あなたが使っていないサービス、いくつ残っていますか。",
+          "from": 9,
+          "to": 115
+        }
+      ]
+    },
+    {
+      "id": "end",
+      "type": "endcard",
+      "from": 1811,
+      "duration": 186,
+      "items": {
+        "name": "ウラトリ",
+        "tagline": "テクノロジーのニュースを一次情報で深掘り"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s9",
+          "text": "ウラトリ。テクノロジーのニュースを、一次情報で深掘りします。",
+          "from": 9,
+          "to": 148
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+out/
+.DS_Store
+# 声と音の仕上げは道具で作り直せる（narration.wav は Gemini / AI Studio のテイク）
+episodes/*/audio/*.wav
+episodes/*/audio/_takes/
+episodes/*/build/
+video/public/ep/
