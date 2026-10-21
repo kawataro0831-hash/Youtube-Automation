@@ -9,8 +9,12 @@ YouTube の解説動画を、台本（JSON）から自動で組み立てる道�
 
 ```bash
 blender/render_kangaeru.sh                       # 考える夜の3D（静止画5枚＋影のアニメ）
-VOICE=gemini ./make_video.sh kangaeru-01-1min    # Gemini の声 → 時刻表 → 音 → 書き出し
+VOICE=gemini ./make_video.sh kangaeru-01-1min    # Gemini の声（API キー）→ 時刻表 → 音 → 書き出し
 ```
+
+API キーを使わずブラウザ（AI Studio・Flow Music）で声と曲を作る場合は
+`episodes/kangaeru-01-1min/HANDOFF.md`（作ったファイルは `tools/register_audio.py` で置く）。
+曲は場面ごとに切り替えられる（`script.json` の `music`。区間の確認は `tools/music_cues.py`）。
 
 ### 考える夜の作り
 

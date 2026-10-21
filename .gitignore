@@ -7,3 +7,5 @@ episodes/*/audio/*.wav
 episodes/*/audio/_takes/
 episodes/*/build/
 video/public/ep/
+
+episodes/*/music/_takes/

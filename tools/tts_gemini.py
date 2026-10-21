@@ -48,14 +48,20 @@ def write_ai_studio_doc(ep: str, script: dict) -> None:
     """AI Studio の画面に貼る設定・口調・本文を tts/ai_studio.md に書き出す。"""
     v = script["voice"]
     alt = " / ".join(v.get("alternatives", []))
-    doc = f"""# 声づくり（Google AI Studio の Generate speech）
+    doc = f"""# 声づくり（Google AI Studio の Generate speech・API キーなし）
+
+ブラウザで https://aistudio.google.com/generate-speech を開き（Google アカウントでログイン済みのブラウザ）、
+次のとおりに設定して **全文を1回で** 生成する（パートに分けると声色がずれやすいため）。
 
 | 項目 | 値 |
 |---|---|
 | モデル | Gemini 3.8 Flash TTS |
-| 声（Voice） | **{v['voice']}**（別案: {alt}） |
+| 話し手 | 1人（Single-speaker audio） |
+| 声（Voice） | **{v['voice']}**（渋さが足りなければ {alt} を試す） |
 | Temperature | {v.get('temperature', 1.0)} |
-| 話し手 | 1人 |
+
+声の一覧に「Voice design（文章で声を作る）」があれば、次の説明で作った声を試してもよい:
+「50代の日本人男性。低く、少しかすれた、落ち着いた声。深夜のドキュメンタリー番組のナレーター。」
 
 ## Style（口調）欄に貼る文
 
@@ -63,17 +69,22 @@ def write_ai_studio_doc(ep: str, script: dict) -> None:
 {v['style']}空行のところ（場面の変わり目）は、ふつうの句点より長めに間をとる。
 ```
 
-## 本文欄に貼る文（1回で全文を読ませる）
+## 本文欄に貼る文
 
 ```
 {transcript(script)}
 ```
 
-数字や英字は読み間違いを防ぐため、かなで書いてあります（画面と字幕は script.json の text の表記）。
+数字や英字は読み間違いを防ぐため、かなで書いてある（画面と字幕は script.json の text の表記）。
 
-## できた WAV
+## できたら
 
-`episodes/{ep}/audio/narration.wav` に置いて、`./make_video.sh {ep}`。
+1. 再生して、読み間違い・途中の不自然な間・最後の付け足しが無いか聞く（あれば Run し直す）
+2. ダウンロード（WAV）して、リポジトリの一番上で:
+
+```bash
+.venv/bin/python tools/register_audio.py {ep} voice ~/Downloads/<ダウンロードしたファイル>.wav --note "AI Studio・{v['voice']}"
+```
 """
     out = episode_dir(ep) / "tts" / "ai_studio.md"
     out.parent.mkdir(parents=True, exist_ok=True)

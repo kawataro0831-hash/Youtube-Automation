@@ -2,10 +2,14 @@
 from __future__ import annotations
 
 import json
+import subprocess
+import tempfile
+from math import gcd
 from pathlib import Path
 
 import numpy as np
 import soundfile as sf
+from scipy.signal import resample_poly
 
 ROOT = Path(__file__).resolve().parent.parent
 SR = 48000
@@ -27,16 +31,36 @@ def read_text(s: dict) -> str:
     return s.get("read") or s["text"]
 
 
-def load_mono(path: Path, sr: int = SR) -> np.ndarray:
-    """WAV を float32 モノラル・sr Hz で読む（必要なら単純な線形補間で変換）。"""
-    data, in_sr = sf.read(str(path), dtype="float32", always_2d=True)
-    mono = data.mean(axis=1)
+def load_audio(path: Path, sr: int = SR) -> np.ndarray:
+    """音声ファイルを float32・sr Hz・(サンプル数, チャンネル数) で読む。
+
+    WAV/FLAC/MP3 は soundfile で、読めない形式（M4A など）は ffmpeg で WAV にしてから読む。
+    サンプリング周波数の変換は resample_poly（Gemini の 24kHz の声もきれいに 48kHz へ）。
+    """
+    try:
+        data, in_sr = sf.read(str(path), dtype="float32", always_2d=True)
+    except Exception:
+        with tempfile.TemporaryDirectory() as td:
+            tmp = Path(td) / "decoded.wav"
+            subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(path), str(tmp)], check=True)
+            data, in_sr = sf.read(str(tmp), dtype="float32", always_2d=True)
     if in_sr != sr:
-        n = int(round(len(mono) * sr / in_sr))
-        x_old = np.linspace(0.0, 1.0, num=len(mono), endpoint=False)
-        x_new = np.linspace(0.0, 1.0, num=n, endpoint=False)
-        mono = np.interp(x_new, x_old, mono).astype(np.float32)
-    return mono
+        g = gcd(int(in_sr), int(sr))
+        data = resample_poly(data, sr // g, int(in_sr) // g, axis=0).astype(np.float32)
+    return data
+
+
+def load_mono(path: Path, sr: int = SR) -> np.ndarray:
+    """モノラル（float32・sr Hz）で読む。"""
+    return load_audio(path, sr).mean(axis=1).astype(np.float32)
+
+
+def load_stereo(path: Path, sr: int = SR) -> np.ndarray:
+    """ステレオ（サンプル数×2）で読む。モノラルなら左右に同じ音を置く。"""
+    a = load_audio(path, sr)
+    if a.shape[1] == 1:
+        a = np.repeat(a, 2, axis=1)
+    return a[:, :2]
 
 
 def write_wav(path: Path, data: np.ndarray, sr: int = SR) -> None:

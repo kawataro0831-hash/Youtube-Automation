@@ -191,5 +191,39 @@
       }
     }
   ],
-  "sources": {}
+  "sources": {},
+  "music": [
+    {
+      "id": "m1",
+      "from": "louisville",
+      "to": "derby",
+      "file": "music/m1_louisville.mp3",
+      "title": "1970年、夕暮れの競馬場",
+      "prompt": "Instrumental only, no vocals. 1970s American South at golden hour, a hazy horse-racing track. A lone resonator slide guitar and soft upright bass, very quiet brushed snare far in the background, warm analog tape and faint vinyl crackle. Nostalgic and slightly melancholic, unhurried. 70 BPM. Sparse enough to sit under a narrator. 30 seconds."
+    },
+    {
+      "id": "m2",
+      "from": "reporter",
+      "to": "genre",
+      "file": "music/m2_gonzo.mp3",
+      "title": "ゴンゾー記者（ノワール・ジャズ）",
+      "prompt": "Instrumental only, no vocals. Smoky late-night noir jazz with a reckless gonzo edge: muted trumpet, walking upright bass, brushed drums, a slightly detuned upright piano, an unsettling undercurrent that slowly tightens. Mysterious and restless. 84 BPM. Leaves room for narration. 40 seconds."
+    },
+    {
+      "id": "m3",
+      "from": "shadow",
+      "to": "shadow",
+      "file": "music/m3_shadow.mp3",
+      "title": "キャラクターが本人をのみ込む",
+      "prompt": "Instrumental only, no vocals. Dark cinematic tension: a low cello ostinato and a deep sub-bass pulse like a slow heartbeat, dissonant string swells rising, the feeling of a shadow growing larger than the man who casts it. Ominous, claustrophobic, building to a peak near the end. 60 BPM. 20 seconds."
+    },
+    {
+      "id": "m4",
+      "from": "us",
+      "to": "title",
+      "file": "music/m4_night.mp3",
+      "title": "考える夜（内省・タイトル）",
+      "prompt": "Instrumental only, no vocals. Late-night introspection: minimal solo felt piano with a soft ambient pad and distant reverb, melancholic but tender, slowly widening, ending on a long sustained low chord that rings out. 60 BPM. Sparse, made for a thoughtful narrator. 30 seconds."
+    }
+  ]
 }

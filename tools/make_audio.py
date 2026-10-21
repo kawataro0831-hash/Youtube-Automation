@@ -17,7 +17,7 @@ from pathlib import Path
 import numpy as np
 from scipy.signal import butter, sosfilt
 
-from common import ROOT, SR, episode_dir, load_mono, load_script, write_wav
+from common import ROOT, SR, episode_dir, load_mono, load_script, load_stereo, write_wav
 
 FPS = 30
 rng = np.random.default_rng(11)
@@ -145,6 +145,7 @@ def main() -> None:
     ap.add_argument("episode")
     ap.add_argument("--bgm", type=Path, help="合成の代わりに使う BGM ファイル")
     ap.add_argument("--bgm-db", type=float, help="BGM の大きさ（声の最大を 0 dB として）。既定は回の音の種類による")
+    ap.add_argument("--music-rms", type=float, default=-30.0, help="場面ごとの曲の大きさ（RMS dBFS）。声は約 -20")
     args = ap.parse_args()
     script = load_script(args.episode)
 
@@ -155,16 +156,28 @@ def main() -> None:
     tl = json.loads((ROOT / "video" / "src" / "generated" / f"{args.episode}.json").read_text(encoding="utf-8"))
 
     if script.get("sound") == "cinematic":
-        # 映画のような音（低い持続音・ピアノ・場面ごとの効果音）。中身は sound_kangaeru.py
+        # 映画のような音。曲は script.json の "music"（場面ごとに Flow Music などで作った曲）を並べ、
+        # 曲が無い区間と効果音は sound_kangaeru.py の合成で埋める
+        import music_cues
         import sound_kangaeru
 
-        music, sfx = sound_kangaeru.design(tl, total)
+        synth, sfx = sound_kangaeru.design(tl, total)
+        synth = fit(synth, len(voice))
         if args.bgm:
-            music = load_mono(args.bgm)
-        music = fit(music, len(voice))
-        music = music / (np.max(np.abs(music)) or 1.0) * db(args.bgm_db if args.bgm_db is not None else -15.0)
-        music *= duck_envelope(voice, depth_db=-7.0)
+            music = load_stereo(args.bgm)[: len(voice)]
+            music = np.pad(music, ((0, len(voice) - len(music)), (0, 0)))
+            music = music / (np.max(np.abs(music)) or 1.0) * db(args.bgm_db if args.bgm_db is not None else -15.0)
+        elif script.get("music"):
+            music, log = music_cues.build(script, tl, total, synth, args.music_rms)
+            music = np.pad(music, ((0, max(0, len(voice) - len(music))), (0, 0)))[: len(voice)]
+            print("\n".join(log))
+        else:
+            music = synth / (np.max(np.abs(synth)) or 1.0) * db(args.bgm_db if args.bgm_db is not None else -15.0)
+            music = np.repeat(music[:, None], 2, axis=1)
+        music *= duck_envelope(voice, depth_db=-7.0)[:, None]
         sfx = fit(sfx, len(voice))
+        voice = np.repeat(voice[:, None], 2, axis=1)  # 声は真ん中
+        sfx = np.repeat(sfx[:, None], 2, axis=1)
     else:
         music, sfx = uratori_sound(args, tl, voice, total)
     mix = voice + music + sfx
