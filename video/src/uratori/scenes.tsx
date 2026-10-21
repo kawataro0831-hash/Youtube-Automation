@@ -41,7 +41,7 @@ const Tag: React.FC<{scene: TLScene}> = ({scene}) =>
   scene.sources.length ? <SourceTag kind={scene.sources[0].kind} name={scene.sources[0].name} /> : null;
 
 // Blender で描いた3Dのカット（秒数は blender/shots.py の書き出しと合わせる）
-const CLIP_SECONDS: Record<string, number> = {shot_a_papers: 7, shot_b_magnifier: 6};
+const CLIP_SECONDS: Record<string, number> = {shot_a_papers: 6.5, shot_b_magnifier: 5.5};
 
 const Clip: React.FC<{clip: string; duration: number}> = ({clip, duration}) => {
   const {fps} = useVideoConfig();
