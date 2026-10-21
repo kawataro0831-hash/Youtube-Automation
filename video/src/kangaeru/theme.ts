@@ -4,6 +4,9 @@ import '@fontsource/shippori-mincho/700.css';
 import '@fontsource/cormorant-garamond/300.css';
 import '@fontsource/cormorant-garamond/500.css';
 import '@fontsource/special-elite/400.css';
+import '@fontsource/noto-sans-jp/400.css';
+import '@fontsource/noto-sans-jp/500.css';
+import '@fontsource/noto-sans-jp/700.css';
 
 export const K = {
   black: '#070707',

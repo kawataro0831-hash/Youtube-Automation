@@ -161,7 +161,10 @@ def main() -> None:
         import music_cues
         import sound_kangaeru
 
-        synth, sfx = sound_kangaeru.design(tl, total)
+        if script.get("parts"):
+            synth, sfx = sound_kangaeru.design_full(tl, total)
+        else:
+            synth, sfx = sound_kangaeru.design(tl, total)
         synth = fit(synth, len(voice))
         if args.bgm:
             music = load_stereo(args.bgm)[: len(voice)]

@@ -1,0 +1,5280 @@
+{
+  "episode": "kangaeru-01",
+  "channel": "考える夜",
+  "tagline": "当たり前を、少し違う角度から",
+  "title": "なぜ人間は「自分らしさ」に殺されるのか？",
+  "subtitle": "自己像 × アイデンティティ × 後方互換性",
+  "fps": 30,
+  "durationInFrames": 54348,
+  "audio": "ep/kangaeru-01/mix.wav",
+  "voiceSource": "openjtalk-temp",
+  "scenes": [
+    {
+      "id": "prologue-card",
+      "type": "chapter",
+      "part": "prologue",
+      "from": 0,
+      "duration": 120,
+      "items": {
+        "label": "PROLOGUE",
+        "title": "自分自身になりすぎた男"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": []
+    },
+    {
+      "id": "prologue-1",
+      "type": "still",
+      "part": "prologue",
+      "from": 120,
+      "duration": 178,
+      "items": {
+        "clip": "k_louisville",
+        "move": "push",
+        "card": "place",
+        "year": "1970",
+        "place": "LOUISVILLE, KENTUCKY",
+        "placeJa": "アメリカ・ケンタッキー州ルイビル"
+      },
+      "clip": "k_louisville",
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s0",
+          "text": "1970年、アメリカ南部のケンタッキー州ルイビル。",
+          "short": "アメリカ南部のケンタッキー州ルイビル",
+          "from": 9,
+          "to": 161
+        }
+      ]
+    },
+    {
+      "id": "prologue-2",
+      "type": "still",
+      "part": "prologue",
+      "from": 298,
+      "duration": 285,
+      "items": {
+        "clip": "k_derby",
+        "move": "drift"
+      },
+      "clip": "k_derby",
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s1",
+          "text": "競馬場には酒の匂いが漂い、観客席では派手な帽子をかぶった人々が声を張り上げている。",
+          "short": null,
+          "from": 9,
+          "to": 269
+        }
+      ]
+    },
+    {
+      "id": "prologue-3",
+      "type": "still",
+      "part": "prologue",
+      "from": 583,
+      "duration": 215,
+      "items": {
+        "clip": "k_reporter",
+        "move": "push",
+        "card": "name",
+        "name": "HUNTER S. THOMPSON",
+        "nameJa": "ハンター・S・トンプソン",
+        "role": "記者・作家（1937–2005）",
+        "at": "1"
+      },
+      "clip": "k_reporter",
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s2",
+          "text": "この場所に、一人の記者がやってきた。",
+          "short": "一人の記者がやってきた",
+          "from": 9,
+          "to": 107
+        },
+        {
+          "id": "s3",
+          "text": "ハンター・S・トンプソン。",
+          "short": null,
+          "from": 123,
+          "to": 198
+        }
+      ]
+    },
+    {
+      "id": "prologue-4",
+      "type": "diagram",
+      "part": "prologue",
+      "from": 798,
+      "duration": 1649,
+      "items": {
+        "event": "出来事",
+        "reporter": "記者",
+        "enter": "入り込み",
+        "story": "物語の一部",
+        "caption": "― のちに「ゴンゾー・ジャーナリズム」と呼ばれる",
+        "captionAt": "ゴンゾー"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s4",
+          "text": "本来、記者というものは出来事の外側に立つ。",
+          "short": "記者というものは出来事の外側に立つ",
+          "from": 9,
+          "to": 136
+        },
+        {
+          "id": "s5",
+          "text": "誰が勝ったのか。",
+          "short": null,
+          "from": 153,
+          "to": 186
+        },
+        {
+          "id": "s6",
+          "text": "何が起きたのか。",
+          "short": null,
+          "from": 202,
+          "to": 234
+        },
+        {
+          "id": "s7",
+          "text": "誰が何を言ったのか。",
+          "short": null,
+          "from": 250,
+          "to": 292
+        },
+        {
+          "id": "s8",
+          "text": "自分自身の感情をなるべく取り除き、観察者として文章を書く。",
+          "short": null,
+          "from": 308,
+          "to": 464
+        },
+        {
+          "id": "s9",
+          "text": "しかしトンプソンは、まるで逆のことをやった。",
+          "short": null,
+          "from": 481,
+          "to": 578
+        },
+        {
+          "id": "s10",
+          "text": "酒を飲み、人々を罵り、自分自身の混乱まで記事の中に放り込んだ。",
+          "short": null,
+          "from": 594,
+          "to": 772
+        },
+        {
+          "id": "s11",
+          "text": "彼がラルフ・ステッドマンとともに取材した1970年のケンタッキーダービーの記事は、のちに「ゴンゾー・ジャーナリズム」と呼ばれるスタイルの原点として語られるようになる。",
+          "short": null,
+          "from": 788,
+          "to": 1305
+        },
+        {
+          "id": "s12",
+          "text": "そこでは記者は出来事を遠くから観察するのではない。",
+          "short": null,
+          "from": 1322,
+          "to": 1429
+        },
+        {
+          "id": "s13",
+          "text": "記者自身が出来事の中へ入り込み、ついには物語の一部になってしまう。",
+          "short": null,
+          "from": 1445,
+          "to": 1633
+        }
+      ]
+    },
+    {
+      "id": "prologue-5",
+      "type": "still",
+      "part": "prologue",
+      "from": 2447,
+      "duration": 196,
+      "items": {
+        "clip": "k_reporter",
+        "move": "pull"
+      },
+      "clip": "k_reporter",
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s14",
+          "text": "翌年、トンプソンは『ラスベガスをやっつけろ』でさらに有名になる。",
+          "short": "トンプソンは『ラスベガスをやっつけろ』でさらに有名になる",
+          "from": 9,
+          "to": 180
+        }
+      ]
+    },
+    {
+      "id": "prologue-6",
+      "type": "words",
+      "part": "prologue",
+      "from": 2643,
+      "duration": 390,
+      "items": {
+        "style": "type"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s15",
+          "text": "奇妙な帽子。",
+          "short": null,
+          "from": 9,
+          "to": 39
+        },
+        {
+          "id": "s16",
+          "text": "サングラス。",
+          "short": null,
+          "from": 55,
+          "to": 77
+        },
+        {
+          "id": "s17",
+          "text": "酒。",
+          "short": null,
+          "from": 94,
+          "to": 118
+        },
+        {
+          "id": "s18",
+          "text": "ドラッグ。",
+          "short": null,
+          "from": 135,
+          "to": 151
+        },
+        {
+          "id": "s19",
+          "text": "銃。",
+          "short": null,
+          "from": 168,
+          "to": 178
+        },
+        {
+          "id": "s20",
+          "text": "異常なテンション。",
+          "short": null,
+          "from": 195,
+          "to": 227
+        },
+        {
+          "id": "s21",
+          "text": "そして権力に対する、ほとんど憎悪に近い反抗心。",
+          "short": null,
+          "from": 243,
+          "to": 374
+        }
+      ]
+    },
+    {
+      "id": "prologue-7",
+      "type": "genre",
+      "part": "prologue",
+      "from": 3033,
+      "duration": 435,
+      "items": {
+        "name": "HUNTER S. THOMPSON"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s22",
+          "text": "やがて読者が待つようになったのは、文章だけではなくなった。",
+          "short": null,
+          "from": 9,
+          "to": 140
+        },
+        {
+          "id": "s23",
+          "text": "「ハンター・S・トンプソンなら、次は何をするのか」",
+          "short": null,
+          "from": 157,
+          "to": 289
+        },
+        {
+          "id": "s24",
+          "text": "彼の名前そのものが、一つのジャンルになっていった。",
+          "short": null,
+          "from": 306,
+          "to": 418
+        }
+      ]
+    },
+    {
+      "id": "prologue-8",
+      "type": "still",
+      "part": "prologue",
+      "from": 3468,
+      "duration": 326,
+      "items": {
+        "clip": "k_derby",
+        "move": "pull"
+      },
+      "clip": "k_derby",
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s25",
+          "text": "もちろん、彼が最初からすべてを演じていたという話ではない。",
+          "short": "彼が最初からすべてを演じていたという話ではない",
+          "from": 9,
+          "to": 138
+        },
+        {
+          "id": "s26",
+          "text": "もともと彼自身に、かなり破天荒な性格があったことも確かである。",
+          "short": null,
+          "from": 154,
+          "to": 310
+        }
+      ]
+    },
+    {
+      "id": "prologue-9",
+      "type": "key",
+      "part": "prologue",
+      "from": 3794,
+      "duration": 594,
+      "items": {
+        "text": "人物像が、巨大になる",
+        "at": "0",
+        "mark": "巨大"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s27",
+          "text": "だが興味深いのは、有名になるほど、その人物像が巨大になっていったことである。",
+          "short": null,
+          "from": 9,
+          "to": 199
+        },
+        {
+          "id": "s28",
+          "text": "後年の彼については、本人と、世間が期待する「狂気のゴンゾー記者」というペルソナの境界が見えにくくなったと評されることもある。",
+          "short": null,
+          "from": 216,
+          "to": 577
+        }
+      ]
+    },
+    {
+      "id": "prologue-10",
+      "type": "still",
+      "part": "prologue",
+      "from": 4388,
+      "duration": 324,
+      "items": {
+        "clip": "k_strings",
+        "move": "pullup"
+      },
+      "clip": "k_strings",
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s29",
+          "text": "最初は、彼が自分のキャラクターを使っていた。",
+          "short": "彼が自分のキャラクターを使っていた",
+          "from": 9,
+          "to": 112
+        },
+        {
+          "id": "s30",
+          "text": "ところが、成功すればするほど、そのキャラクターから離れることが難しくなる。",
+          "short": null,
+          "from": 129,
+          "to": 307
+        }
+      ]
+    },
+    {
+      "id": "prologue-11",
+      "type": "quote",
+      "part": "prologue",
+      "from": 4712,
+      "duration": 354,
+      "items": {
+        "style": "type"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s31",
+          "text": "静かなハンター・S・トンプソン。",
+          "short": null,
+          "from": 9,
+          "to": 100
+        },
+        {
+          "id": "s32",
+          "text": "酒を飲まないハンター・S・トンプソン。",
+          "short": null,
+          "from": 116,
+          "to": 218
+        },
+        {
+          "id": "s33",
+          "text": "何も起こさないハンター・S・トンプソン。",
+          "short": null,
+          "from": 235,
+          "to": 338
+        }
+      ]
+    },
+    {
+      "id": "prologue-12",
+      "type": "key",
+      "part": "prologue",
+      "from": 5066,
+      "duration": 127,
+      "items": {
+        "text": "そんなものを、\n読者は本当に望んだだろうか。",
+        "at": "0"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s34",
+          "text": "そんなものを、読者は本当に望んだだろうか。",
+          "short": "読者は本当に望んだだろうか",
+          "from": 9,
+          "to": 111
+        }
+      ]
+    },
+    {
+      "id": "prologue-13",
+      "type": "anim",
+      "part": "prologue",
+      "from": 5193,
+      "duration": 476,
+      "items": {
+        "clip": "k_shadow",
+        "grow": "2",
+        "quote": "お前は、こういう人間で\nあり続けろ",
+        "quoteAt": "お前は"
+      },
+      "clip": "k_shadow",
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s35",
+          "text": "ここで、奇妙な逆転が起きる。",
+          "short": "奇妙な逆転が起きる",
+          "from": 9,
+          "to": 83
+        },
+        {
+          "id": "s36",
+          "text": "最初は、本人がキャラクターを作っていた。",
+          "short": "本人がキャラクターを作っていた",
+          "from": 100,
+          "to": 194
+        },
+        {
+          "id": "s37",
+          "text": "しかし、いつしか、キャラクターの方が本人に「お前はこういう人間であり続けろ」と要求し始める。",
+          "short": null,
+          "from": 210,
+          "to": 459
+        }
+      ]
+    },
+    {
+      "id": "prologue-14",
+      "type": "still",
+      "part": "prologue",
+      "from": 5669,
+      "duration": 306,
+      "items": {
+        "clip": "k_window",
+        "move": "push"
+      },
+      "clip": "k_window",
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s38",
+          "text": "これは有名人だけの話ではない。",
+          "short": null,
+          "from": 9,
+          "to": 78
+        },
+        {
+          "id": "s39",
+          "text": "私たちもまた、毎日、小さな「自分」というキャラクターを作っている。",
+          "short": null,
+          "from": 95,
+          "to": 289
+        }
+      ]
+    },
+    {
+      "id": "prologue-15",
+      "type": "quote",
+      "part": "prologue",
+      "from": 5975,
+      "duration": 257,
+      "items": {},
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s40",
+          "text": "「自分は真面目な人間である」",
+          "short": null,
+          "from": 9,
+          "to": 65
+        },
+        {
+          "id": "s41",
+          "text": "「自分は人に媚びない」",
+          "short": null,
+          "from": 81,
+          "to": 125
+        },
+        {
+          "id": "s42",
+          "text": "「自分は明るい」",
+          "short": null,
+          "from": 142,
+          "to": 171
+        },
+        {
+          "id": "s43",
+          "text": "「自分は一人で生きていける」",
+          "short": null,
+          "from": 187,
+          "to": 241
+        }
+      ]
+    },
+    {
+      "id": "prologue-16",
+      "type": "still",
+      "part": "prologue",
+      "from": 6232,
+      "duration": 351,
+      "items": {
+        "clip": "k_dusk",
+        "move": "drift"
+      },
+      "clip": "k_dusk",
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s44",
+          "text": "そして、その自分らしさを周囲が認めてくれると、少しうれしい。",
+          "short": null,
+          "from": 9,
+          "to": 162
+        },
+        {
+          "id": "s45",
+          "text": "だがもし、その「自分らしさ」が成功しすぎたらどうなるのか。",
+          "short": "その「自分らしさ」が成功しすぎたらどうなるのか",
+          "from": 178,
+          "to": 334
+        }
+      ]
+    },
+    {
+      "id": "prologue-17",
+      "type": "network",
+      "part": "prologue",
+      "from": 6583,
+      "duration": 419,
+      "items": {
+        "center": "人物像",
+        "nodes": "仕事／友人／恋人／収入／評判"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s46",
+          "text": "もし、仕事も、友人も、恋人も、収入も、評判も、その人物像に依存し始めたら。",
+          "short": null,
+          "from": 9,
+          "to": 265
+        },
+        {
+          "id": "s47",
+          "text": "私たちは、それでも自由に変わることができるのだろうか。",
+          "short": "それでも自由に変わることができるのだろうか",
+          "from": 282,
+          "to": 402
+        }
+      ]
+    },
+    {
+      "id": "prologue-18",
+      "type": "still",
+      "part": "prologue",
+      "from": 7002,
+      "duration": 223,
+      "items": {
+        "clip": "k_strings",
+        "move": "pullup"
+      },
+      "clip": "k_strings",
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s48",
+          "text": "あるいは、自分らしさを確立した人間ほど、自分らしさから逃げられなくなるのではないか。",
+          "short": null,
+          "from": 9,
+          "to": 206
+        }
+      ]
+    },
+    {
+      "id": "prologue-19",
+      "type": "title",
+      "part": "prologue",
+      "from": 7225,
+      "duration": 291,
+      "items": {
+        "title": "なぜ人間は\n「自分らしさ」に\n殺されるのか？",
+        "titleAt": "1"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s49",
+          "text": "今夜考えたいのは、この奇妙な問題である。",
+          "short": null,
+          "from": 9,
+          "to": 116
+        },
+        {
+          "id": "s50",
+          "text": "なぜ人間は「自分らしさ」に殺されるのか？",
+          "short": null,
+          "from": 133,
+          "to": 249
+        }
+      ]
+    },
+    {
+      "id": "cta-card",
+      "type": "chapter",
+      "part": "cta",
+      "from": 7516,
+      "duration": 120,
+      "items": {
+        "label": "考える夜",
+        "title": "このチャンネルを見る理由"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": []
+    },
+    {
+      "id": "cta-1",
+      "type": "cta",
+      "part": "cta",
+      "from": 7636,
+      "duration": 412,
+      "items": {},
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s51",
+          "text": "ここで少しだけ、このチャンネルの話をしたい。",
+          "short": null,
+          "from": 9,
+          "to": 109
+        },
+        {
+          "id": "s52",
+          "text": "「考える夜」では、私たちが普段、あまり疑わずに受け入れている言葉を、少し違う角度から考えている。",
+          "short": null,
+          "from": 125,
+          "to": 396
+        }
+      ]
+    },
+    {
+      "id": "cta-2",
+      "type": "quote",
+      "part": "cta",
+      "from": 8048,
+      "duration": 229,
+      "items": {},
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s53",
+          "text": "自分らしく生きよう。",
+          "short": null,
+          "from": 9,
+          "to": 47
+        },
+        {
+          "id": "s54",
+          "text": "好きなことを仕事にしよう。",
+          "short": null,
+          "from": 64,
+          "to": 120
+        },
+        {
+          "id": "s55",
+          "text": "努力は報われる。",
+          "short": null,
+          "from": 136,
+          "to": 170
+        },
+        {
+          "id": "s56",
+          "text": "自由に選べ。",
+          "short": null,
+          "from": 187,
+          "to": 213
+        }
+      ]
+    },
+    {
+      "id": "cta-3",
+      "type": "words",
+      "part": "cta",
+      "from": 8277,
+      "duration": 766,
+      "items": {
+        "style": "list"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s57",
+          "text": "どれも、一度聞けば正しそうに聞こえる。",
+          "short": "一度聞けば正しそうに聞こえる",
+          "from": 9,
+          "to": 99
+        },
+        {
+          "id": "s58",
+          "text": "しかし心理学、社会学、経済学、哲学、あるいは生物学から見直してみると、その言葉の裏側に別の構造が隠れていることがある。",
+          "short": null,
+          "from": 115,
+          "to": 598
+        },
+        {
+          "id": "s59",
+          "text": "今回の「自分らしく生きる」も、その一つである。",
+          "short": null,
+          "from": 615,
+          "to": 750
+        }
+      ]
+    },
+    {
+      "id": "cta-4",
+      "type": "cta",
+      "part": "cta",
+      "from": 9043,
+      "duration": 609,
+      "items": {
+        "subscribe": "1"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s60",
+          "text": "もし、動画を見終わったあとに、昨日まで当たり前だったものが少し違って見える。",
+          "short": null,
+          "from": 9,
+          "to": 190
+        },
+        {
+          "id": "s61",
+          "text": "そういう話が好きなら、この時点でチャンネル登録しておいてほしい。",
+          "short": null,
+          "from": 206,
+          "to": 352
+        },
+        {
+          "id": "s62",
+          "text": "この夜が終わったあとも、また別の当たり前を疑っていこう。",
+          "short": null,
+          "from": 368,
+          "to": 495
+        },
+        {
+          "id": "s63",
+          "text": "では、本題へ戻ろう。",
+          "short": "本題へ戻ろう",
+          "from": 512,
+          "to": 567
+        }
+      ]
+    },
+    {
+      "id": "ch1-card",
+      "type": "chapter",
+      "part": "ch1",
+      "from": 9652,
+      "duration": 120,
+      "items": {
+        "label": "第1章",
+        "title": "人間は「自分」という物語を作っている"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": []
+    },
+    {
+      "id": "ch1-1",
+      "type": "still",
+      "part": "ch1",
+      "from": 9772,
+      "duration": 465,
+      "items": {
+        "clip": "k_meeting",
+        "move": "push"
+      },
+      "clip": "k_meeting",
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s64",
+          "text": "朝、会社へ行く。",
+          "short": "会社へ行く",
+          "from": 9,
+          "to": 72
+        },
+        {
+          "id": "s65",
+          "text": "同僚が会議で強い口調で意見を言う。",
+          "short": null,
+          "from": 89,
+          "to": 168
+        },
+        {
+          "id": "s66",
+          "text": "あなたは思う。",
+          "short": null,
+          "from": 185,
+          "to": 213
+        },
+        {
+          "id": "s67",
+          "text": "「あの人は気が強い」",
+          "short": null,
+          "from": 229,
+          "to": 267
+        },
+        {
+          "id": "s68",
+          "text": "別の同僚は、誰かが困っているとすぐ助ける。",
+          "short": "誰かが困っているとすぐ助ける",
+          "from": 284,
+          "to": 394
+        },
+        {
+          "id": "s69",
+          "text": "「あの人は優しい」",
+          "short": null,
+          "from": 411,
+          "to": 449
+        }
+      ]
+    },
+    {
+      "id": "ch1-2",
+      "type": "key",
+      "part": "ch1",
+      "from": 10237,
+      "duration": 438,
+      "items": {
+        "text": "無数の行動 → ひとつの物語",
+        "at": "0"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s70",
+          "text": "人間は、他人の無数の行動を、そのまま無数の出来事として記憶しているわけではない。",
+          "short": null,
+          "from": 9,
+          "to": 372
+        },
+        {
+          "id": "s71",
+          "text": "ある程度まとめる。",
+          "short": null,
+          "from": 388,
+          "to": 421
+        }
+      ]
+    },
+    {
+      "id": "ch1-3",
+      "type": "words",
+      "part": "ch1",
+      "from": 10675,
+      "duration": 235,
+      "items": {
+        "style": "list"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s72",
+          "text": "真面目。",
+          "short": null,
+          "from": 9,
+          "to": 23
+        },
+        {
+          "id": "s73",
+          "text": "変わり者。",
+          "short": null,
+          "from": 39,
+          "to": 62
+        },
+        {
+          "id": "s74",
+          "text": "優しい。",
+          "short": null,
+          "from": 79,
+          "to": 112
+        },
+        {
+          "id": "s75",
+          "text": "冷たい。",
+          "short": null,
+          "from": 128,
+          "to": 147
+        },
+        {
+          "id": "s76",
+          "text": "頼れる。",
+          "short": null,
+          "from": 163,
+          "to": 183
+        },
+        {
+          "id": "s77",
+          "text": "面白い。",
+          "short": null,
+          "from": 199,
+          "to": 218
+        }
+      ]
+    },
+    {
+      "id": "ch1-4",
+      "type": "key",
+      "part": "ch1",
+      "from": 10910,
+      "duration": 322,
+      "items": {
+        "text": "複雑な人間を、\n理解しやすい物語へ圧縮する",
+        "at": "0",
+        "mark": "圧縮"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s78",
+          "text": "そうやって、複雑な人間を理解しやすい物語へ圧縮する。",
+          "short": "複雑な人間を理解しやすい物語へ圧縮する",
+          "from": 9,
+          "to": 152
+        },
+        {
+          "id": "s79",
+          "text": "そして私たちは、まったく同じことを自分自身にもしている。",
+          "short": null,
+          "from": 169,
+          "to": 305
+        }
+      ]
+    },
+    {
+      "id": "ch1-5",
+      "type": "quote",
+      "part": "ch1",
+      "from": 11232,
+      "duration": 324,
+      "items": {},
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s80",
+          "text": "「私は内向的である」",
+          "short": null,
+          "from": 9,
+          "to": 57
+        },
+        {
+          "id": "s81",
+          "text": "「私は論理的である」",
+          "short": null,
+          "from": 73,
+          "to": 119
+        },
+        {
+          "id": "s82",
+          "text": "「私は人に媚びない」",
+          "short": null,
+          "from": 135,
+          "to": 181
+        },
+        {
+          "id": "s83",
+          "text": "「私は弱音を吐かない」",
+          "short": null,
+          "from": 197,
+          "to": 245
+        },
+        {
+          "id": "s84",
+          "text": "「私は自由人である」",
+          "short": null,
+          "from": 261,
+          "to": 308
+        }
+      ]
+    },
+    {
+      "id": "ch1-6",
+      "type": "key",
+      "part": "ch1",
+      "from": 11556,
+      "duration": 737,
+      "items": {
+        "text": "ナラティブ・アイデンティティ",
+        "sub": "内面化され、しかも変化し続ける人生の物語（ダン・マクアダムス）",
+        "at": "0"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s85",
+          "text": "心理学者ダン・マクアダムスは、人間のアイデンティティの重要な部分を、「内面化され、しかも変化し続ける人生の物語」として捉えている。",
+          "short": null,
+          "from": 9,
+          "to": 358
+        },
+        {
+          "id": "s86",
+          "text": "人間は過去の出来事を選び直し、現在を解釈し、未来を想像しながら、「自分とはこういう人間である」という一つの筋書きを作っている。",
+          "short": null,
+          "from": 375,
+          "to": 720
+        }
+      ]
+    },
+    {
+      "id": "ch1-7",
+      "type": "still",
+      "part": "ch1",
+      "from": 12293,
+      "duration": 346,
+      "items": {
+        "clip": "k_window",
+        "move": "pull"
+      },
+      "clip": "k_window",
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s87",
+          "text": "これは必要なことである。",
+          "short": null,
+          "from": 9,
+          "to": 62
+        },
+        {
+          "id": "s88",
+          "text": "昨日の自分と今日の自分がまったく別人だと感じていたら、人生はあまりにも不安定になる。",
+          "short": null,
+          "from": 78,
+          "to": 329
+        }
+      ]
+    },
+    {
+      "id": "ch1-8",
+      "type": "quote",
+      "part": "ch1",
+      "from": 12639,
+      "duration": 269,
+      "items": {},
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s89",
+          "text": "私はなぜこの仕事をしているのか。",
+          "short": null,
+          "from": 9,
+          "to": 79
+        },
+        {
+          "id": "s90",
+          "text": "なぜこの人と結婚したのか。",
+          "short": null,
+          "from": 95,
+          "to": 157
+        },
+        {
+          "id": "s91",
+          "text": "なぜこの価値観を大切にしているのか。",
+          "short": null,
+          "from": 173,
+          "to": 252
+        }
+      ]
+    },
+    {
+      "id": "ch1-9",
+      "type": "key",
+      "part": "ch1",
+      "from": 12908,
+      "duration": 189,
+      "items": {
+        "text": "過去 ― 現在",
+        "at": "0"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s92",
+          "text": "自分についての物語があるから、人間は過去と現在をつなぐことができる。",
+          "short": null,
+          "from": 8,
+          "to": 172
+        }
+      ]
+    },
+    {
+      "id": "ch1-10",
+      "type": "arrow",
+      "part": "ch1",
+      "from": 13097,
+      "duration": 419,
+      "items": {
+        "from": "自分を説明するための物語",
+        "to": "自分が従わなければならない脚本",
+        "at": "2"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s93",
+          "text": "問題はここからである。",
+          "short": null,
+          "from": 9,
+          "to": 54
+        },
+        {
+          "id": "s94",
+          "text": "本来、自分についての物語は、自分を説明するためのものだった。",
+          "short": null,
+          "from": 71,
+          "to": 238
+        },
+        {
+          "id": "s95",
+          "text": "ところが、いつしか、自分が従わなければならない脚本になる。",
+          "short": null,
+          "from": 255,
+          "to": 402
+        }
+      ]
+    },
+    {
+      "id": "ch1-11",
+      "type": "still",
+      "part": "ch1",
+      "from": 13516,
+      "duration": 476,
+      "items": {
+        "clip": "k_meeting",
+        "move": "pull"
+      },
+      "clip": "k_meeting",
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s96",
+          "text": "たとえば、職場に「真面目な人」がいる。",
+          "short": "職場に「真面目な人」がいる",
+          "from": 9,
+          "to": 126
+        },
+        {
+          "id": "s97",
+          "text": "誰よりも早く出社する。",
+          "short": null,
+          "from": 143,
+          "to": 194
+        },
+        {
+          "id": "s98",
+          "text": "締切は守る。",
+          "short": null,
+          "from": 211,
+          "to": 244
+        },
+        {
+          "id": "s99",
+          "text": "頼まれた仕事は断らない。",
+          "short": null,
+          "from": 260,
+          "to": 320
+        },
+        {
+          "id": "s100",
+          "text": "最初は、単にそういう行動が多かっただけかもしれない。",
+          "short": "単にそういう行動が多かっただけかもしれない",
+          "from": 336,
+          "to": 459
+        }
+      ]
+    },
+    {
+      "id": "ch1-12",
+      "type": "key",
+      "part": "ch1",
+      "from": 13992,
+      "duration": 189,
+      "items": {
+        "text": "「自分は真面目な人間だ」",
+        "at": "1"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s101",
+          "text": "だが何年も続くと、「自分は真面目な人間だ」という自己像ができる。",
+          "short": null,
+          "from": 9,
+          "to": 173
+        }
+      ]
+    },
+    {
+      "id": "ch1-13",
+      "type": "still",
+      "part": "ch1",
+      "from": 14181,
+      "duration": 521,
+      "items": {
+        "clip": "k_meeting",
+        "move": "drift"
+      },
+      "clip": "k_meeting",
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s102",
+          "text": "すると上司に突然仕事を振られたとき、本当は忙しくても断りにくくなる。",
+          "short": null,
+          "from": 9,
+          "to": 189
+        },
+        {
+          "id": "s103",
+          "text": "なぜなら仕事を断ることは、単に一つの依頼を断ることではない。",
+          "short": null,
+          "from": 206,
+          "to": 355
+        },
+        {
+          "id": "s104",
+          "text": "「真面目な自分」という物語に傷をつける行為になるからである。",
+          "short": null,
+          "from": 371,
+          "to": 505
+        }
+      ]
+    },
+    {
+      "id": "ch1-14",
+      "type": "still",
+      "part": "ch1",
+      "from": 14702,
+      "duration": 807,
+      "items": {
+        "clip": "k_phone",
+        "move": "push"
+      },
+      "clip": "k_phone",
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s105",
+          "text": "同じことは「強い人」にも起こる。",
+          "short": null,
+          "from": 9,
+          "to": 103
+        },
+        {
+          "id": "s106",
+          "text": "家族の前ではいつも平気な顔をする。",
+          "short": null,
+          "from": 119,
+          "to": 214
+        },
+        {
+          "id": "s107",
+          "text": "問題が起きても自分で解決する。",
+          "short": null,
+          "from": 231,
+          "to": 300
+        },
+        {
+          "id": "s108",
+          "text": "周囲からも「あの人は強い」と言われる。",
+          "short": null,
+          "from": 317,
+          "to": 420
+        },
+        {
+          "id": "s109",
+          "text": "すると、苦しい夜に誰かへ電話することが難しくなる。",
+          "short": "苦しい夜に誰かへ電話することが難しくなる",
+          "from": 436,
+          "to": 563
+        },
+        {
+          "id": "s110",
+          "text": "助けを求めるという行動が、「自分は強い人間である」という自己像と衝突するからである。",
+          "short": null,
+          "from": 580,
+          "to": 791
+        }
+      ]
+    },
+    {
+      "id": "ch1-15",
+      "type": "key",
+      "part": "ch1",
+      "from": 15509,
+      "duration": 916,
+      "items": {
+        "text": "アイデンティティ理論",
+        "sub": "自分の基準と、現実の自分についての情報を照らし合わせ、ズレを減らそうとする",
+        "at": "0"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s111",
+          "text": "アイデンティティ理論では、人間は自分が持つアイデンティティ上の基準と、現実の自分について得られる情報を照合し、そのズレを減らそうとすると考えられている。",
+          "short": null,
+          "from": 9,
+          "to": 358
+        },
+        {
+          "id": "s112",
+          "text": "だから私たちは、単に「好きなように」行動しているわけではない。",
+          "short": null,
+          "from": 375,
+          "to": 536
+        },
+        {
+          "id": "s113",
+          "text": "過去に作った自分との整合性を保つように行動する。",
+          "short": null,
+          "from": 553,
+          "to": 729
+        },
+        {
+          "id": "s114",
+          "text": "そして、その行動によって、さらに自己像が強くなる。",
+          "short": null,
+          "from": 746,
+          "to": 900
+        }
+      ]
+    },
+    {
+      "id": "ch1-16",
+      "type": "loop",
+      "part": "ch1",
+      "from": 16425,
+      "duration": 333,
+      "items": {
+        "a": "真面目だから、断らない",
+        "b": "断らないから、もっと真面目な人になる",
+        "a2": "強いから、頼らない",
+        "b2": "頼らないから、もっと強い人になる"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s115",
+          "text": "真面目だから断らない。",
+          "short": null,
+          "from": 9,
+          "to": 54
+        },
+        {
+          "id": "s116",
+          "text": "断らないから、もっと真面目な人になる。",
+          "short": "もっと真面目な人になる",
+          "from": 70,
+          "to": 161
+        },
+        {
+          "id": "s117",
+          "text": "強いから頼らない。",
+          "short": null,
+          "from": 178,
+          "to": 216
+        },
+        {
+          "id": "s118",
+          "text": "頼らないから、もっと強い人になる。",
+          "short": "もっと強い人になる",
+          "from": 232,
+          "to": 316
+        }
+      ]
+    },
+    {
+      "id": "ch1-17",
+      "type": "arrow",
+      "part": "ch1",
+      "from": 16758,
+      "duration": 265,
+      "items": {
+        "from": "自分を説明する言葉",
+        "to": "自分を維持するシステム",
+        "at": "0"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s119",
+          "text": "こうして、自己像は、自分を説明する言葉から、自分を維持するシステムへ変わっていく。",
+          "short": null,
+          "from": 9,
+          "to": 223
+        }
+      ]
+    },
+    {
+      "id": "ch2-card",
+      "type": "chapter",
+      "part": "ch2",
+      "from": 17023,
+      "duration": 120,
+      "items": {
+        "label": "第2章",
+        "title": "「自分らしさ」は、他人に発見された瞬間に変質する"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": []
+    },
+    {
+      "id": "ch2-1",
+      "type": "still",
+      "part": "ch2",
+      "from": 17143,
+      "duration": 306,
+      "items": {
+        "clip": "k_window",
+        "move": "push"
+      },
+      "clip": "k_window",
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s120",
+          "text": "しかし、自分の中だけにある自己像なら、まだ比較的簡単に変えられる。",
+          "short": null,
+          "from": 9,
+          "to": 178
+        },
+        {
+          "id": "s121",
+          "text": "問題は、それを他人が見つけたときである。",
+          "short": "それを他人が見つけたときである",
+          "from": 195,
+          "to": 289
+        }
+      ]
+    },
+    {
+      "id": "ch2-2",
+      "type": "still",
+      "part": "ch2",
+      "from": 17449,
+      "duration": 463,
+      "items": {
+        "clip": "k_izakaya",
+        "move": "drift"
+      },
+      "clip": "k_izakaya",
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s122",
+          "text": "職場の飲み会。",
+          "short": null,
+          "from": 9,
+          "to": 41
+        },
+        {
+          "id": "s123",
+          "text": "誰かが言う。",
+          "short": null,
+          "from": 57,
+          "to": 80
+        },
+        {
+          "id": "s124",
+          "text": "「佐藤さんって、本当に怒らないですよね」",
+          "short": null,
+          "from": 96,
+          "to": 188
+        },
+        {
+          "id": "s125",
+          "text": "本人は笑う。",
+          "short": null,
+          "from": 204,
+          "to": 234
+        },
+        {
+          "id": "s126",
+          "text": "「まあ、あんまり怒らないですね」",
+          "short": "あんまり怒らないですね」",
+          "from": 250,
+          "to": 312
+        },
+        {
+          "id": "s127",
+          "text": "次の飲み会でも言われる。",
+          "short": null,
+          "from": 329,
+          "to": 376
+        },
+        {
+          "id": "s128",
+          "text": "「佐藤さんは穏やかだからな」",
+          "short": null,
+          "from": 393,
+          "to": 446
+        }
+      ]
+    },
+    {
+      "id": "ch2-3",
+      "type": "still",
+      "part": "ch2",
+      "from": 17912,
+      "duration": 216,
+      "items": {
+        "clip": "k_meeting",
+        "move": "push"
+      },
+      "clip": "k_meeting",
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s129",
+          "text": "さらに半年後。",
+          "short": null,
+          "from": 9,
+          "to": 44
+        },
+        {
+          "id": "s130",
+          "text": "揉め事が起きる。",
+          "short": null,
+          "from": 61,
+          "to": 90
+        },
+        {
+          "id": "s131",
+          "text": "「佐藤さんなら冷静にやってくれるでしょ」",
+          "short": null,
+          "from": 106,
+          "to": 200
+        }
+      ]
+    },
+    {
+      "id": "ch2-4",
+      "type": "arrow",
+      "part": "ch2",
+      "from": 18128,
+      "duration": 187,
+      "items": {
+        "from": "本人だけの自己像",
+        "to": "社会的なキャラクター",
+        "at": "0"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s132",
+          "text": "ここで、本人だけの自己像だったものが、社会的なキャラクターになる。",
+          "short": null,
+          "from": 9,
+          "to": 171
+        }
+      ]
+    },
+    {
+      "id": "ch2-5",
+      "type": "key",
+      "part": "ch2",
+      "from": 18315,
+      "duration": 695,
+      "items": {
+        "text": "1990年代の実験",
+        "sub": "自分を「社交的な人間」として他者に見せてもらう",
+        "at": "0"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s133",
+          "text": "興味深い実験がある。",
+          "short": null,
+          "from": 9,
+          "to": 59
+        },
+        {
+          "id": "s134",
+          "text": "1990年代、研究者たちは被験者に、自分を「社交的な人間」として他者へ見せてもらった。",
+          "short": null,
+          "from": 76,
+          "to": 348
+        },
+        {
+          "id": "s135",
+          "text": "すると、そのあと本人自身も、自分を以前より社交的だと評価するようになり、別の場面でも実際により社交的な行動を示した。",
+          "short": null,
+          "from": 364,
+          "to": 678
+        }
+      ]
+    },
+    {
+      "id": "ch2-6",
+      "type": "arrow",
+      "part": "ch2",
+      "from": 19010,
+      "duration": 487,
+      "items": {
+        "from": "こういう人だから、そう振る舞う",
+        "to": "そう振る舞ったから、そういう人になる",
+        "at": "3",
+        "reverse": "1"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s136",
+          "text": "つまり、人は必ずしも、「自分はこういう人だから、そう振る舞う」",
+          "short": null,
+          "from": 9,
+          "to": 179
+        },
+        {
+          "id": "s137",
+          "text": "だけではない。",
+          "short": null,
+          "from": 195,
+          "to": 218
+        },
+        {
+          "id": "s138",
+          "text": "逆方向も起きる。",
+          "short": null,
+          "from": 235,
+          "to": 276
+        },
+        {
+          "id": "s139",
+          "text": "他人に対してこういう人間として振る舞ったから、自分自身もその人間になっていく。",
+          "short": null,
+          "from": 293,
+          "to": 471
+        }
+      ]
+    },
+    {
+      "id": "ch2-7",
+      "type": "key",
+      "part": "ch2",
+      "from": 19497,
+      "duration": 492,
+      "items": {
+        "text": "見られる予定の自己表現ほど、\n自己概念に入り込む",
+        "at": "0"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s140",
+          "text": "さらに、他者に見られることが予定されている自己表現ほど、その人物像が本人の自己概念へ入り込みやすいことを示した実験もある。",
+          "short": null,
+          "from": 9,
+          "to": 475
+        }
+      ]
+    },
+    {
+      "id": "ch2-8",
+      "type": "key",
+      "part": "ch2",
+      "from": 19989,
+      "duration": 288,
+      "items": {
+        "text": "外面が、内面を作り始める",
+        "at": "2",
+        "mark": "内面"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s141",
+          "text": "つまり、他人から見られる自分は、単なる外面ではない。",
+          "short": null,
+          "from": 9,
+          "to": 148
+        },
+        {
+          "id": "s142",
+          "text": "長く続けば、外面が内面を作り始める。",
+          "short": "外面が内面を作り始める",
+          "from": 165,
+          "to": 271
+        }
+      ]
+    },
+    {
+      "id": "ch2-9",
+      "type": "still",
+      "part": "ch2",
+      "from": 20277,
+      "duration": 197,
+      "items": {
+        "clip": "k_creator",
+        "move": "push"
+      },
+      "clip": "k_creator",
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s143",
+          "text": "YouTuberを想像すると分かりやすい。",
+          "short": null,
+          "from": 9,
+          "to": 100
+        },
+        {
+          "id": "s144",
+          "text": "最初は色々な動画を出している。",
+          "short": null,
+          "from": 117,
+          "to": 181
+        }
+      ]
+    },
+    {
+      "id": "ch2-10",
+      "type": "words",
+      "part": "ch2",
+      "from": 20474,
+      "duration": 154,
+      "items": {
+        "style": "list"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s145",
+          "text": "歴史。",
+          "short": null,
+          "from": 9,
+          "to": 36
+        },
+        {
+          "id": "s146",
+          "text": "旅行。",
+          "short": null,
+          "from": 52,
+          "to": 65
+        },
+        {
+          "id": "s147",
+          "text": "ゲーム。",
+          "short": null,
+          "from": 82,
+          "to": 97
+        },
+        {
+          "id": "s148",
+          "text": "時事問題。",
+          "short": null,
+          "from": 113,
+          "to": 138
+        }
+      ]
+    },
+    {
+      "id": "ch2-11",
+      "type": "still",
+      "part": "ch2",
+      "from": 20628,
+      "duration": 301,
+      "items": {
+        "clip": "k_creator",
+        "move": "pull"
+      },
+      "clip": "k_creator",
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s149",
+          "text": "その中で、たまたま一本の動画が100万回再生される。",
+          "short": "たまたま一本の動画が100万回再生される",
+          "from": 9,
+          "to": 141
+        },
+        {
+          "id": "s150",
+          "text": "たとえば、会社員の闇について語った動画だったとする。",
+          "short": "会社員の闇について語った動画だったとする",
+          "from": 158,
+          "to": 284
+        }
+      ]
+    },
+    {
+      "id": "ch2-12",
+      "type": "quote",
+      "part": "ch2",
+      "from": 20929,
+      "duration": 197,
+      "items": {},
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s151",
+          "text": "コメント欄には書かれる。",
+          "short": null,
+          "from": 9,
+          "to": 55
+        },
+        {
+          "id": "s152",
+          "text": "「こういう動画を待っていた」",
+          "short": null,
+          "from": 71,
+          "to": 118
+        },
+        {
+          "id": "s153",
+          "text": "「この路線が一番いい」",
+          "short": null,
+          "from": 134,
+          "to": 180
+        }
+      ]
+    },
+    {
+      "id": "ch2-13",
+      "type": "still",
+      "part": "ch2",
+      "from": 21126,
+      "duration": 359,
+      "items": {
+        "clip": "k_creator",
+        "move": "drift"
+      },
+      "clip": "k_creator",
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s154",
+          "text": "次の動画も会社員ネタにする。",
+          "short": null,
+          "from": 9,
+          "to": 73
+        },
+        {
+          "id": "s155",
+          "text": "また伸びる。",
+          "short": null,
+          "from": 90,
+          "to": 109
+        },
+        {
+          "id": "s156",
+          "text": "登録者が増える。",
+          "short": null,
+          "from": 125,
+          "to": 162
+        },
+        {
+          "id": "s157",
+          "text": "案件が来る。",
+          "short": null,
+          "from": 179,
+          "to": 204
+        },
+        {
+          "id": "s158",
+          "text": "すると本人も思い始める。",
+          "short": null,
+          "from": 220,
+          "to": 275
+        },
+        {
+          "id": "s159",
+          "text": "「これが自分の強みなのだ」",
+          "short": null,
+          "from": 291,
+          "to": 343
+        }
+      ]
+    },
+    {
+      "id": "ch2-14",
+      "type": "arrow",
+      "part": "ch2",
+      "from": 21485,
+      "duration": 255,
+      "items": {
+        "from": "一つの企画 → 一つのジャンル",
+        "to": "自分らしさ",
+        "at": "2"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s160",
+          "text": "ここで、一つの企画が、一つのジャンルになり、一つのジャンルが、自分らしさへ昇格する。",
+          "short": null,
+          "from": 9,
+          "to": 238
+        }
+      ]
+    },
+    {
+      "id": "ch2-15",
+      "type": "words",
+      "part": "ch2",
+      "from": 21740,
+      "duration": 598,
+      "items": {
+        "style": "list"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s161",
+          "text": "しかし、その人は本当に「会社員の闇を語る人」だけなのだろうか。",
+          "short": "その人は本当に「会社員の闇を語る人」だけなのだろうか",
+          "from": 9,
+          "to": 190
+        },
+        {
+          "id": "s162",
+          "text": "本当は料理が好きかもしれない。",
+          "short": null,
+          "from": 206,
+          "to": 271
+        },
+        {
+          "id": "s163",
+          "text": "美術館へ行くのが好きかもしれない。",
+          "short": null,
+          "from": 288,
+          "to": 353
+        },
+        {
+          "id": "s164",
+          "text": "子どもと遊ぶ時間の方が大切になっているかもしれない。",
+          "short": null,
+          "from": 370,
+          "to": 581
+        }
+      ]
+    },
+    {
+      "id": "ch2-16",
+      "type": "key",
+      "part": "ch2",
+      "from": 22338,
+      "duration": 304,
+      "items": {
+        "text": "「あの人は、こういう人」",
+        "at": "1"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s165",
+          "text": "だが社会は、複雑な人間をそのまま保存してくれない。",
+          "short": "複雑な人間をそのまま保存してくれない",
+          "from": 9,
+          "to": 132
+        },
+        {
+          "id": "s166",
+          "text": "「あの人は、こういう人」という短い説明へ圧縮する。",
+          "short": "こういう人」という短い説明へ圧縮する",
+          "from": 149,
+          "to": 288
+        }
+      ]
+    },
+    {
+      "id": "ch2-17",
+      "type": "key",
+      "part": "ch2",
+      "from": 22642,
+      "duration": 544,
+      "items": {
+        "text": "人間そのものではなく、\n説明しやすいその人",
+        "at": "0",
+        "mark": "説明しやすい"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s167",
+          "text": "私たちは、人間そのものではなく、説明しやすいその人として他人の記憶に保存されるのである。",
+          "short": null,
+          "from": 9,
+          "to": 502
+        }
+      ]
+    },
+    {
+      "id": "ch3-card",
+      "type": "chapter",
+      "part": "ch3",
+      "from": 23186,
+      "duration": 120,
+      "items": {
+        "label": "第3章",
+        "title": "成功すると、キャラクターが巨大になる"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": []
+    },
+    {
+      "id": "ch3-1",
+      "type": "still",
+      "part": "ch3",
+      "from": 23306,
+      "duration": 484,
+      "items": {
+        "clip": "k_reporter",
+        "move": "push"
+      },
+      "clip": "k_reporter",
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s168",
+          "text": "ここで再び、ハンター・S・トンプソンに戻ろう。",
+          "short": "ハンター・S・トンプソンに戻ろう",
+          "from": 9,
+          "to": 144
+        },
+        {
+          "id": "s169",
+          "text": "最初は彼が、自分の感情を文章へ持ち込んだ。",
+          "short": "自分の感情を文章へ持ち込んだ",
+          "from": 161,
+          "to": 275
+        },
+        {
+          "id": "s170",
+          "text": "それが評価された。",
+          "short": null,
+          "from": 292,
+          "to": 329
+        },
+        {
+          "id": "s171",
+          "text": "すると読者は、さらにトンプソンらしい文章を期待する。",
+          "short": "さらにトンプソンらしい文章を期待する",
+          "from": 346,
+          "to": 468
+        }
+      ]
+    },
+    {
+      "id": "ch3-2",
+      "type": "words",
+      "part": "ch3",
+      "from": 23790,
+      "duration": 148,
+      "items": {
+        "style": "type"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s172",
+          "text": "もっと過激に。",
+          "short": null,
+          "from": 9,
+          "to": 40
+        },
+        {
+          "id": "s173",
+          "text": "もっと狂って。",
+          "short": null,
+          "from": 57,
+          "to": 87
+        },
+        {
+          "id": "s174",
+          "text": "もっと危険に。",
+          "short": null,
+          "from": 104,
+          "to": 132
+        }
+      ]
+    },
+    {
+      "id": "ch3-3",
+      "type": "anim",
+      "part": "ch3",
+      "from": 23938,
+      "duration": 335,
+      "items": {
+        "clip": "k_shadow",
+        "grow": "1",
+        "quote": "個性が評価されるほど、\nその個性から離れられない",
+        "quoteAt": "個性が評価"
+      },
+      "clip": "k_shadow",
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s175",
+          "text": "そしてメディアも、その人物像を増幅する。",
+          "short": null,
+          "from": 9,
+          "to": 111
+        },
+        {
+          "id": "s176",
+          "text": "こうして、個性が評価されるほど、その個性から離れるコストが高くなる。",
+          "short": null,
+          "from": 127,
+          "to": 318
+        }
+      ]
+    },
+    {
+      "id": "ch3-4",
+      "type": "words",
+      "part": "ch3",
+      "from": 24273,
+      "duration": 287,
+      "items": {
+        "style": "list"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s177",
+          "text": "現代では、この構造がさらに分かりやすい。",
+          "short": "この構造がさらに分かりやすい",
+          "from": 9,
+          "to": 106
+        },
+        {
+          "id": "s178",
+          "text": "インフルエンサー。",
+          "short": null,
+          "from": 122,
+          "to": 147
+        },
+        {
+          "id": "s179",
+          "text": "芸能人。",
+          "short": null,
+          "from": 164,
+          "to": 187
+        },
+        {
+          "id": "s180",
+          "text": "経営者。",
+          "short": null,
+          "from": 204,
+          "to": 235
+        },
+        {
+          "id": "s181",
+          "text": "政治家。",
+          "short": null,
+          "from": 252,
+          "to": 270
+        }
+      ]
+    },
+    {
+      "id": "ch3-5",
+      "type": "still",
+      "part": "ch3",
+      "from": 24560,
+      "duration": 647,
+      "items": {
+        "clip": "k_meeting",
+        "move": "push"
+      },
+      "clip": "k_meeting",
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s182",
+          "text": "しかし、これは有名人だけではない。",
+          "short": "これは有名人だけではない",
+          "from": 9,
+          "to": 93
+        },
+        {
+          "id": "s183",
+          "text": "普通の会社でも起きている。",
+          "short": null,
+          "from": 110,
+          "to": 163
+        },
+        {
+          "id": "s184",
+          "text": "たとえば「頼れる人」。",
+          "short": null,
+          "from": 180,
+          "to": 237
+        },
+        {
+          "id": "s185",
+          "text": "最初は少し仕事ができただけである。",
+          "short": null,
+          "from": 253,
+          "to": 327
+        },
+        {
+          "id": "s186",
+          "text": "困っている同僚を助ける。",
+          "short": null,
+          "from": 343,
+          "to": 399
+        },
+        {
+          "id": "s187",
+          "text": "上司から仕事を任される。",
+          "short": null,
+          "from": 416,
+          "to": 470
+        },
+        {
+          "id": "s188",
+          "text": "結果を出す。",
+          "short": null,
+          "from": 486,
+          "to": 525
+        },
+        {
+          "id": "s189",
+          "text": "すると次も任される。",
+          "short": null,
+          "from": 542,
+          "to": 586
+        },
+        {
+          "id": "s190",
+          "text": "周囲も頼る。",
+          "short": null,
+          "from": 602,
+          "to": 631
+        }
+      ]
+    },
+    {
+      "id": "ch3-6",
+      "type": "key",
+      "part": "ch3",
+      "from": 25207,
+      "duration": 123,
+      "items": {
+        "text": "「何かあればあの人」",
+        "at": "1"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s191",
+          "text": "気づけば、「何かあればあの人」になる。",
+          "short": "「何かあればあの人」になる",
+          "from": 9,
+          "to": 107
+        }
+      ]
+    },
+    {
+      "id": "ch3-7",
+      "type": "key",
+      "part": "ch3",
+      "from": 25330,
+      "duration": 209,
+      "items": {
+        "text": "その評価には、契約がついている",
+        "at": "1",
+        "mark": "契約"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s192",
+          "text": "一見、素晴らしい評価である。",
+          "short": "素晴らしい評価である",
+          "from": 9,
+          "to": 82
+        },
+        {
+          "id": "s193",
+          "text": "しかし、その評価には契約がついている。",
+          "short": "その評価には契約がついている",
+          "from": 99,
+          "to": 193
+        }
+      ]
+    },
+    {
+      "id": "ch3-8",
+      "type": "key",
+      "part": "ch3",
+      "from": 25539,
+      "duration": 126,
+      "items": {
+        "text": "頼れる人は、\n頼られ続けなければならない",
+        "at": "0"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s194",
+          "text": "頼れる人は、頼られ続けなければならない。",
+          "short": "頼られ続けなければならない",
+          "from": 9,
+          "to": 109
+        }
+      ]
+    },
+    {
+      "id": "ch3-9",
+      "type": "still",
+      "part": "ch3",
+      "from": 25665,
+      "duration": 456,
+      "items": {
+        "clip": "k_phone",
+        "move": "drift"
+      },
+      "clip": "k_phone",
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s195",
+          "text": "ある日、その人が言う。",
+          "short": "その人が言う",
+          "from": 9,
+          "to": 64
+        },
+        {
+          "id": "s196",
+          "text": "「今月は余裕がないので無理です」",
+          "short": null,
+          "from": 81,
+          "to": 148
+        },
+        {
+          "id": "s197",
+          "text": "周囲は少し驚く。",
+          "short": null,
+          "from": 165,
+          "to": 209
+        },
+        {
+          "id": "s198",
+          "text": "「あの人が断るなんて珍しいね」",
+          "short": null,
+          "from": 225,
+          "to": 294
+        },
+        {
+          "id": "s199",
+          "text": "別の日、疲れて弱音を吐く。",
+          "short": "疲れて弱音を吐く",
+          "from": 310,
+          "to": 384
+        },
+        {
+          "id": "s200",
+          "text": "「あの人らしくないね」",
+          "short": null,
+          "from": 400,
+          "to": 439
+        }
+      ]
+    },
+    {
+      "id": "ch3-10",
+      "type": "key",
+      "part": "ch3",
+      "from": 26121,
+      "duration": 251,
+      "items": {
+        "text": "成功した自己像には、観客が生まれる",
+        "at": "0",
+        "mark": "観客"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s201",
+          "text": "成功した自己像には、観客が生まれる。",
+          "short": null,
+          "from": 9,
+          "to": 106
+        },
+        {
+          "id": "s202",
+          "text": "そして観客は、昨日と同じ作品を期待する。",
+          "short": "昨日と同じ作品を期待する",
+          "from": 123,
+          "to": 235
+        }
+      ]
+    },
+    {
+      "id": "ch3-11",
+      "type": "quote",
+      "part": "ch3",
+      "from": 26372,
+      "duration": 496,
+      "items": {},
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s203",
+          "text": "面白い人は、今日も面白くなければならない。",
+          "short": "今日も面白くなければならない",
+          "from": 9,
+          "to": 112
+        },
+        {
+          "id": "s204",
+          "text": "強い人は、今日も強くなければならない。",
+          "short": "今日も強くなければならない",
+          "from": 128,
+          "to": 221
+        },
+        {
+          "id": "s205",
+          "text": "優しい人は、今日も優しくなければならない。",
+          "short": "今日も優しくなければならない",
+          "from": 237,
+          "to": 338
+        },
+        {
+          "id": "s206",
+          "text": "反抗的な人は、今日も権威に噛みつかなければならない。",
+          "short": "今日も権威に噛みつかなければならない",
+          "from": 355,
+          "to": 480
+        }
+      ]
+    },
+    {
+      "id": "ch3-12",
+      "type": "key",
+      "part": "ch3",
+      "from": 26868,
+      "duration": 359,
+      "items": {
+        "text": "自分の特定の人格に、\n大量の依存者を作ること",
+        "at": "2",
+        "mark": "依存者"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s207",
+          "text": "つまり成功とは、お金や地位を得ることだけではない。",
+          "short": null,
+          "from": 9,
+          "to": 140
+        },
+        {
+          "id": "s208",
+          "text": "場合によっては、自分の特定の人格に、大量の依存者を作ることでもある。",
+          "short": null,
+          "from": 156,
+          "to": 343
+        }
+      ]
+    },
+    {
+      "id": "ch3-13",
+      "type": "network",
+      "part": "ch3",
+      "from": 27227,
+      "duration": 422,
+      "items": {
+        "center": "アイデンティティ",
+        "nodes": "同僚／上司／友人／家族／視聴者／顧客／社員"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s209",
+          "text": "アイデンティティ理論でも、あるアイデンティティに結びつく社会的関係が増え、相互にそのアイデンティティが確認され続けるほど、そのアイデンティティへのコミットメントが強まりうると考えられている。",
+          "short": null,
+          "from": 9,
+          "to": 406
+        }
+      ]
+    },
+    {
+      "id": "ch3-14",
+      "type": "key",
+      "part": "ch3",
+      "from": 27649,
+      "duration": 240,
+      "items": {
+        "text": "人間関係が増えるほど、\n「好きに変われる自分」は減っていく",
+        "at": "0"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s210",
+          "text": "つまり、人間関係が増えるほど、「好きに変われる自分」は減っていくことがある。",
+          "short": null,
+          "from": 9,
+          "to": 198
+        }
+      ]
+    },
+    {
+      "id": "ch4-card",
+      "type": "chapter",
+      "part": "ch4",
+      "from": 27889,
+      "duration": 120,
+      "items": {
+        "label": "第4章",
+        "title": "人格にも「後方互換性」が発生する"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": []
+    },
+    {
+      "id": "ch4-1",
+      "type": "still",
+      "part": "ch4",
+      "from": 28009,
+      "duration": 267,
+      "items": {
+        "clip": "k_crt",
+        "move": "push"
+      },
+      "clip": "k_crt",
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s211",
+          "text": "ここで突然だが、ITの話をしよう。",
+          "short": null,
+          "from": 9,
+          "to": 110
+        },
+        {
+          "id": "s212",
+          "text": "ソフトウェアの世界には、後方互換性という言葉がある。",
+          "short": null,
+          "from": 127,
+          "to": 250
+        }
+      ]
+    },
+    {
+      "id": "ch4-2",
+      "type": "still",
+      "part": "ch4",
+      "from": 28276,
+      "duration": 317,
+      "items": {
+        "clip": "k_crt",
+        "move": "pull"
+      },
+      "clip": "k_crt",
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s213",
+          "text": "たとえば、ある会社が新しいOSを作る。",
+          "short": "ある会社が新しいOSを作る",
+          "from": 9,
+          "to": 109
+        },
+        {
+          "id": "s214",
+          "text": "開発者からすれば、古い機能を全部捨て、ゼロから綺麗に作り直したい。",
+          "short": null,
+          "from": 126,
+          "to": 301
+        }
+      ]
+    },
+    {
+      "id": "ch4-3",
+      "type": "words",
+      "part": "ch4",
+      "from": 28593,
+      "duration": 276,
+      "items": {
+        "style": "type"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s215",
+          "text": "二十年前に作られた奇妙な仕様。",
+          "short": null,
+          "from": 9,
+          "to": 106
+        },
+        {
+          "id": "s216",
+          "text": "今となっては不要な機能。",
+          "short": null,
+          "from": 122,
+          "to": 174
+        },
+        {
+          "id": "s217",
+          "text": "誰が作ったのかも分からないコード。",
+          "short": null,
+          "from": 191,
+          "to": 260
+        }
+      ]
+    },
+    {
+      "id": "ch4-4",
+      "type": "still",
+      "part": "ch4",
+      "from": 28869,
+      "duration": 668,
+      "items": {
+        "clip": "k_crt",
+        "move": "drift"
+      },
+      "clip": "k_crt",
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s218",
+          "text": "全部消してしまえば、新しいシステムはもっと軽くなる。",
+          "short": null,
+          "from": 9,
+          "to": 134
+        },
+        {
+          "id": "s219",
+          "text": "しかし、簡単には消せない。",
+          "short": "簡単には消せない",
+          "from": 150,
+          "to": 219
+        },
+        {
+          "id": "s220",
+          "text": "なぜなら、その古い仕様に依存しているものが存在するからである。",
+          "short": "その古い仕様に依存しているものが存在するからである",
+          "from": 235,
+          "to": 651
+        }
+      ]
+    },
+    {
+      "id": "ch4-5",
+      "type": "network",
+      "part": "ch4",
+      "from": 29537,
+      "duration": 292,
+      "items": {
+        "center": "古い仕様",
+        "nodes": "昔のソフト／業務システム／保存されたデータ／周辺機器／何百万人ものユーザー"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s221",
+          "text": "昔作られたソフト。",
+          "short": null,
+          "from": 9,
+          "to": 55
+        },
+        {
+          "id": "s222",
+          "text": "企業の業務システム。",
+          "short": null,
+          "from": 71,
+          "to": 116
+        },
+        {
+          "id": "s223",
+          "text": "保存されたデータ。",
+          "short": null,
+          "from": 133,
+          "to": 170
+        },
+        {
+          "id": "s224",
+          "text": "周辺機器。",
+          "short": null,
+          "from": 187,
+          "to": 212
+        },
+        {
+          "id": "s225",
+          "text": "何百万人ものユーザー。",
+          "short": null,
+          "from": 228,
+          "to": 276
+        }
+      ]
+    },
+    {
+      "id": "ch4-6",
+      "type": "key",
+      "part": "ch4",
+      "from": 29829,
+      "duration": 579,
+      "items": {
+        "text": "「昔のものは、まだ動くのか？」",
+        "at": "1"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s226",
+          "text": "新しいバージョンを作るたびに、開発者は問われる。",
+          "short": null,
+          "from": 9,
+          "to": 144
+        },
+        {
+          "id": "s227",
+          "text": "「昔のものは、まだ動くのか？」",
+          "short": "まだ動くのか？」",
+          "from": 160,
+          "to": 230
+        },
+        {
+          "id": "s228",
+          "text": "ユーザーが少ないうちは、仕様変更は簡単である。",
+          "short": null,
+          "from": 247,
+          "to": 361
+        },
+        {
+          "id": "s229",
+          "text": "しかし成功し、利用者が増えれば増えるほど、古い仕様を捨てるコストは高くなる。",
+          "short": null,
+          "from": 378,
+          "to": 563
+        }
+      ]
+    },
+    {
+      "id": "ch4-7",
+      "type": "still",
+      "part": "ch4",
+      "from": 30408,
+      "duration": 140,
+      "items": {
+        "clip": "k_window",
+        "move": "push"
+      },
+      "clip": "k_window",
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s230",
+          "text": "ここで、人間も同じ構造を持っているのではないか。",
+          "short": "人間も同じ構造を持っているのではないか",
+          "from": 9,
+          "to": 124
+        }
+      ]
+    },
+    {
+      "id": "ch4-8",
+      "type": "version",
+      "part": "ch4",
+      "from": 30548,
+      "duration": 428,
+      "items": {
+        "items": "20歳：会社員にはならない／30歳：起業家として成功／45歳：静かに暮らしたい",
+        "breakAt": "45歳"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s231",
+          "text": "二十歳のとき、「自分は会社員にはならない」と言った。",
+          "short": "「自分は会社員にはならない」と言った",
+          "from": 9,
+          "to": 144
+        },
+        {
+          "id": "s232",
+          "text": "三十歳のとき、起業家として成功した。",
+          "short": "起業家として成功した",
+          "from": 161,
+          "to": 260
+        },
+        {
+          "id": "s233",
+          "text": "インタビューでも語る。",
+          "short": null,
+          "from": 277,
+          "to": 313
+        },
+        {
+          "id": "s234",
+          "text": "「安定を求める人生なんて面白くない」",
+          "short": null,
+          "from": 330,
+          "to": 411
+        }
+      ]
+    },
+    {
+      "id": "ch4-9",
+      "type": "network",
+      "part": "ch4",
+      "from": 30976,
+      "duration": 348,
+      "items": {
+        "center": "挑戦する人",
+        "nodes": "フォロワー／本／講演／友人／顧客／社員"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s235",
+          "text": "フォロワーが増える。",
+          "short": null,
+          "from": 9,
+          "to": 37
+        },
+        {
+          "id": "s236",
+          "text": "本が売れる。",
+          "short": null,
+          "from": 54,
+          "to": 75
+        },
+        {
+          "id": "s237",
+          "text": "講演依頼が来る。",
+          "short": null,
+          "from": 91,
+          "to": 125
+        },
+        {
+          "id": "s238",
+          "text": "友人も、顧客も、社員も、「あの人は挑戦する人だ」と思っている。",
+          "short": null,
+          "from": 141,
+          "to": 332
+        }
+      ]
+    },
+    {
+      "id": "ch4-10",
+      "type": "still",
+      "part": "ch4",
+      "from": 31324,
+      "duration": 307,
+      "items": {
+        "clip": "k_dusk",
+        "move": "push"
+      },
+      "clip": "k_dusk",
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s239",
+          "text": "ところが四十五歳。",
+          "short": null,
+          "from": 9,
+          "to": 50
+        },
+        {
+          "id": "s240",
+          "text": "本人は少し疲れた。",
+          "short": null,
+          "from": 67,
+          "to": 114
+        },
+        {
+          "id": "s241",
+          "text": "会社を売却して、静かに暮らしたい。",
+          "short": null,
+          "from": 131,
+          "to": 221
+        },
+        {
+          "id": "s242",
+          "text": "週末は庭でもいじりたい。",
+          "short": null,
+          "from": 238,
+          "to": 290
+        }
+      ]
+    },
+    {
+      "id": "ch4-11",
+      "type": "key",
+      "part": "ch4",
+      "from": 31631,
+      "duration": 169,
+      "items": {
+        "text": "過去の自分との、互換性がない",
+        "at": "1",
+        "mark": "互換性"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s243",
+          "text": "しかし、そこで問題が起きる。",
+          "short": "そこで問題が起きる",
+          "from": 9,
+          "to": 76
+        },
+        {
+          "id": "s244",
+          "text": "過去の自分との互換性がない。",
+          "short": null,
+          "from": 93,
+          "to": 153
+        }
+      ]
+    },
+    {
+      "id": "ch4-12",
+      "type": "quote",
+      "part": "ch4",
+      "from": 31800,
+      "duration": 171,
+      "items": {},
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s245",
+          "text": "あれだけ挑戦と言っていた人が？",
+          "short": null,
+          "from": 9,
+          "to": 73
+        },
+        {
+          "id": "s246",
+          "text": "あれだけ安定を馬鹿にしていたのに？",
+          "short": null,
+          "from": 89,
+          "to": 154
+        }
+      ]
+    },
+    {
+      "id": "ch4-13",
+      "type": "words",
+      "part": "ch4",
+      "from": 31971,
+      "duration": 171,
+      "items": {
+        "style": "list"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s247",
+          "text": "フォロワーは戸惑う。",
+          "short": null,
+          "from": 9,
+          "to": 44
+        },
+        {
+          "id": "s248",
+          "text": "社員も戸惑う。",
+          "short": null,
+          "from": 61,
+          "to": 93
+        },
+        {
+          "id": "s249",
+          "text": "本人自身も戸惑う。",
+          "short": null,
+          "from": 109,
+          "to": 155
+        }
+      ]
+    },
+    {
+      "id": "ch4-14",
+      "type": "key",
+      "part": "ch4",
+      "from": 32142,
+      "duration": 432,
+      "items": {
+        "text": "人格の後方互換性",
+        "sub": "※心理学の正式な用語ではない（ITから借りた比喩）",
+        "at": "1"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s250",
+          "text": "ここで、本動画ではこの状態を、「人格の後方互換性」と呼ぶことにする。",
+          "short": null,
+          "from": 9,
+          "to": 208
+        },
+        {
+          "id": "s251",
+          "text": "もちろん、これは心理学の正式な専門用語ではない。",
+          "short": "これは心理学の正式な専門用語ではない",
+          "from": 225,
+          "to": 347
+        },
+        {
+          "id": "s252",
+          "text": "ITから借りた比喩である。",
+          "short": null,
+          "from": 363,
+          "to": 415
+        }
+      ]
+    },
+    {
+      "id": "ch4-15",
+      "type": "key",
+      "part": "ch4",
+      "from": 32574,
+      "duration": 493,
+      "items": {
+        "text": "過去の自己像によって評価・人間関係・収入・地位を築いた結果、\nその自己像との整合性を維持するよう求められる状態",
+        "at": "1"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s253",
+          "text": "定義するなら、過去の自己像によって評価、人間関係、収入、地位を築いた結果、その自己像との整合性を維持するよう求められる状態。",
+          "short": null,
+          "from": 9,
+          "to": 447
+        },
+        {
+          "id": "s254",
+          "text": "である。",
+          "short": null,
+          "from": 464,
+          "to": 477
+        }
+      ]
+    },
+    {
+      "id": "ch4-16",
+      "type": "words",
+      "part": "ch4",
+      "from": 33067,
+      "duration": 254,
+      "items": {
+        "style": "list"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s255",
+          "text": "若い頃の発言。",
+          "short": null,
+          "from": 9,
+          "to": 50
+        },
+        {
+          "id": "s256",
+          "text": "昔の価値観。",
+          "short": null,
+          "from": 67,
+          "to": 102
+        },
+        {
+          "id": "s257",
+          "text": "過去に選んだ仕事。",
+          "short": null,
+          "from": 118,
+          "to": 162
+        },
+        {
+          "id": "s258",
+          "text": "周囲から評価された性格。",
+          "short": null,
+          "from": 178,
+          "to": 237
+        }
+      ]
+    },
+    {
+      "id": "ch4-17",
+      "type": "network",
+      "part": "ch4",
+      "from": 33321,
+      "duration": 347,
+      "items": {
+        "center": "過去の自己像",
+        "nodes": "家族／友人／顧客／視聴者／会社／収入／信用"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s259",
+          "text": "そこへ、家族。",
+          "short": "家族",
+          "from": 9,
+          "to": 54
+        },
+        {
+          "id": "s260",
+          "text": "友人。",
+          "short": null,
+          "from": 71,
+          "to": 90
+        },
+        {
+          "id": "s261",
+          "text": "顧客。",
+          "short": null,
+          "from": 106,
+          "to": 124
+        },
+        {
+          "id": "s262",
+          "text": "視聴者。",
+          "short": null,
+          "from": 141,
+          "to": 160
+        },
+        {
+          "id": "s263",
+          "text": "会社。",
+          "short": null,
+          "from": 177,
+          "to": 203
+        },
+        {
+          "id": "s264",
+          "text": "収入。",
+          "short": null,
+          "from": 219,
+          "to": 237
+        },
+        {
+          "id": "s265",
+          "text": "信用。",
+          "short": null,
+          "from": 253,
+          "to": 272
+        },
+        {
+          "id": "s266",
+          "text": "が接続されていく。",
+          "short": null,
+          "from": 289,
+          "to": 330
+        }
+      ]
+    },
+    {
+      "id": "ch4-18",
+      "type": "still",
+      "part": "ch4",
+      "from": 33668,
+      "duration": 499,
+      "items": {
+        "clip": "k_crt",
+        "move": "push"
+      },
+      "clip": "k_crt",
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s267",
+          "text": "すると人格のバージョンアップが難しくなる。",
+          "short": null,
+          "from": 9,
+          "to": 95
+        },
+        {
+          "id": "s268",
+          "text": "ソフトウェアなら、「この機能は削除します」と言えば済むかもしれない。",
+          "short": null,
+          "from": 111,
+          "to": 264
+        },
+        {
+          "id": "s269",
+          "text": "しかし人間が、「今日から自分は変わります」と言うと、周囲の人生まで少し揺れる。",
+          "short": null,
+          "from": 281,
+          "to": 482
+        }
+      ]
+    },
+    {
+      "id": "ch4-19",
+      "type": "key",
+      "part": "ch4",
+      "from": 34167,
+      "duration": 472,
+      "items": {
+        "text": "古い自分に依存しているものが、\n増えすぎたのである",
+        "at": "3",
+        "mark": "増えすぎた"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s270",
+          "text": "だから私たちは、変わりたいのに変われない。",
+          "short": null,
+          "from": 9,
+          "to": 105
+        },
+        {
+          "id": "s271",
+          "text": "能力がないからではない。",
+          "short": null,
+          "from": 121,
+          "to": 166
+        },
+        {
+          "id": "s272",
+          "text": "勇気がないからでもない。",
+          "short": null,
+          "from": 183,
+          "to": 222
+        },
+        {
+          "id": "s273",
+          "text": "古い自分に依存しているものが増えすぎたのである。",
+          "short": null,
+          "from": 238,
+          "to": 430
+        }
+      ]
+    },
+    {
+      "id": "ch5-card",
+      "type": "chapter",
+      "part": "ch5",
+      "from": 34639,
+      "duration": 120,
+      "items": {
+        "label": "第5章",
+        "title": "自分らしく生きても地獄、自分らしさを捨てても地獄"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": []
+    },
+    {
+      "id": "ch5-1",
+      "type": "still",
+      "part": "ch5",
+      "from": 34759,
+      "duration": 201,
+      "items": {
+        "clip": "k_doors",
+        "move": "push"
+      },
+      "clip": "k_doors",
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s274",
+          "text": "では、どうすればいいのか。",
+          "short": "どうすればいいのか",
+          "from": 9,
+          "to": 67
+        },
+        {
+          "id": "s275",
+          "text": "ここで人間は、嫌な二択に直面する。",
+          "short": "嫌な二択に直面する",
+          "from": 84,
+          "to": 184
+        }
+      ]
+    },
+    {
+      "id": "ch5-2",
+      "type": "fork",
+      "part": "ch5",
+      "from": 34960,
+      "duration": 527,
+      "items": {
+        "a": "選択肢A｜昔の自分を守る",
+        "b": "選択肢B｜変わる",
+        "side": "a"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s276",
+          "text": "選択肢A。",
+          "short": null,
+          "from": 9,
+          "to": 39
+        },
+        {
+          "id": "s277",
+          "text": "昔の自分を守る。",
+          "short": null,
+          "from": 56,
+          "to": 97
+        },
+        {
+          "id": "s278",
+          "text": "周囲は安心する。",
+          "short": null,
+          "from": 113,
+          "to": 151
+        },
+        {
+          "id": "s279",
+          "text": "「やっぱりあなたはそうだよね」",
+          "short": null,
+          "from": 167,
+          "to": 219
+        },
+        {
+          "id": "s280",
+          "text": "友人関係も壊れない。",
+          "short": null,
+          "from": 235,
+          "to": 284
+        },
+        {
+          "id": "s281",
+          "text": "仕事も続く。",
+          "short": null,
+          "from": 300,
+          "to": 333
+        },
+        {
+          "id": "s282",
+          "text": "顧客も離れない。",
+          "short": null,
+          "from": 350,
+          "to": 389
+        },
+        {
+          "id": "s283",
+          "text": "自分自身も、昨日までの物語を維持できる。",
+          "short": "昨日までの物語を維持できる",
+          "from": 406,
+          "to": 511
+        }
+      ]
+    },
+    {
+      "id": "ch5-3",
+      "type": "still",
+      "part": "ch5",
+      "from": 35487,
+      "duration": 166,
+      "items": {
+        "clip": "k_strings",
+        "move": "pullup"
+      },
+      "clip": "k_strings",
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s284",
+          "text": "ただし代償がある。",
+          "short": null,
+          "from": 9,
+          "to": 49
+        },
+        {
+          "id": "s285",
+          "text": "本人は、過去の自分を演じ続ける。",
+          "short": "過去の自分を演じ続ける",
+          "from": 66,
+          "to": 150
+        }
+      ]
+    },
+    {
+      "id": "ch5-4",
+      "type": "quote",
+      "part": "ch5",
+      "from": 35653,
+      "duration": 551,
+      "items": {},
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s286",
+          "text": "昔は本当に好きだった仕事。",
+          "short": null,
+          "from": 9,
+          "to": 76
+        },
+        {
+          "id": "s287",
+          "text": "だが今は、それほど好きではない。",
+          "short": "それほど好きではない",
+          "from": 93,
+          "to": 165
+        },
+        {
+          "id": "s288",
+          "text": "昔は本当に人前で騒ぐのが好きだった。",
+          "short": null,
+          "from": 182,
+          "to": 273
+        },
+        {
+          "id": "s289",
+          "text": "だが今は、静かにいたい。",
+          "short": "静かにいたい",
+          "from": 290,
+          "to": 349
+        },
+        {
+          "id": "s290",
+          "text": "昔は本当に戦うことが好きだった。",
+          "short": null,
+          "from": 366,
+          "to": 447
+        },
+        {
+          "id": "s291",
+          "text": "だが今は、もう争いたくない。",
+          "short": "もう争いたくない",
+          "from": 463,
+          "to": 534
+        }
+      ]
+    },
+    {
+      "id": "ch5-5",
+      "type": "still",
+      "part": "ch5",
+      "from": 36204,
+      "duration": 413,
+      "items": {
+        "clip": "k_strings",
+        "move": "push"
+      },
+      "clip": "k_strings",
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s292",
+          "text": "それでも周囲が望む。",
+          "short": null,
+          "from": 9,
+          "to": 53
+        },
+        {
+          "id": "s293",
+          "text": "「あなたらしいものを見せてください」",
+          "short": null,
+          "from": 69,
+          "to": 129
+        },
+        {
+          "id": "s294",
+          "text": "こうなると不思議な状態が起きる。",
+          "short": null,
+          "from": 146,
+          "to": 208
+        },
+        {
+          "id": "s295",
+          "text": "自分らしく生きているはずなのに、本人には、自分を演じている感覚がある。",
+          "short": null,
+          "from": 224,
+          "to": 397
+        }
+      ]
+    },
+    {
+      "id": "ch5-6",
+      "type": "fork",
+      "part": "ch5",
+      "from": 36617,
+      "duration": 386,
+      "items": {
+        "a": "選択肢A｜昔の自分を守る",
+        "b": "選択肢B｜変わる",
+        "side": "b"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s296",
+          "text": "一方、選択肢B。",
+          "short": "選択肢B",
+          "from": 9,
+          "to": 68
+        },
+        {
+          "id": "s297",
+          "text": "変わる。",
+          "short": null,
+          "from": 85,
+          "to": 100
+        },
+        {
+          "id": "s298",
+          "text": "急に飲み会へ行かなくなる。",
+          "short": null,
+          "from": 117,
+          "to": 167
+        },
+        {
+          "id": "s299",
+          "text": "会社を辞める。",
+          "short": null,
+          "from": 184,
+          "to": 216
+        },
+        {
+          "id": "s300",
+          "text": "発言を変える。",
+          "short": null,
+          "from": 232,
+          "to": 266
+        },
+        {
+          "id": "s301",
+          "text": "昔なら絶対に選ばなかったことを選ぶ。",
+          "short": null,
+          "from": 283,
+          "to": 369
+        }
+      ]
+    },
+    {
+      "id": "ch5-7",
+      "type": "key",
+      "part": "ch5",
+      "from": 37003,
+      "duration": 410,
+      "items": {
+        "text": "「変わったね」",
+        "at": "1"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s302",
+          "text": "すると周囲から言われる。",
+          "short": null,
+          "from": 9,
+          "to": 53
+        },
+        {
+          "id": "s303",
+          "text": "「変わったね」",
+          "short": null,
+          "from": 70,
+          "to": 94
+        },
+        {
+          "id": "s304",
+          "text": "一見、中立的な言葉である。",
+          "short": "中立的な言葉である",
+          "from": 110,
+          "to": 191
+        },
+        {
+          "id": "s305",
+          "text": "だが声の調子によっては、ほとんど、「昔の方がよかった」という意味になる。",
+          "short": null,
+          "from": 207,
+          "to": 393
+        }
+      ]
+    },
+    {
+      "id": "ch5-8",
+      "type": "key",
+      "part": "ch5",
+      "from": 37413,
+      "duration": 152,
+      "items": {
+        "text": "「そんなの、あなたらしくない」",
+        "at": "1"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s306",
+          "text": "さらに強い言葉がある。",
+          "short": null,
+          "from": 9,
+          "to": 58
+        },
+        {
+          "id": "s307",
+          "text": "「そんなの、あなたらしくない」",
+          "short": "あなたらしくない」",
+          "from": 74,
+          "to": 136
+        }
+      ]
+    },
+    {
+      "id": "ch5-9",
+      "type": "still",
+      "part": "ch5",
+      "from": 37565,
+      "duration": 252,
+      "items": {
+        "clip": "k_window",
+        "move": "push"
+      },
+      "clip": "k_window",
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s308",
+          "text": "恐ろしいのは、これを言うのが他人だけではないことである。",
+          "short": "これを言うのが他人だけではないことである",
+          "from": 9,
+          "to": 127
+        },
+        {
+          "id": "s309",
+          "text": "本人の頭の中からも聞こえてくる。",
+          "short": null,
+          "from": 143,
+          "to": 235
+        }
+      ]
+    },
+    {
+      "id": "ch5-10",
+      "type": "quote",
+      "part": "ch5",
+      "from": 37817,
+      "duration": 357,
+      "items": {},
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s310",
+          "text": "「本当にこれでいいのか」",
+          "short": null,
+          "from": 9,
+          "to": 54
+        },
+        {
+          "id": "s311",
+          "text": "「これは逃げではないのか」",
+          "short": null,
+          "from": 70,
+          "to": 114
+        },
+        {
+          "id": "s312",
+          "text": "「昔の自分なら、こんな選択はしなかった」",
+          "short": null,
+          "from": 131,
+          "to": 233
+        },
+        {
+          "id": "s313",
+          "text": "「自分は自分ではなくなってしまったのではないか」",
+          "short": null,
+          "from": 249,
+          "to": 341
+        }
+      ]
+    },
+    {
+      "id": "ch5-11",
+      "type": "key",
+      "part": "ch5",
+      "from": 38174,
+      "duration": 302,
+      "items": {
+        "text": "守れば、過去の自分に消費される。\n壊せば、自分を失ったように感じる。",
+        "at": "1"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s314",
+          "text": "つまり、自分らしさを守れば、過去の自分に消費される。",
+          "short": null,
+          "from": 9,
+          "to": 151
+        },
+        {
+          "id": "s315",
+          "text": "自分らしさを壊せば、自分を失ったように感じる。",
+          "short": null,
+          "from": 168,
+          "to": 286
+        }
+      ]
+    },
+    {
+      "id": "ch5-12",
+      "type": "anim",
+      "part": "ch5",
+      "from": 38476,
+      "duration": 259,
+      "items": {
+        "clip": "k_shadow",
+        "grow": "2",
+        "quote": "自分らしさに\n殺される",
+        "quoteAt": "自分らしさに殺される"
+      },
+      "clip": "k_shadow",
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s316",
+          "text": "この八方塞がりこそが、本動画でいう、「自分らしさに殺される」という状態である。",
+          "short": null,
+          "from": 9,
+          "to": 217
+        }
+      ]
+    },
+    {
+      "id": "ch6-card",
+      "type": "chapter",
+      "part": "ch6",
+      "from": 38735,
+      "duration": 120,
+      "items": {
+        "label": "第6章",
+        "title": "なぜ「本当の自分を見つけろ」が危険なのか"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": []
+    },
+    {
+      "id": "ch6-1",
+      "type": "still",
+      "part": "ch6",
+      "from": 38855,
+      "duration": 392,
+      "items": {
+        "clip": "k_window",
+        "move": "drift"
+      },
+      "clip": "k_window",
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s317",
+          "text": "書店へ行けば、「本当の自分を見つける」という言葉に出会う。",
+          "short": "「本当の自分を見つける」という言葉に出会う",
+          "from": 9,
+          "to": 150
+        },
+        {
+          "id": "s318",
+          "text": "SNSでも、「他人の目を気にせず、本当の自分で生きよう」という言葉が流れてくる。",
+          "short": null,
+          "from": 166,
+          "to": 376
+        }
+      ]
+    },
+    {
+      "id": "ch6-2",
+      "type": "key",
+      "part": "ch6",
+      "from": 39247,
+      "duration": 667,
+      "items": {
+        "text": "本当の自分が、\nどこかに完成品として存在している",
+        "at": "3",
+        "mark": "完成品"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s319",
+          "text": "魅力的な言葉である。",
+          "short": null,
+          "from": 9,
+          "to": 56
+        },
+        {
+          "id": "s320",
+          "text": "しかし、少し変な前提がある。",
+          "short": "少し変な前提がある",
+          "from": 73,
+          "to": 148
+        },
+        {
+          "id": "s321",
+          "text": "本当の自分が、どこかに完成品として存在しているという前提である。",
+          "short": "どこかに完成品として存在しているという前提である",
+          "from": 165,
+          "to": 479
+        },
+        {
+          "id": "s322",
+          "text": "まるで地面を掘れば、奥から本物の自分が出てくるような考え方である。",
+          "short": null,
+          "from": 496,
+          "to": 650
+        }
+      ]
+    },
+    {
+      "id": "ch6-3",
+      "type": "words",
+      "part": "ch6",
+      "from": 39914,
+      "duration": 385,
+      "items": {
+        "style": "list"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s323",
+          "text": "しかし、本当にそうだろうか。",
+          "short": "本当にそうだろうか",
+          "from": 9,
+          "to": 75
+        },
+        {
+          "id": "s324",
+          "text": "十七歳のあなた。",
+          "short": null,
+          "from": 92,
+          "to": 130
+        },
+        {
+          "id": "s325",
+          "text": "二十五歳のあなた。",
+          "short": null,
+          "from": 146,
+          "to": 184
+        },
+        {
+          "id": "s326",
+          "text": "三十五歳のあなた。",
+          "short": null,
+          "from": 201,
+          "to": 242
+        },
+        {
+          "id": "s327",
+          "text": "五十歳のあなた。",
+          "short": null,
+          "from": 259,
+          "to": 292
+        },
+        {
+          "id": "s328",
+          "text": "同じである必要があるのだろうか。",
+          "short": null,
+          "from": 308,
+          "to": 369
+        }
+      ]
+    },
+    {
+      "id": "ch6-4",
+      "type": "branches",
+      "part": "ch6",
+      "from": 40299,
+      "duration": 915,
+      "items": {
+        "center": "現在の自分",
+        "items": "こうなりたい自分／こうなるかもしれない自分／こうなりたくない自分",
+        "title": "可能自己（possible selves）"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s329",
+          "text": "心理学には「可能自己」という考え方がある。",
+          "short": null,
+          "from": 9,
+          "to": 128
+        },
+        {
+          "id": "s330",
+          "text": "人間は現在の自分だけでなく、「こうなりたい自分」",
+          "short": null,
+          "from": 145,
+          "to": 267
+        },
+        {
+          "id": "s331",
+          "text": "「こうなるかもしれない自分」",
+          "short": null,
+          "from": 283,
+          "to": 336
+        },
+        {
+          "id": "s332",
+          "text": "「こうなりたくない自分」といった未来の自己像も持ち、それが現在の行動を方向づける。",
+          "short": null,
+          "from": 353,
+          "to": 581
+        },
+        {
+          "id": "s333",
+          "text": "つまり、自分とは一つの完成された像ではない。",
+          "short": "自分とは一つの完成された像ではない",
+          "from": 597,
+          "to": 712
+        },
+        {
+          "id": "s334",
+          "text": "現在の自分の周囲には、複数の「なりうる自分」が広がっている。",
+          "short": null,
+          "from": 728,
+          "to": 898
+        }
+      ]
+    },
+    {
+      "id": "ch6-5",
+      "type": "key",
+      "part": "ch6",
+      "from": 41214,
+      "duration": 688,
+      "items": {
+        "text": "人生の物語は、更新されていく",
+        "at": "0",
+        "mark": "更新"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s335",
+          "text": "マクアダムスのナラティブ・アイデンティティ論でも、人生の物語は固定されたものではなく、過去を再解釈し、未来を想像しながら更新されていくものとして捉えられている。",
+          "short": null,
+          "from": 9,
+          "to": 672
+        }
+      ]
+    },
+    {
+      "id": "ch6-6",
+      "type": "key",
+      "part": "ch6",
+      "from": 41902,
+      "duration": 366,
+      "items": {
+        "text": "変化し続ける自分の方が、\n本来の人間なのではないか",
+        "at": "2"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s336",
+          "text": "ここで考え方を逆転させてみよう。",
+          "short": null,
+          "from": 9,
+          "to": 106
+        },
+        {
+          "id": "s337",
+          "text": "変わらない自分が、本物なのではない。",
+          "short": null,
+          "from": 122,
+          "to": 206
+        },
+        {
+          "id": "s338",
+          "text": "変化し続ける自分の方が、本来の人間なのではないか。",
+          "short": null,
+          "from": 223,
+          "to": 350
+        }
+      ]
+    },
+    {
+      "id": "ch6-7",
+      "type": "words",
+      "part": "ch6",
+      "from": 42268,
+      "duration": 348,
+      "items": {
+        "style": "list"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s339",
+          "text": "仕事によって変わる。",
+          "short": null,
+          "from": 9,
+          "to": 51
+        },
+        {
+          "id": "s340",
+          "text": "恋愛によって変わる。",
+          "short": null,
+          "from": 68,
+          "to": 109
+        },
+        {
+          "id": "s341",
+          "text": "子どもが生まれて変わる。",
+          "short": null,
+          "from": 125,
+          "to": 169
+        },
+        {
+          "id": "s342",
+          "text": "親を失って変わる。",
+          "short": null,
+          "from": 185,
+          "to": 228
+        },
+        {
+          "id": "s343",
+          "text": "成功して変わる。",
+          "short": null,
+          "from": 244,
+          "to": 280
+        },
+        {
+          "id": "s344",
+          "text": "失敗して変わる。",
+          "short": null,
+          "from": 296,
+          "to": 332
+        }
+      ]
+    },
+    {
+      "id": "ch6-8",
+      "type": "still",
+      "part": "ch6",
+      "from": 42616,
+      "duration": 313,
+      "items": {
+        "clip": "k_dusk",
+        "move": "push"
+      },
+      "clip": "k_dusk",
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s345",
+          "text": "昔嫌いだったものを好きになる。",
+          "short": null,
+          "from": 10,
+          "to": 75
+        },
+        {
+          "id": "s346",
+          "text": "昔好きだったものに興味を失う。",
+          "short": null,
+          "from": 91,
+          "to": 166
+        },
+        {
+          "id": "s347",
+          "text": "それを、「自分を失った」と呼ぶ必要はない。",
+          "short": "「自分を失った」と呼ぶ必要はない",
+          "from": 182,
+          "to": 297
+        }
+      ]
+    },
+    {
+      "id": "ch6-9",
+      "type": "key",
+      "part": "ch6",
+      "from": 42929,
+      "duration": 207,
+      "items": {
+        "text": "自分という物語に、\n新しい章が追加された",
+        "at": "1",
+        "mark": "新しい章"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s348",
+          "text": "むしろ、自分という物語に、新しい章が追加されたと考えることもできる。",
+          "short": null,
+          "from": 9,
+          "to": 191
+        }
+      ]
+    },
+    {
+      "id": "ch6-10",
+      "type": "key",
+      "part": "ch6",
+      "from": 43136,
+      "duration": 1126,
+      "items": {
+        "text": "自己を「変化しうるもの」と捉える人ほど、\n葛藤の悪影響が弱かった",
+        "at": "0"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s349",
+          "text": "実際、自分を「固定されたもの」と考えるか、「変化しうるもの」と考えるかによって、複数のアイデンティティが衝突したときの心理的負担が変わることを示す研究もある。",
+          "short": null,
+          "from": 9,
+          "to": 840
+        },
+        {
+          "id": "s350",
+          "text": "自己を柔軟なものと捉えていた人々では、アイデンティティの葛藤がウェルビーイングや自尊感情へ与える悪影響が弱かった。",
+          "short": null,
+          "from": 857,
+          "to": 1110
+        }
+      ]
+    },
+    {
+      "id": "ch6-11",
+      "type": "key",
+      "part": "ch6",
+      "from": 44262,
+      "duration": 315,
+      "items": {
+        "text": "「自分は変わってはいけない」\nと考えることの方が、危険なのである",
+        "at": "0"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s351",
+          "text": "「自分が変わる」ことより、「自分は変わってはいけない」と考えることの方が、場合によっては危険なのである。",
+          "short": null,
+          "from": 9,
+          "to": 273
+        }
+      ]
+    },
+    {
+      "id": "ch7-card",
+      "type": "chapter",
+      "part": "ch7",
+      "from": 44577,
+      "duration": 120,
+      "items": {
+        "label": "第7章",
+        "title": "自分を守るのではなく、自分を更新する"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": []
+    },
+    {
+      "id": "ch7-1",
+      "type": "still",
+      "part": "ch7",
+      "from": 44697,
+      "duration": 557,
+      "items": {
+        "clip": "k_window",
+        "move": "pull"
+      },
+      "clip": "k_window",
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s352",
+          "text": "では、自分らしさなど持たない方がいいのか。",
+          "short": "自分らしさなど持たない方がいいのか",
+          "from": 9,
+          "to": 105
+        },
+        {
+          "id": "s353",
+          "text": "そういう話でもない。",
+          "short": null,
+          "from": 121,
+          "to": 167
+        },
+        {
+          "id": "s354",
+          "text": "自分についての物語は必要である。",
+          "short": null,
+          "from": 184,
+          "to": 263
+        },
+        {
+          "id": "s355",
+          "text": "価値観も必要である。",
+          "short": null,
+          "from": 280,
+          "to": 326
+        },
+        {
+          "id": "s356",
+          "text": "一貫性も必要である。",
+          "short": null,
+          "from": 342,
+          "to": 394
+        },
+        {
+          "id": "s357",
+          "text": "昨日と今日で何もかも違っていたら、人生はまとまらない。",
+          "short": null,
+          "from": 410,
+          "to": 541
+        }
+      ]
+    },
+    {
+      "id": "ch7-2",
+      "type": "key",
+      "part": "ch7",
+      "from": 45254,
+      "duration": 265,
+      "items": {
+        "text": "自分らしさには、バージョンがある",
+        "at": "2",
+        "mark": "バージョン"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s358",
+          "text": "必要なのは、「自分らしさを捨てること」ではなく、自分らしさにはバージョンがあると考えることではないか。",
+          "short": null,
+          "from": 9,
+          "to": 249
+        }
+      ]
+    },
+    {
+      "id": "ch7-3",
+      "type": "quote",
+      "part": "ch7",
+      "from": 45519,
+      "duration": 281,
+      "items": {},
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s359",
+          "text": "昨日まで、真面目な人だった。",
+          "short": "真面目な人だった",
+          "from": 9,
+          "to": 80
+        },
+        {
+          "id": "s360",
+          "text": "だから今日も真面目でいていい。",
+          "short": null,
+          "from": 97,
+          "to": 151
+        },
+        {
+          "id": "s361",
+          "text": "しかし、今日は仕事を一つ断ってもいい。",
+          "short": "今日は仕事を一つ断ってもいい",
+          "from": 167,
+          "to": 264
+        }
+      ]
+    },
+    {
+      "id": "ch7-4",
+      "type": "quote",
+      "part": "ch7",
+      "from": 45800,
+      "duration": 305,
+      "items": {},
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s362",
+          "text": "昨日まで、強い人だった。",
+          "short": "強い人だった",
+          "from": 9,
+          "to": 75
+        },
+        {
+          "id": "s363",
+          "text": "だから明日も強くてもいい。",
+          "short": null,
+          "from": 92,
+          "to": 146
+        },
+        {
+          "id": "s364",
+          "text": "しかし、今夜だけ誰かに助けを求めてもいい。",
+          "short": "今夜だけ誰かに助けを求めてもいい",
+          "from": 163,
+          "to": 288
+        }
+      ]
+    },
+    {
+      "id": "ch7-5",
+      "type": "still",
+      "part": "ch7",
+      "from": 46105,
+      "duration": 403,
+      "items": {
+        "clip": "k_phone",
+        "move": "push"
+      },
+      "clip": "k_phone",
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s365",
+          "text": "十年間、この仕事が好きだった。",
+          "short": "この仕事が好きだった",
+          "from": 9,
+          "to": 89
+        },
+        {
+          "id": "s366",
+          "text": "だからその十年は嘘ではない。",
+          "short": null,
+          "from": 105,
+          "to": 163
+        },
+        {
+          "id": "s367",
+          "text": "だが、十一年目に辞めたくなったとしても、過去十年が偽物になるわけではない。",
+          "short": null,
+          "from": 179,
+          "to": 386
+        }
+      ]
+    },
+    {
+      "id": "ch7-6",
+      "type": "still",
+      "part": "ch7",
+      "from": 46508,
+      "duration": 346,
+      "items": {
+        "clip": "k_crt",
+        "move": "pull"
+      },
+      "clip": "k_crt",
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s368",
+          "text": "ここで後方互換性の話へ戻ろう。",
+          "short": null,
+          "from": 9,
+          "to": 89
+        },
+        {
+          "id": "s369",
+          "text": "ソフトウェアには、古いシステムを動かし続けなければならない事情がある。",
+          "short": null,
+          "from": 105,
+          "to": 254
+        },
+        {
+          "id": "s370",
+          "text": "だが人間はソフトウェアではない。",
+          "short": null,
+          "from": 270,
+          "to": 329
+        }
+      ]
+    },
+    {
+      "id": "ch7-7",
+      "type": "words",
+      "part": "ch7",
+      "from": 46854,
+      "duration": 424,
+      "items": {
+        "style": "list"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s371",
+          "text": "昔の友人すべてに理解される必要はない。",
+          "short": null,
+          "from": 9,
+          "to": 99
+        },
+        {
+          "id": "s372",
+          "text": "昔の自分の発言すべてと一致する必要もない。",
+          "short": null,
+          "from": 115,
+          "to": 262
+        },
+        {
+          "id": "s373",
+          "text": "十年前の価値観を、死ぬまでサポートし続ける義務もない。",
+          "short": null,
+          "from": 278,
+          "to": 408
+        }
+      ]
+    },
+    {
+      "id": "ch7-8",
+      "type": "version",
+      "part": "ch7",
+      "from": 47278,
+      "duration": 498,
+      "items": {
+        "items": "v1.0：昔の自分／v2.0：次の自分",
+        "breakAt": "v2.0",
+        "label": "後方互換性を切る"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s374",
+          "text": "ときには、後方互換性を切る必要がある。",
+          "short": "後方互換性を切る必要がある",
+          "from": 9,
+          "to": 110
+        },
+        {
+          "id": "s375",
+          "text": "昔の自分から見れば、裏切りに見える選択。",
+          "short": null,
+          "from": 126,
+          "to": 232
+        },
+        {
+          "id": "s376",
+          "text": "周囲から見れば、「らしくない」選択。",
+          "short": null,
+          "from": 249,
+          "to": 346
+        },
+        {
+          "id": "s377",
+          "text": "しかし、それをしなければ次の自分へ移れないことがある。",
+          "short": "それをしなければ次の自分へ移れないことがある",
+          "from": 363,
+          "to": 481
+        }
+      ]
+    },
+    {
+      "id": "ch7-9",
+      "type": "still",
+      "part": "ch7",
+      "from": 47776,
+      "duration": 225,
+      "items": {
+        "clip": "k_crt",
+        "move": "push"
+      },
+      "clip": "k_crt",
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s378",
+          "text": "OSの大型アップデートでは、古いソフトが動かなくなることがある。",
+          "short": null,
+          "from": 9,
+          "to": 154
+        },
+        {
+          "id": "s379",
+          "text": "人間も同じである。",
+          "short": null,
+          "from": 171,
+          "to": 209
+        }
+      ]
+    },
+    {
+      "id": "ch7-10",
+      "type": "words",
+      "part": "ch7",
+      "from": 48001,
+      "duration": 346,
+      "items": {
+        "style": "list"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s380",
+          "text": "自分が変われば、合わなくなる人間関係が出る。",
+          "short": null,
+          "from": 9,
+          "to": 114
+        },
+        {
+          "id": "s381",
+          "text": "離れる顧客がいる。",
+          "short": null,
+          "from": 130,
+          "to": 169
+        },
+        {
+          "id": "s382",
+          "text": "驚く友人がいる。",
+          "short": null,
+          "from": 186,
+          "to": 224
+        },
+        {
+          "id": "s383",
+          "text": "期待を裏切られたと感じる人もいる。",
+          "short": null,
+          "from": 240,
+          "to": 330
+        }
+      ]
+    },
+    {
+      "id": "ch7-11",
+      "type": "still",
+      "part": "ch7",
+      "from": 48347,
+      "duration": 487,
+      "items": {
+        "clip": "k_doors",
+        "move": "push"
+      },
+      "clip": "k_doors",
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s384",
+          "text": "それは痛い。",
+          "short": null,
+          "from": 9,
+          "to": 35
+        },
+        {
+          "id": "s385",
+          "text": "だから誰もが簡単にアップデートできるわけではない。",
+          "short": null,
+          "from": 52,
+          "to": 147
+        },
+        {
+          "id": "s386",
+          "text": "しかし、すべての過去と互換性を維持したまま未来へ進もうとすると、未来そのものが古い仕様に支配される。",
+          "short": null,
+          "from": 163,
+          "to": 471
+        }
+      ]
+    },
+    {
+      "id": "ch7-12",
+      "type": "key",
+      "part": "ch7",
+      "from": 48834,
+      "duration": 319,
+      "items": {
+        "text": "昔の自分を壊せる余白を、\n残しておくこと",
+        "at": "2",
+        "mark": "余白"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s387",
+          "text": "自分を守るとは、昔の自分を保存することではない。",
+          "short": null,
+          "from": 9,
+          "to": 128
+        },
+        {
+          "id": "s388",
+          "text": "時には、昔の自分を壊せる余白を残しておくことである。",
+          "short": "昔の自分を壊せる余白を残しておくことである",
+          "from": 145,
+          "to": 277
+        }
+      ]
+    },
+    {
+      "id": "epilogue-card",
+      "type": "chapter",
+      "part": "epilogue",
+      "from": 49153,
+      "duration": 120,
+      "items": {
+        "label": "EPILOGUE",
+        "title": "「あなたらしくないね」と言われたとき"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": []
+    },
+    {
+      "id": "epilogue-1",
+      "type": "still",
+      "part": "epilogue",
+      "from": 49273,
+      "duration": 182,
+      "items": {
+        "clip": "k_meeting",
+        "move": "push"
+      },
+      "clip": "k_meeting",
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s389",
+          "text": "ある会社員がいる。",
+          "short": null,
+          "from": 9,
+          "to": 46
+        },
+        {
+          "id": "s390",
+          "text": "二十年近く、同じ会社で働いてきた。",
+          "short": "同じ会社で働いてきた",
+          "from": 63,
+          "to": 166
+        }
+      ]
+    },
+    {
+      "id": "epilogue-2",
+      "type": "words",
+      "part": "epilogue",
+      "from": 49455,
+      "duration": 368,
+      "items": {
+        "style": "list"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s391",
+          "text": "周囲からは、真面目。",
+          "short": "真面目",
+          "from": 9,
+          "to": 63
+        },
+        {
+          "id": "s392",
+          "text": "安定志向。",
+          "short": null,
+          "from": 80,
+          "to": 109
+        },
+        {
+          "id": "s393",
+          "text": "責任感が強い。",
+          "short": null,
+          "from": 125,
+          "to": 163
+        },
+        {
+          "id": "s394",
+          "text": "そう思われている。",
+          "short": null,
+          "from": 180,
+          "to": 214
+        },
+        {
+          "id": "s395",
+          "text": "本人もずっと、自分はそういう人間だと思ってきた。",
+          "short": "自分はそういう人間だと思ってきた",
+          "from": 230,
+          "to": 351
+        }
+      ]
+    },
+    {
+      "id": "epilogue-3",
+      "type": "still",
+      "part": "epilogue",
+      "from": 49823,
+      "duration": 691,
+      "items": {
+        "clip": "k_dining",
+        "move": "push"
+      },
+      "clip": "k_dining",
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s396",
+          "text": "ある夜。",
+          "short": null,
+          "from": 9,
+          "to": 23
+        },
+        {
+          "id": "s397",
+          "text": "家族が寝たあと、一人でダイニングテーブルに座っている。",
+          "short": null,
+          "from": 40,
+          "to": 175
+        },
+        {
+          "id": "s398",
+          "text": "机の上には、一枚の求人票がある。",
+          "short": "一枚の求人票がある",
+          "from": 192,
+          "to": 288
+        },
+        {
+          "id": "s399",
+          "text": "今の会社とはまったく違う仕事。",
+          "short": null,
+          "from": 304,
+          "to": 380
+        },
+        {
+          "id": "s400",
+          "text": "年収も少し下がる。",
+          "short": null,
+          "from": 396,
+          "to": 438
+        },
+        {
+          "id": "s401",
+          "text": "安定しているとも言い難い。",
+          "short": null,
+          "from": 454,
+          "to": 502
+        },
+        {
+          "id": "s402",
+          "text": "昔の自分なら、まず選ばなかった。",
+          "short": "まず選ばなかった",
+          "from": 519,
+          "to": 603
+        },
+        {
+          "id": "s403",
+          "text": "だが、なぜか気になる。",
+          "short": "なぜか気になる",
+          "from": 620,
+          "to": 674
+        }
+      ]
+    },
+    {
+      "id": "epilogue-4",
+      "type": "still",
+      "part": "epilogue",
+      "from": 50514,
+      "duration": 429,
+      "items": {
+        "clip": "k_izakaya",
+        "move": "drift"
+      },
+      "clip": "k_izakaya",
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s404",
+          "text": "数週間後。",
+          "short": null,
+          "from": 9,
+          "to": 39
+        },
+        {
+          "id": "s405",
+          "text": "会社で親しい同僚に話す。",
+          "short": null,
+          "from": 56,
+          "to": 124
+        },
+        {
+          "id": "s406",
+          "text": "「転職しようと思っている」",
+          "short": null,
+          "from": 140,
+          "to": 205
+        },
+        {
+          "id": "s407",
+          "text": "相手は驚く。",
+          "short": null,
+          "from": 222,
+          "to": 252
+        },
+        {
+          "id": "s408",
+          "text": "少し笑って言う。",
+          "short": null,
+          "from": 269,
+          "to": 313
+        },
+        {
+          "id": "s409",
+          "text": "「へえ。なんか、あなたらしくないね」",
+          "short": null,
+          "from": 329,
+          "to": 413
+        }
+      ]
+    },
+    {
+      "id": "epilogue-5",
+      "type": "still",
+      "part": "epilogue",
+      "from": 50943,
+      "duration": 372,
+      "items": {
+        "clip": "k_dusk",
+        "move": "push"
+      },
+      "clip": "k_dusk",
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s410",
+          "text": "本人は、すぐには答えない。",
+          "short": "すぐには答えない",
+          "from": 9,
+          "to": 78
+        },
+        {
+          "id": "s411",
+          "text": "窓の外を見る。",
+          "short": null,
+          "from": 95,
+          "to": 126
+        },
+        {
+          "id": "s412",
+          "text": "夕方のビル街。",
+          "short": null,
+          "from": 143,
+          "to": 174
+        },
+        {
+          "id": "s413",
+          "text": "いつもと同じ景色である。",
+          "short": null,
+          "from": 191,
+          "to": 244
+        },
+        {
+          "id": "s414",
+          "text": "そして少しだけ笑う。",
+          "short": null,
+          "from": 261,
+          "to": 306
+        },
+        {
+          "id": "s415",
+          "text": "「そうかもしれない」",
+          "short": null,
+          "from": 323,
+          "to": 355
+        }
+      ]
+    },
+    {
+      "id": "epilogue-6",
+      "type": "key",
+      "part": "epilogue",
+      "from": 51315,
+      "duration": 377,
+      "items": {
+        "text": "「自分らしさ」とは、\nこれまでの自分を理解するために作った物語",
+        "at": "1"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s416",
+          "text": "人間は、自分らしく生きるために存在しているわけではない。",
+          "short": "自分らしく生きるために存在しているわけではない",
+          "from": 9,
+          "to": 137
+        },
+        {
+          "id": "s417",
+          "text": "そもそも「自分らしさ」とは、これまでの自分を理解するために作った物語である。",
+          "short": null,
+          "from": 154,
+          "to": 361
+        }
+      ]
+    },
+    {
+      "id": "epilogue-7",
+      "type": "still",
+      "part": "epilogue",
+      "from": 51692,
+      "duration": 316,
+      "items": {
+        "clip": "k_window",
+        "move": "pull"
+      },
+      "clip": "k_window",
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s418",
+          "text": "その物語が、昨日まであなたを救ってくれたかもしれない。",
+          "short": "昨日まであなたを救ってくれたかもしれない",
+          "from": 9,
+          "to": 139
+        },
+        {
+          "id": "s419",
+          "text": "迷ったとき、「自分ならどうするか」を教えてくれたかもしれない。",
+          "short": "「自分ならどうするか」を教えてくれたかもしれない",
+          "from": 155,
+          "to": 299
+        }
+      ]
+    },
+    {
+      "id": "epilogue-8",
+      "type": "key",
+      "part": "epilogue",
+      "from": 52008,
+      "duration": 181,
+      "items": {
+        "text": "昨日まで役に立った物語が、\n今日から檻になることもある",
+        "at": "1",
+        "mark": "檻"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s420",
+          "text": "だが、昨日まで役に立った物語が、今日から檻になることもある。",
+          "short": null,
+          "from": 9,
+          "to": 165
+        }
+      ]
+    },
+    {
+      "id": "epilogue-9",
+      "type": "still",
+      "part": "epilogue",
+      "from": 52189,
+      "duration": 319,
+      "items": {
+        "clip": "k_strings",
+        "move": "pullup"
+      },
+      "clip": "k_strings",
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s421",
+          "text": "「あなたらしくない」と言われたとき、私たちは不安になる。",
+          "short": null,
+          "from": 9,
+          "to": 144
+        },
+        {
+          "id": "s422",
+          "text": "本当に間違っているのではないか。",
+          "short": null,
+          "from": 161,
+          "to": 224
+        },
+        {
+          "id": "s423",
+          "text": "自分を見失っているのではないか。",
+          "short": null,
+          "from": 240,
+          "to": 302
+        }
+      ]
+    },
+    {
+      "id": "epilogue-10",
+      "type": "still",
+      "part": "epilogue",
+      "from": 52508,
+      "duration": 384,
+      "items": {
+        "clip": "k_doors",
+        "move": "push"
+      },
+      "clip": "k_doors",
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s424",
+          "text": "だが、別の見方もできる。",
+          "short": "別の見方もできる",
+          "from": 9,
+          "to": 72
+        },
+        {
+          "id": "s425",
+          "text": "それは、自分を失った証拠ではない。",
+          "short": "自分を失った証拠ではない",
+          "from": 89,
+          "to": 178
+        },
+        {
+          "id": "s426",
+          "text": "古い自分では説明できない場所へ、ようやく足を踏み出した証拠なのかもしれない。",
+          "short": null,
+          "from": 195,
+          "to": 368
+        }
+      ]
+    },
+    {
+      "id": "epilogue-11",
+      "type": "key",
+      "part": "epilogue",
+      "from": 52892,
+      "duration": 317,
+      "items": {
+        "text": "自分らしくあり続けなければならない人生もまた、\n人を不自由にする",
+        "at": "1"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s427",
+          "text": "人を不自由にするのは、自分らしくない人生だけではない。",
+          "short": null,
+          "from": 9,
+          "to": 132
+        },
+        {
+          "id": "s428",
+          "text": "自分らしくあり続けなければならない人生もまた、人を不自由にする。",
+          "short": null,
+          "from": 149,
+          "to": 300
+        }
+      ]
+    },
+    {
+      "id": "epilogue-12",
+      "type": "key",
+      "part": "epilogue",
+      "from": 53209,
+      "duration": 436,
+      "items": {
+        "text": "自分という物語を書き換える権利を、\n自分自身から奪わないこと",
+        "at": "2",
+        "mark": "書き換える権利"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s429",
+          "text": "だから、本当の意味で「自分らしく生きる」とは、いつまでも同じ自分でいることではない。",
+          "short": null,
+          "from": 9,
+          "to": 247
+        },
+        {
+          "id": "s430",
+          "text": "自分という物語を書き換える権利を、自分自身から奪わないことである。",
+          "short": null,
+          "from": 263,
+          "to": 419
+        }
+      ]
+    },
+    {
+      "id": "epilogue-13",
+      "type": "still",
+      "part": "epilogue",
+      "from": 53645,
+      "duration": 395,
+      "items": {
+        "clip": "k_dusk",
+        "move": "pull"
+      },
+      "clip": "k_dusk",
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s431",
+          "text": "昨日までの自分を否定する必要はない。",
+          "short": null,
+          "from": 9,
+          "to": 88
+        },
+        {
+          "id": "s432",
+          "text": "昨日までの自分には、昨日までの理由があった。",
+          "short": null,
+          "from": 104,
+          "to": 209
+        },
+        {
+          "id": "s433",
+          "text": "しかし、明日の自分まで、昨日の自分に従わせる必要もない。",
+          "short": null,
+          "from": 226,
+          "to": 378
+        }
+      ]
+    },
+    {
+      "id": "epilogue-14",
+      "type": "ending",
+      "part": "epilogue",
+      "from": 54040,
+      "duration": 308,
+      "items": {
+        "text": "自分らしくなくなる自由まで、\n自分に許すこと。",
+        "at": "0"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s434",
+          "text": "本当の意味で「自分らしく生きる」とは、自分らしくなくなる自由まで、自分に許すことなのかもしれない。",
+          "short": null,
+          "from": 9,
+          "to": 266
+        }
+      ]
+    }
+  ]
+}

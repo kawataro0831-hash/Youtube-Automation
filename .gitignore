@@ -9,3 +9,5 @@ episodes/*/build/
 video/public/ep/
 
 episodes/*/music/_takes/
+
+episodes/*/audio/parts/

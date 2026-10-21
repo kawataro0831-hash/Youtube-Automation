@@ -42,6 +42,7 @@ def main() -> None:
     sub = ap.add_subparsers(dest="kind", required=True)
     v = sub.add_parser("voice")
     v.add_argument("file", type=Path)
+    v.add_argument("--part", help="章に分かれている回の章 id（prologue, ch1 など）")
     v.add_argument("--note", default="")
     m = sub.add_parser("music")
     m.add_argument("cue")
@@ -62,6 +63,27 @@ def main() -> None:
     if not src.exists():
         raise SystemExit(f"ファイルがありません: {src}")
     info = describe(src)
+
+    if args.kind == "voice" and script.get("parts"):
+        pids = [p["id"] for p in script["parts"]]
+        if args.part not in pids:
+            raise SystemExit(f"--part で章を指定してください（{', '.join(pids)}）")
+        dst = d / "audio" / "parts" / f"{args.part}.wav"
+        keep_old(dst, d / "audio" / "_takes")
+        dst.parent.mkdir(parents=True, exist_ok=True)
+        a = load_audio(src)
+        sf.write(str(dst), a, 48000, subtype="PCM_16")
+        meta_path = d / "audio" / "narration.source.json"
+        meta = json.loads(meta_path.read_text(encoding="utf-8")) if meta_path.exists() else {"mode": "parts", "parts": {}}
+        v = script.get("voice", {})
+        meta.setdefault("parts", {})[args.part] = {
+            "source": "gemini-ai-studio", "model": v.get("model"), "voice_planned": v.get("voice"),
+            "note": args.note, "original_file": src.name, "registered": STAMP}
+        meta_path.write_text(json.dumps(meta, ensure_ascii=False, indent=1), encoding="utf-8")
+        rest = [p for p in pids if meta["parts"].get(p, {}).get("source", "openjtalk-temp") == "openjtalk-temp"]
+        print(f"章 {args.part} の声を置きました: {dst}（{info}）")
+        print(f"まだ仮の声の章: {', '.join(rest) if rest else 'なし（全部そろいました）'}")
+        return
 
     if args.kind == "voice":
         dst = d / "audio" / "narration.wav"

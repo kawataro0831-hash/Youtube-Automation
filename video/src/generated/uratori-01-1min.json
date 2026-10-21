@@ -2,6 +2,8 @@
   "episode": "uratori-01-1min",
   "channel": "ウラトリ",
   "tagline": "テクノロジーのニュースを、一次情報で深掘り",
+  "title": "相次ぐ情報漏洩の裏側（1分版）",
+  "subtitle": "",
   "fps": 30,
   "durationInFrames": 1997,
   "audio": "ep/uratori-01-1min/mix.wav",
@@ -10,6 +12,7 @@
     {
       "id": "open",
       "type": "blender",
+      "part": null,
       "from": 0,
       "duration": 179,
       "items": {
@@ -22,6 +25,7 @@
         {
           "id": "s0",
           "text": "この秋、日本では、情報漏洩の公表が相次ぎました。",
+          "short": null,
           "from": 19,
           "to": 159
         }
@@ -30,6 +34,7 @@
     {
       "id": "news",
       "type": "news",
+      "part": null,
       "from": 179,
       "duration": 173,
       "items": {
@@ -55,6 +60,7 @@
         {
           "id": "s1",
           "text": "ニュースでは「AIを使った新しい攻撃だ」とも言われています。",
+          "short": null,
           "from": 9,
           "to": 153
         }
@@ -63,6 +69,7 @@
     {
       "id": "turn",
       "type": "blender",
+      "part": null,
       "from": 352,
       "duration": 171,
       "items": {
@@ -75,6 +82,7 @@
         {
           "id": "s2",
           "text": "でも、一次情報を読むと、見え方が少し変わります。",
+          "short": null,
           "from": 9,
           "to": 137
         }
@@ -83,6 +91,7 @@
     {
       "id": "npa",
       "type": "dots",
+      "part": null,
       "from": 523,
       "duration": 389,
       "items": {
@@ -108,6 +117,7 @@
         {
           "id": "s3",
           "text": "警察庁によると、今年の上半期、ランサムウェアの侵入経路が分かった36件のうち、半分の18件は、VPN機器からでした。",
+          "short": null,
           "from": 9,
           "to": 369
         }
@@ -116,6 +126,7 @@
     {
       "id": "dbir",
       "type": "bars",
+      "part": null,
       "from": 912,
       "duration": 274,
       "items": {
@@ -150,6 +161,7 @@
         {
           "id": "s4",
           "text": "アメリカのベライゾンの調査でも、侵入の入口のトップは、初めて「ソフトの穴を突く手口」になりました。",
+          "short": null,
           "from": 9,
           "to": 255
         }
@@ -158,6 +170,7 @@
     {
       "id": "key1",
       "type": "keymsg",
+      "part": null,
       "from": 1186,
       "duration": 333,
       "items": {
@@ -176,12 +189,14 @@
         {
           "id": "s5",
           "text": "新しいのは、手口ではなく、速さ。",
+          "short": null,
           "from": 9,
           "to": 104
         },
         {
           "id": "s6",
           "text": "AIが、古い穴を突くスピードを上げている。いまのところ、それが有力な見方です。",
+          "short": null,
           "from": 122,
           "to": 315
         }
@@ -190,6 +205,7 @@
     {
       "id": "key2",
       "type": "keymsg",
+      "part": null,
       "from": 1519,
       "duration": 158,
       "items": {
@@ -205,6 +221,7 @@
         {
           "id": "s7",
           "text": "そして、もう一つ。持っていないデータは、漏れません。",
+          "short": null,
           "from": 9,
           "to": 137
         }
@@ -213,6 +230,7 @@
     {
       "id": "ask",
       "type": "question",
+      "part": null,
       "from": 1677,
       "duration": 134,
       "items": {
@@ -224,6 +242,7 @@
         {
           "id": "s8",
           "text": "あなたが使っていないサービス、いくつ残っていますか。",
+          "short": null,
           "from": 9,
           "to": 115
         }
@@ -232,6 +251,7 @@
     {
       "id": "end",
       "type": "endcard",
+      "part": null,
       "from": 1811,
       "duration": 186,
       "items": {
@@ -244,6 +264,7 @@
         {
           "id": "s9",
           "text": "ウラトリ。テクノロジーのニュースを、一次情報で深掘りします。",
+          "short": null,
           "from": 9,
           "to": 148
         }

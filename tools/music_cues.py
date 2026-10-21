@@ -25,11 +25,22 @@ def slots(script: dict, tl: dict, total: float) -> list[dict]:
     """各曲の（開始, 終了）秒。終了には次の曲と重ねる分を含める。"""
     sc = {s["id"]: s for s in tl["scenes"]}
     cues = script.get("music", [])
+    # 章（パート）で指定した曲は、その章の章カードから、指定した最後の章の終わりまで
+    for s in tl["scenes"]:
+        if s["type"] == "chapter":
+            sc.setdefault(f"part:{s['part']}", s)
+    part_end = {}
+    for s in tl["scenes"]:
+        if s.get("part"):
+            part_end[s["part"]] = s
     out = []
     for i, c in enumerate(cues):
+        if "part" in c:
+            c = {**c, "from": f"part:{c['part']}", "to": f"partend:{c.get('toPart', c['part'])}"}
+        to = part_end[c["to"][8:]] if c["to"].startswith("partend:") else sc[c["to"]]
         start = max(0.0, sc[c["from"]]["from"] / FPS - c.get("lead", 0.4))
         last = i == len(cues) - 1
-        end = total if last else sc[c["to"]]["from"] / FPS + sc[c["to"]]["duration"] / FPS + XFADE
+        end = total if last else to["from"] / FPS + to["duration"] / FPS + XFADE
         out.append({**c, "start": start, "end": min(total, end), "last": last})
     return out
 
@@ -51,6 +62,18 @@ def resolve(d: Path, file: str) -> Path | None:
 
 def rms(x: np.ndarray) -> float:
     return float(np.sqrt(np.mean(x**2)) + 1e-12)
+
+
+def loop_to(x: np.ndarray, need: int, xf: float = 3.0) -> np.ndarray:
+    """短い曲を、つなぎ目を重ねながら繰り返して need サンプルにする。"""
+    k = int(xf * SR)
+    if len(x) <= 2 * k:
+        return np.pad(x, ((0, need - len(x)), (0, 0)))
+    out = x.copy()
+    ramp = np.linspace(0, 1, k)[:, None]
+    while len(out) < need:
+        out = np.concatenate([out[:-k], out[-k:] * (1 - ramp) + x[:k] * ramp, x[k:]])
+    return out
 
 
 def fade(n: int, fin: float, fout: float) -> np.ndarray:
@@ -78,7 +101,8 @@ def build(script: dict, tl: dict, total: float, fallback: np.ndarray, rms_db: fl
             x = load_stereo(f)
             src = f.name
             if len(x) < need:
-                log.append(f"⚠ {s['id']}: 曲が {len(x) / SR:.1f}秒しかない（区間は {need / SR:.1f}秒）。足りない分は無音で終わる")
+                log.append(f"△ {s['id']}: 曲が {len(x) / SR:.1f}秒（区間は {need / SR:.1f}秒）。重ねながら繰り返して埋める")
+                x = loop_to(x, need)
             x = x[:need]
             x = x / rms(x[: min(len(x), 20 * SR)]) * target
         else:

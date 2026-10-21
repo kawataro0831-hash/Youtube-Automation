@@ -749,7 +749,302 @@ def scene_strings(sc) -> None:
     camera((0.0, -5.9, 1.0), (0.0, 0.0, 1.7), lens=32)
 
 
-CYCLES_SCENES = {"derby", "reporter"}  # ガラスの屈折が要る場面だけ Cycles（ほかは EEVEE で速く）
+
+
+# ---------------- フル尺用の場面 ----------------
+
+TEX = HERE / "textures"
+
+
+def tex_mat(name: str, path: Path, emit: float = 0.0, rough: float = 0.6) -> bpy.types.Material:
+    """画像を貼る（emit>0 なら画面のように自分で光る）。"""
+    m = bpy.data.materials.new(name)
+    nt = m.node_tree
+    b = nt.nodes["Principled BSDF"]
+    img = nt.nodes.new("ShaderNodeTexImage")
+    img.image = bpy.data.images.load(str(path))
+    img.interpolation = "Cubic"
+    nt.links.new(img.outputs["Color"], b.inputs["Base Color"])
+    b.inputs["Roughness"].default_value = rough
+    if emit:
+        nt.links.new(img.outputs["Color"], b.inputs["Emission Color"])
+        b.inputs["Emission Strength"].default_value = emit
+    return m
+
+
+def plane_uv(name: str, size, m: bpy.types.Material, loc, rot=(0, 0, 0)) -> bpy.types.Object:
+    """UV つきの板（画像の縦横比に合わせた size）。"""
+    bpy.ops.mesh.primitive_plane_add(size=1, location=loc, rotation=rot)
+    ob = bpy.context.active_object
+    ob.name = name
+    ob.scale = (size[0], size[1], 1)
+    ob.data.materials.append(m)
+    return ob
+
+
+def box(name, m, loc, scale, rot=(0, 0, 0), bevel=0.0) -> bpy.types.Object:
+    ob = prim("cube", name, m, size=1, location=loc, rotation=rot)
+    ob.scale = scale
+    if bevel:
+        bv = ob.modifiers.new("bevel", "BEVEL")
+        bv.width = bevel
+        bv.segments = 3
+    return ob
+
+
+def chair(m, loc, rot_z) -> None:
+    x, y, z = loc
+    parts = [box("seat", m, (0, 0, 0.46), (0.46, 0.46, 0.06), bevel=0.02),
+             box("back", m, (0, 0.22, 0.78), (0.44, 0.05, 0.5), rot=(math.radians(-8), 0, 0), bevel=0.02),
+             prim("cylinder", "post", m, radius=0.025, depth=0.42, location=(0, 0, 0.22), vertices=12),
+             prim("cylinder", "foot", m, radius=0.26, depth=0.03, location=(0, 0, 0.02), vertices=24)]
+    ob = join(parts, "chair")
+    ob.data.transform(Matrix.Translation(ob.location))
+    ob.location = (x, y, z)
+    ob.rotation_euler = (0, 0, rot_z)
+
+
+def mug(name, glass_m, loc, r=0.04, h=0.13) -> None:
+    g = prim("cylinder", name, glass_m, radius=r, depth=h, vertices=64, location=(loc[0], loc[1], h / 2))
+    g.modifiers.new("s", "SOLIDIFY").thickness = 0.004
+    prim("torus", name + "_h", glass_m, major_radius=0.035, minor_radius=0.008, location=(loc[0] + r + 0.02, loc[1], h * 0.55),
+         rotation=(math.radians(90), 0, 0))
+
+
+def scene_meeting(sc) -> None:
+    """朝の会議室。ブラインド越しの光が机に縞を落とす。"""
+    world_color((0.02, 0.025, 0.03), 1.0)
+    carpet = mat("carpet", (0.07, 0.07, 0.08), 0.95)
+    prim("plane", "floor", carpet, size=20, location=(0, 0, 0))
+    wall = mat("wall", (0.55, 0.55, 0.53), 0.9)
+    # 奥の壁（窓の穴を残す）
+    box("wl", wall, (-2.1, 2.6, 1.5), (2.2, 0.1, 3.0))
+    box("wr", wall, (2.1, 2.6, 1.5), (2.2, 0.1, 3.0))
+    box("wt", wall, (0, 2.6, 2.75), (2.0, 0.1, 0.5))
+    box("wb", wall, (0, 2.6, 0.45), (2.0, 0.1, 0.9))
+    sky = emission("sky", (0.85, 0.9, 1.0), 1.6)
+    plane_uv("skyplane", (6, 4), sky, (0, 4.5, 1.6), (math.radians(90), 0, 0))
+    slat = mat("slat", (0.8, 0.8, 0.78), 0.5)
+    for i in range(22):
+        box(f"slat{i}", slat, (0, 2.5, 0.95 + i * 0.075), (2.0, 0.05, 0.008), rot=(math.radians(35), 0, 0))
+    light("AREA", (0.3, 4.2, 2.6), 260, (1.0, 0.93, 0.82), size=1.6, target=(0, 0.6, 0.74))
+    light("AREA", (0, -1.5, 2.6), 15, (0.7, 0.75, 0.85), size=2.0, target=(0, 0.6, 0.74))
+    wood = mat("table", (0.42, 0.3, 0.2), 0.3)
+    noise_color(wood, (0.3, 0.2, 0.12), (0.5, 0.36, 0.24), 2, (1, 20, 1))
+    box("table", wood, (0, 0.6, 0.74), (1.3, 3.4, 0.05), bevel=0.01)
+    dark = mat("legs", (0.05, 0.05, 0.05), 0.4, metal=0.5)
+    for x in (-0.5, 0.5):
+        for y in (-0.8, 1.9):
+            prim("cylinder", "leg", dark, radius=0.03, depth=0.72, location=(x, y, 0.36), vertices=12)
+    fabric = mat("fabric", (0.1, 0.1, 0.12), 0.9)
+    for y in (-0.5, 0.4, 1.3):
+        chair(fabric, (-0.95, y, 0), math.radians(-90))
+        chair(fabric, (0.95, y, 0), math.radians(90))
+    paper = mat("paper", (0.92, 0.92, 0.9), 0.7)
+    cup = mat("cup", (0.9, 0.9, 0.88), 0.25)
+    rnd = random.Random(4)
+    for y in (-0.4, 0.5, 1.4):
+        for sx in (-1, 1):
+            plane_uv("doc", (0.21, 0.297), paper, (sx * 0.38, y + rnd.uniform(-0.1, 0.1), 0.767), (0, 0, rnd.uniform(-0.3, 0.3)))
+            prim("cylinder", "cup", cup, radius=0.04, depth=0.09, location=(sx * 0.5, y + 0.25, 0.81), vertices=32)
+    camera((0.05, -2.2, 1.12), (0, 1.0, 0.85), lens=32, fstop=4.0, focus=2.4)
+
+
+def scene_phone(sc) -> None:
+    """夜。机の上で光るスマホの発信画面。押せないまま。"""
+    world_color((0.005, 0.006, 0.01), 1.0)
+    wood = mat("night_table", (0.12, 0.08, 0.05), 0.4)
+    noise_color(wood, (0.06, 0.04, 0.025), (0.16, 0.1, 0.06), 2, (1, 20, 1))
+    prim("plane", "table", wood, size=4, location=(0, 0, 0))
+    body = mat("phone_body", (0.02, 0.02, 0.022), 0.25, metal=0.6)
+    box("phone", body, (0, 0, 0.0045), (0.075, 0.16, 0.009), rot=(0, 0, math.radians(18)), bevel=0.006)
+    screen = tex_mat("screen", TEX / "k_phone.png", emit=1.6, rough=0.08)
+    plane_uv("screen", (0.069, 0.15), screen, (0, 0, 0.0092), (0, 0, math.radians(18)))
+    cup = mat("mug", (0.06, 0.06, 0.07), 0.5)
+    m = prim("cylinder", "mug", cup, radius=0.045, depth=0.1, location=(0.2, 0.17, 0.05), vertices=48)
+    m.modifiers.new("s", "SOLIDIFY").thickness = 0.004
+    light("POINT", (0.0, 0.0, 0.12), 0.25, (0.75, 0.82, 1.0), size=0.05)  # 画面の照り返し
+    light("AREA", (-1.2, 1.5, 1.2), 6, (0.45, 0.55, 0.85), size=1.5, target=(0, 0, 0))  # 窓からの月明かり
+    camera((-0.12, -0.36, 0.2), (0.0, 0.0, 0.0), lens=50, fstop=2.0, focus=0.43)
+
+
+def scene_izakaya(sc) -> None:
+    """職場の飲み会。ビールのジョッキと、背景にぼけた提灯。"""
+    world_color((0.03, 0.015, 0.008), 1.0)
+    wood = mat("izakaya_table", (0.3, 0.18, 0.09), 0.35)
+    noise_color(wood, (0.2, 0.11, 0.05), (0.38, 0.23, 0.12), 2.5, (1, 25, 1))
+    prim("plane", "table", wood, size=6, location=(0, 0, 0))
+    glass = mat("glass", (1, 1, 1), 0.02, transmission=1.0, ior=1.5)
+    beer = bpy.data.materials.new("beer")
+    nt = beer.node_tree
+    b = nt.nodes["Principled BSDF"]
+    b.inputs["Transmission Weight"].default_value = 1.0
+    b.inputs["Roughness"].default_value = 0.0
+    b.inputs["IOR"].default_value = 1.33
+    b.inputs["Base Color"].default_value = (1.0, 0.75, 0.25, 1)
+    absb = nt.nodes.new("ShaderNodeVolumeAbsorption")
+    absb.inputs["Color"].default_value = (1.0, 0.62, 0.12, 1)
+    absb.inputs["Density"].default_value = 14
+    nt.links.new(absb.outputs["Volume"], nt.nodes["Material Output"].inputs["Volume"])
+    foam = mat("foam", (0.95, 0.92, 0.85), 0.8)
+    for i, (x, y) in enumerate(((-0.07, 0.0), (0.09, 0.08))):
+        mug(f"mug{i}", glass, (x, y), r=0.045, h=0.15)
+        prim("cylinder", f"beer{i}", beer, radius=0.0405, depth=0.11, vertices=64, location=(x, y, 0.062))
+        f = prim("cylinder", f"foam{i}", foam, radius=0.0405, depth=0.025, vertices=64, location=(x, y, 0.13))
+        f.modifiers.new("sub", "SUBSURF").levels = 2
+    plate = mat("plate", (0.9, 0.9, 0.88), 0.2)
+    prim("cylinder", "plate", plate, radius=0.07, depth=0.012, vertices=48, location=(-0.2, -0.08, 0.006))
+    green = mat("edamame", (0.35, 0.55, 0.15), 0.5)
+    rnd = random.Random(6)
+    for i in range(9):
+        e = prim("uv_sphere", f"ed{i}", green, radius=0.012, location=(-0.2 + rnd.uniform(-0.04, 0.04), -0.08 + rnd.uniform(-0.04, 0.04), 0.02),
+                 segments=12, ring_count=8)
+        e.scale = (2.0, 0.8, 0.7)
+        e.rotation_euler = (0, 0, rnd.uniform(0, 3.14))
+    lantern = emission("lantern", (1.0, 0.25, 0.08), 6.0)
+    warm = emission("bulbs", (1.0, 0.7, 0.4), 12.0)
+    for i in range(7):
+        l = prim("uv_sphere", f"lan{i}", lantern, radius=0.18, location=(rnd.uniform(-2.5, 2.5), rnd.uniform(3, 6), rnd.uniform(0.6, 1.4)),
+                 segments=16, ring_count=8)
+        l.scale = (1, 1, 1.35)
+    for i in range(25):
+        prim("uv_sphere", f"bk{i}", warm, radius=0.03, location=(rnd.uniform(-3, 3), rnd.uniform(2.5, 7), rnd.uniform(0.3, 1.8)),
+             segments=8, ring_count=4)
+    light("AREA", (0.1, -0.3, 1.0), 40, (1.0, 0.8, 0.55), size=0.6, target=(0, 0.03, 0.08))
+    light("AREA", (0.3, 1.2, 0.5), 20, (1.0, 0.6, 0.3), size=0.8, target=(0, 0.03, 0.08))
+    camera((-0.05, -0.55, 0.2), (0.02, 0.05, 0.08), lens=50, fstop=2.2, focus=0.6)
+
+
+def scene_creator(sc) -> None:
+    """配信者の机。マイクと、再生数が跳ね上がったグラフの画面。"""
+    world_color((0.006, 0.007, 0.012), 1.0)
+    desk = mat("desk", (0.03, 0.03, 0.035), 0.45)
+    box("desk", desk, (0, 0, 0.72), (1.6, 0.8, 0.04))
+    prim("plane", "floor", mat("floor", (0.02, 0.02, 0.025), 0.6), size=10, location=(0, 0, 0))
+    black = mat("black", (0.015, 0.015, 0.016), 0.35)
+    box("monitor", black, (0, 0.28, 1.06), (0.62, 0.03, 0.36), bevel=0.004)
+    screen = tex_mat("screen", TEX / "k_monitor.png", emit=1.2, rough=0.2)
+    plane_uv("screen", (0.6, 0.3375), screen, (0, 0.264, 1.06), (math.radians(90), 0, 0))
+    box("stand", black, (0, 0.3, 0.84), (0.05, 0.03, 0.2))
+    box("keyboard", black, (0, -0.05, 0.75), (0.42, 0.14, 0.015), bevel=0.003)
+    metal = mat("micmetal", (0.1, 0.1, 0.11), 0.3, metal=0.9)
+    mic = prim("cylinder", "mic", metal, radius=0.028, depth=0.16, vertices=32, location=(-0.32, -0.12, 0.98),
+               rotation=(math.radians(70), 0, math.radians(-20)))
+    prim("cylinder", "arm1", metal, radius=0.007, depth=0.5, vertices=12, location=(-0.5, 0.0, 1.08),
+         rotation=(0, math.radians(60), math.radians(25)))
+    ring = emission("ring", (1.0, 0.95, 0.9), 3.0)
+    prim("torus", "ringlight", ring, major_radius=0.22, minor_radius=0.012, location=(0.85, 0.5, 1.3),
+         rotation=(math.radians(90), 0, math.radians(-30)))
+    light("AREA", (0.85, 0.4, 1.3), 6, (1.0, 0.95, 0.9), size=0.4, target=(0, 0, 1.0))
+    light("AREA", (0, 0.1, 1.06), 3, (0.5, 0.7, 1.0), size=0.6, target=(0, -0.5, 1.0))
+    camera((-0.55, -0.85, 1.12), (0.0, 0.25, 1.02), lens=35, fstop=2.0, focus=1.15)
+
+
+def scene_crt(sc) -> None:
+    """古いパソコン。画面には「互換性」の警告。"""
+    world_color((0.004, 0.005, 0.006), 1.0)
+    desk = mat("desk", (0.25, 0.17, 0.1), 0.45)
+    noise_color(desk, (0.16, 0.1, 0.05), (0.3, 0.2, 0.12), 2, (1, 20, 1))
+    box("desk", desk, (0, 0, 0.72), (1.5, 0.8, 0.04))
+    beige = mat("beige", (0.62, 0.58, 0.48), 0.6)
+    box("case", beige, (0, 0.1, 0.82), (0.5, 0.42, 0.14), bevel=0.01)
+    box("crt", beige, (0, 0.18, 1.1), (0.44, 0.4, 0.38), bevel=0.02)
+    box("bezel", beige, (0, -0.02, 1.1), (0.4, 0.02, 0.32), bevel=0.01)
+    screen = tex_mat("screen", TEX / "k_crt.png", emit=1.4, rough=0.15)
+    plane_uv("screen", (0.33, 0.2475), screen, (0, -0.032, 1.11), (math.radians(90), 0, 0))
+    box("keyboard", beige, (0, -0.25, 0.755), (0.46, 0.17, 0.025), bevel=0.004)
+    floppy = mat("floppy", (0.05, 0.05, 0.07), 0.4)
+    for i, (x, y, r) in enumerate(((0.38, -0.2, 0.3), (0.45, -0.12, -0.2), (-0.4, -0.18, 0.5))):
+        box(f"fd{i}", floppy, (x, y, 0.745 + i * 0.003), (0.09, 0.094, 0.003), rot=(0, 0, r))
+    light("POINT", (0, -0.25, 1.1), 1.2, (0.4, 1.0, 0.55), size=0.15)  # 画面の緑の照り返し
+    light("SPOT", (-0.8, -0.6, 1.8), 40, (1.0, 0.8, 0.6), size=0.1, target=(0, 0, 0.8), spot=40)
+    camera((-0.55, -0.95, 1.05), (0.0, 0.0, 1.0), lens=40, fstop=2.8, focus=1.1)
+
+
+def scene_doors(sc) -> None:
+    """暗い廊下の先に2つの扉。片方だけ少し開いて、光が漏れている。"""
+    world_color((0.0, 0.0, 0.0), 0.0)
+    floor = mat("floor", (0.04, 0.04, 0.045), 0.15)
+    prim("plane", "floor", floor, size=30, location=(0, 0, 0))
+    wall = mat("wall", (0.2, 0.19, 0.18), 0.9)
+    noise_bump(wall, 20, 0.15)
+    box("wall_l", wall, (-1.4, 3, 1.5), (0.1, 12, 3))
+    box("wall_r", wall, (1.4, 3, 1.5), (0.1, 12, 3))
+    box("ceiling", wall, (0, 3, 3.0), (2.8, 12, 0.1))
+    # 奥の壁と扉
+    box("end_l", wall, (-1.05, 8.0, 1.5), (0.7, 0.1, 3))
+    box("end_m", wall, (0, 8.0, 1.5), (0.4, 0.1, 3))
+    box("end_r", wall, (1.05, 8.0, 1.5), (0.7, 0.1, 3))
+    box("end_t", wall, (0, 8.0, 2.55), (2.8, 0.1, 0.9))
+    door = mat("door", (0.12, 0.09, 0.07), 0.5)
+    box("door_l", door, (-0.45, 8.0, 1.05), (0.5, 0.05, 2.1))
+    leak = emission("leak", (1.0, 0.7, 0.4), 6.0)
+    box("gap_l", leak, (-0.45, 7.94, 0.01), (0.5, 0.02, 0.012))
+    # 右の扉は奥へ大きく開いている（蝶番は右端）
+    ang = math.radians(65)
+    d = box("door_r", door, (0, 0, 1.05), (0.5, 0.05, 2.1))
+    d.rotation_euler = (0, 0, ang)
+    d.location = (0.7 - 0.25 * math.cos(ang), 8.0 + 0.25 * math.sin(ang), 1.05)
+    room = emission("room", (1.0, 0.72, 0.45), 4.0)
+    plane_uv("roomglow", (1.4, 2.6), room, (0.45, 9.2, 1.2), (math.radians(90), 0, 0))
+    light("AREA", (0.45, 8.6, 1.2), 400, (1.0, 0.72, 0.45), size=0.8, target=(0.3, 4.0, 0.0))
+    light("POINT", (0, 3, 2.8), 12, (0.6, 0.7, 0.9), size=0.3)
+    light("POINT", (-0.45, 8.3, 0.1), 3, (1.0, 0.7, 0.4), size=0.2)  # 左の扉の下の漏れ
+    camera((0.0, -0.5, 1.35), (0.0, 8.0, 1.05), lens=28)
+
+
+def scene_dining(sc) -> None:
+    """家族が寝たあとの食卓。吊りランプの下に、一枚の求人票。"""
+    world_color((0.0, 0.0, 0.0), 0.0)
+    wood = mat("dining", (0.32, 0.2, 0.11), 0.35)
+    noise_color(wood, (0.22, 0.13, 0.06), (0.4, 0.26, 0.14), 2, (1, 22, 1))
+    box("table", wood, (0, 0, 0.73), (1.5, 0.9, 0.04))
+    prim("plane", "floor", mat("floor", (0.05, 0.04, 0.035), 0.6), size=12, location=(0, 0, 0))
+    fabric = mat("chair", (0.08, 0.06, 0.05), 0.8)
+    chair(fabric, (0, -0.75, 0), 0.0)
+    chair(fabric, (0, 0.75, 0), math.radians(180))
+    sheet = tex_mat("job", TEX / "k_job.png", rough=0.8)
+    plane_uv("sheet", (0.21, 0.297), sheet, (0.0, -0.02, 0.751), (0, 0, math.radians(-8)))
+    pen = mat("pen", (0.02, 0.02, 0.02), 0.2, metal=0.5)
+    prim("cylinder", "pen", pen, radius=0.004, depth=0.14, vertices=12, location=(0.15, -0.05, 0.755),
+         rotation=(0, math.radians(90), math.radians(35)))
+    cup = mat("mug", (0.85, 0.83, 0.8), 0.3)
+    m = prim("cylinder", "mug", cup, radius=0.04, depth=0.09, location=(-0.22, 0.14, 0.795), vertices=48)
+    m.modifiers.new("s", "SOLIDIFY").thickness = 0.004
+    shade = mat("shade", (0.03, 0.03, 0.03), 0.4, metal=0.4)
+    s_ = prim("cone", "shade", shade, radius1=0.24, radius2=0.04, depth=0.18, vertices=48, location=(0, 0, 1.5),
+              end_fill_type="NOTHING")
+    s_.modifiers.new("s", "SOLIDIFY").thickness = 0.004
+    prim("cylinder", "cord", shade, radius=0.004, depth=1.2, vertices=8, location=(0, 0, 2.2))
+    bulb = prim("uv_sphere", "bulb", emission("bulb", (1.0, 0.75, 0.45), 20), radius=0.04, location=(0, 0, 1.45))
+    bulb.visible_shadow = False
+    light("SPOT", (0, 0, 1.40), 120, (1.0, 0.76, 0.48), size=0.05, target=(0, 0, 0.73), spot=75)
+    light("AREA", (1.5, -1.5, 1.5), 4, (0.5, 0.6, 0.85), size=2, target=(0, 0, 0.7))  # 暗い部屋のわずかな青
+    camera((0.35, -0.75, 1.25), (0.0, 0.0, 0.76), lens=45, fstop=2.8, focus=0.95)
+
+
+def scene_dusk(sc) -> None:
+    """夕方のビル街を窓から見る男（エピローグ）。"""
+    world_sunset(Vector((0.2, 1.0, 0.04)), 1.0)
+    city = city_material()
+    city.node_tree.nodes["Principled BSDF"].inputs["Base Color"].default_value = (0.05, 0.045, 0.05, 1)
+    rnd = random.Random(21)
+    for i in range(120):
+        h = rnd.uniform(20, 120)
+        bld = prim("cube", f"bld{i}", city, size=1, location=(rnd.uniform(-260, 260), rnd.uniform(110, 600), h / 2 - 60))
+        bld.scale = (rnd.uniform(12, 30), rnd.uniform(12, 30), h)
+    inside = mat("inside", (0.03, 0.03, 0.035), 0.5)
+    prim("plane", "floor", inside, size=20, location=(0, 0, 0))
+    frame_m = mat("frame", (0.02, 0.02, 0.022), 0.3, metal=0.6)
+    for x in (-2.4, -0.8, 0.8, 2.4):
+        prim("cube", f"mull{x}", frame_m, size=1, location=(x, 2.0, 1.6)).scale = (0.06, 0.08, 3.2)
+    cloth = mat("cloth", (0.015, 0.015, 0.018), 0.7)
+    person("me", cloth, arms="down", loc=(-0.3, 1.4, 0), rot_z=math.radians(90))
+    light("AREA", (0.3, 3.5, 2.0), 40, (1.0, 0.65, 0.4), size=3, target=(0, 1.3, 1.4))
+    camera((0.9, -2.2, 1.5), (-0.4, 2.5, 1.4), lens=40, fstop=2.0, focus=3.7)
+
+
+CYCLES_SCENES = {"derby", "reporter", "izakaya"}  # ガラスの屈折が要る場面だけ Cycles（ほかは EEVEE で速く）
 
 SCENES = {
     "louisville": scene_louisville,
@@ -757,6 +1052,14 @@ SCENES = {
     "reporter": scene_reporter,
     "window": scene_window,
     "strings": scene_strings,
+    "meeting": scene_meeting,
+    "phone": scene_phone,
+    "izakaya": scene_izakaya,
+    "creator": scene_creator,
+    "crt": scene_crt,
+    "doors": scene_doors,
+    "dining": scene_dining,
+    "dusk": scene_dusk,
 }
 
 

@@ -12,6 +12,7 @@
     {
       "id": "louisville",
       "type": "still",
+      "part": null,
       "from": 0,
       "duration": 185,
       "items": {
@@ -25,6 +26,7 @@
         {
           "id": "s0",
           "text": "1970年、アメリカ南部のケンタッキー州ルイビル。",
+          "short": null,
           "from": 19,
           "to": 165
         }
@@ -33,6 +35,7 @@
     {
       "id": "derby",
       "type": "still",
+      "part": null,
       "from": 185,
       "duration": 285,
       "items": {
@@ -44,6 +47,7 @@
         {
           "id": "s1",
           "text": "競馬場には酒の匂いが漂い、観客席では派手な帽子をかぶった人々が声を張り上げている。",
+          "short": null,
           "from": 9,
           "to": 266
         }
@@ -52,6 +56,7 @@
     {
       "id": "reporter",
       "type": "still",
+      "part": null,
       "from": 470,
       "duration": 214,
       "items": {
@@ -67,12 +72,14 @@
         {
           "id": "s2",
           "text": "この場所に、一人の記者がやってきた。",
+          "short": null,
           "from": 9,
           "to": 93
         },
         {
           "id": "s3",
           "text": "ハンター・S・トンプソン。",
+          "short": null,
           "from": 123,
           "to": 194
         }
@@ -81,6 +88,7 @@
     {
       "id": "outside",
       "type": "diagram",
+      "part": null,
       "from": 684,
       "duration": 471,
       "items": {
@@ -93,18 +101,21 @@
         {
           "id": "s4",
           "text": "本来、記者というものは出来事の外側に立つ。",
+          "short": null,
           "from": 9,
           "to": 118
         },
         {
           "id": "s5",
           "text": "しかしトンプソンは、まるで逆のことをやった。",
+          "short": null,
           "from": 153,
           "to": 247
         },
         {
           "id": "s6",
           "text": "記者自身が出来事の中へ入り込み、ついには物語の一部になってしまう。",
+          "short": null,
           "from": 267,
           "to": 453
         }
@@ -113,6 +124,7 @@
     {
       "id": "genre",
       "type": "genre",
+      "part": null,
       "from": 1155,
       "duration": 138,
       "items": {
@@ -125,6 +137,7 @@
         {
           "id": "s7",
           "text": "彼の名前そのものが、一つのジャンルになっていった。",
+          "short": null,
           "from": 9,
           "to": 119
         }
@@ -133,6 +146,7 @@
     {
       "id": "shadow",
       "type": "anim",
+      "part": null,
       "from": 1293,
       "duration": 385,
       "items": {
@@ -145,12 +159,14 @@
         {
           "id": "s8",
           "text": "最初は、本人がキャラクターを作っていた。",
+          "short": null,
           "from": 9,
           "to": 101
         },
         {
           "id": "s9",
           "text": "しかし、いつしか、キャラクターの方が本人に「お前はこういう人間であり続けろ」と要求し始める。",
+          "short": null,
           "from": 119,
           "to": 365
         }
@@ -159,6 +175,7 @@
     {
       "id": "us",
       "type": "still",
+      "part": null,
       "from": 1678,
       "duration": 95,
       "items": {
@@ -170,6 +187,7 @@
         {
           "id": "s10",
           "text": "これは有名人だけの話ではない。",
+          "short": null,
           "from": 9,
           "to": 76
         }
@@ -178,6 +196,7 @@
     {
       "id": "strings",
       "type": "still",
+      "part": null,
       "from": 1773,
       "duration": 194,
       "items": {
@@ -189,6 +208,7 @@
         {
           "id": "s11",
           "text": "自分らしさを確立した人間ほど、自分らしさから逃げられなくなるのではないか。",
+          "short": null,
           "from": 9,
           "to": 174
         }
@@ -197,6 +217,7 @@
     {
       "id": "title",
       "type": "title",
+      "part": null,
       "from": 1967,
       "duration": 284,
       "items": {
@@ -209,12 +230,14 @@
         {
           "id": "s12",
           "text": "今夜考えたいのは、この奇妙な問題である。",
+          "short": null,
           "from": 9,
           "to": 113
         },
         {
           "id": "s13",
           "text": "なぜ人間は「自分らしさ」に殺されるのか？",
+          "short": null,
           "from": 132,
           "to": 246
         }

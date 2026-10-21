@@ -1,0 +1,104 @@
+{
+  "id": "kangaeru-01",
+  "composition": "KangaeruFull",
+  "title": "なぜ人間は「自分らしさ」に殺されるのか？",
+  "channel": "考える夜",
+  "tagline": "当たり前を、少し違う角度から",
+  "subtitle": "自己像 × アイデンティティ × 後方互換性",
+  "sound": "cinematic",
+  "note": "台本（ChatGPT で作った本編）をそのまま全文使ったフル尺。声と曲は後で差し替える前提（いまは仮の声と合成の音楽）。",
+  "voice": {
+    "model": "gemini-3.8-flash-tts",
+    "voice": "Algenib",
+    "alternatives": [
+      "Charon",
+      "Orus",
+      "Alnilam"
+    ],
+    "temperature": 1.0,
+    "style": "低く、渋い、50代の男性ナレーター。深夜のドキュメンタリー番組のように、静かに、ゆっくりと、聞き手を物語の中へ引き込む語り。声を張らない。句点のあとはしっかり間をとる。「」の中の台詞は、その人物の声色を少しだけにじませる。",
+    "scene": "深夜。静かな部屋で、人間についての考察を、ひとりの聞き手に語りかける。"
+  },
+  "sources": {},
+  "music": [
+    {
+      "id": "m01",
+      "from": "prologue-card",
+      "to": "prologue-4",
+      "file": "music/m01_louisville.mp3",
+      "title": "1970年ルイビル",
+      "prompt": "Instrumental only, no vocals. Cinematic underscore for a calm, deep-voiced Japanese documentary narrator; sparse, leaves room for the voice. 1970s American South at golden hour, a hazy horse-racing track: lone resonator slide guitar, soft upright bass, faint brushed snare, warm analog tape and vinyl crackle. Nostalgic, slightly melancholic, unhurried. 70 BPM. 2 minutes."
+    },
+    {
+      "id": "m02",
+      "from": "prologue-5",
+      "to": "partend:prologue",
+      "file": "music/m02_gonzo.mp3",
+      "title": "ゴンゾーとペルソナ",
+      "prompt": "Instrumental only, no vocals. Cinematic underscore for a calm, deep-voiced Japanese documentary narrator; sparse, leaves room for the voice. Smoky late-night noir jazz with a reckless gonzo edge that slowly turns dark: muted trumpet, walking upright bass, brushed drums, detuned piano; gradually replaced by low strings and a deep pulse, building to a held tension at the end. 80 BPM. 3 minutes."
+    },
+    {
+      "id": "m03",
+      "part": "cta",
+      "file": "music/m03_channel.mp3",
+      "title": "チャンネルの案内",
+      "prompt": "Instrumental only, no vocals. Cinematic underscore for a calm, deep-voiced Japanese documentary narrator; sparse, leaves room for the voice. Quiet night sky, inviting and warm: soft felt piano arpeggios over an airy synth pad, gentle low pulse, a sense of curiosity. 72 BPM. 1 minute."
+    },
+    {
+      "id": "m04",
+      "part": "ch1",
+      "file": "music/m04_story.mp3",
+      "title": "第1章 自分という物語",
+      "prompt": "Instrumental only, no vocals. Cinematic underscore for a calm, deep-voiced Japanese documentary narrator; sparse, leaves room for the voice. Introspective and contemplative: minimal felt piano and solo cello, slow repeating motif like a story being told to oneself, subtle tape texture. 66 BPM. 3 minutes."
+    },
+    {
+      "id": "m05",
+      "part": "ch2",
+      "file": "music/m05_seen.mp3",
+      "title": "第2章 他人に見られる自分",
+      "prompt": "Instrumental only, no vocals. Cinematic underscore for a calm, deep-voiced Japanese documentary narrator; sparse, leaves room for the voice. The feeling of being watched in modern life: soft muted marimba and clean electric piano ostinato over a low synth bass, light ticking percussion, quietly uneasy. 84 BPM. 3 minutes."
+    },
+    {
+      "id": "m06",
+      "part": "ch3",
+      "file": "music/m06_success.mp3",
+      "title": "第3章 巨大になるキャラクター",
+      "prompt": "Instrumental only, no vocals. Cinematic underscore for a calm, deep-voiced Japanese documentary narrator; sparse, leaves room for the voice. Minimalist ostinato that slowly grows, in the style of modern minimalism: interlocking piano and strings patterns, adding layers as success turns into obligation, restrained intensity. 92 BPM. 3 minutes."
+    },
+    {
+      "id": "m07",
+      "part": "ch4",
+      "file": "music/m07_compat.mp3",
+      "title": "第4章 後方互換性",
+      "prompt": "Instrumental only, no vocals. Cinematic underscore for a calm, deep-voiced Japanese documentary narrator; sparse, leaves room for the voice. Retro computing ambience: warm analog synth arpeggios, soft CRT hum and floppy-drive textures as rhythm, a melancholic melody about old systems that cannot be switched off. 88 BPM. 3 minutes."
+    },
+    {
+      "id": "m08",
+      "part": "ch5",
+      "file": "music/m08_dilemma.mp3",
+      "title": "第5章 どちらも地獄",
+      "prompt": "Instrumental only, no vocals. Cinematic underscore for a calm, deep-voiced Japanese documentary narrator; sparse, leaves room for the voice. Dark dilemma: low strings in a slow dissonant cluster, a heartbeat-like sub-bass pulse, distant piano notes, claustrophobic and heavy, no resolution. 60 BPM. 2.5 minutes."
+    },
+    {
+      "id": "m09",
+      "part": "ch6",
+      "file": "music/m09_possible.mp3",
+      "title": "第6章 なりうる自分",
+      "prompt": "Instrumental only, no vocals. Cinematic underscore for a calm, deep-voiced Japanese documentary narrator; sparse, leaves room for the voice. Opening up after darkness: airy pads, glassy felt piano, gentle rising arpeggios, a hopeful uncertainty like dawn light, spacious reverb. 70 BPM. 3 minutes."
+    },
+    {
+      "id": "m10",
+      "part": "ch7",
+      "file": "music/m10_update.mp3",
+      "title": "第7章 自分を更新する",
+      "prompt": "Instrumental only, no vocals. Cinematic underscore for a calm, deep-voiced Japanese documentary narrator; sparse, leaves room for the voice. Warm and resolving: piano with slowly swelling string section, a steady soft pulse, quiet courage, building to a gentle uplift without being triumphant. 76 BPM. 3 minutes."
+    },
+    {
+      "id": "m11",
+      "part": "epilogue",
+      "file": "music/m11_epilogue.mp3",
+      "title": "EPILOGUE",
+      "prompt": "Instrumental only, no vocals. Cinematic underscore for a calm, deep-voiced Japanese documentary narrator; sparse, leaves room for the voice. Tender cinematic ending: solo piano at night, a single cello joining, intimate and bittersweet, a quiet smile; ends on a long sustained chord that rings out. 64 BPM. 3 minutes."
+    }
+  ]
+}

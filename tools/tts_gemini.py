@@ -32,16 +32,36 @@ from common import episode_dir, load_script, read_text
 API = "https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
 
 
-def transcript(script: dict) -> str:
-    """読み上げる本文。文の間は改行、場面の変わり目は空行。"""
+def transcript(script: dict, part: str | None = None) -> str:
+    """読み上げる本文。文の間は改行、場面の変わり目は空行。part を指定するとその章だけ。"""
     scene_of = {sid: sc["id"] for sc in script["scenes"] for sid in sc["sentences"]}
     lines, prev = [], None
     for s in script["sentences"]:
+        if part and s.get("part") != part:
+            continue
         if prev is not None and scene_of[s["id"]] != prev:
             lines.append("")
         lines.append(read_text(s))
         prev = scene_of[s["id"]]
     return "\n".join(lines)
+
+
+def body_sections(script: dict) -> str:
+    if not script.get("parts"):
+        return f"## 本文欄に貼る文\n\n```\n{transcript(script)}\n```\n"
+    out = ["## 本文欄に貼る文（章ごとに1回ずつ。設定は全部の章で同じにする）\n"]
+    for p in script["parts"]:
+        body = transcript(script, p["id"])
+        out.append(f"### {p['id']}（{p['label']} {p['title']}・{len(body.replace(chr(10), ''))}字）\n\n```\n{body}\n```\n")
+    return "\n".join(out)
+
+
+def register_lines(script: dict, ep: str, voice: str) -> str:
+    if not script.get("parts"):
+        return f'.venv/bin/python tools/register_audio.py {ep} voice ~/Downloads/<ファイル>.wav --note "AI Studio・{voice}"'
+    return "\n".join(
+        f'.venv/bin/python tools/register_audio.py {ep} voice ~/Downloads/<{p["id"]}のファイル>.wav --part {p["id"]} --note "AI Studio・{voice}"'
+        for p in script["parts"])
 
 
 def write_ai_studio_doc(ep: str, script: dict) -> None:
@@ -51,7 +71,8 @@ def write_ai_studio_doc(ep: str, script: dict) -> None:
     doc = f"""# 声づくり（Google AI Studio の Generate speech・API キーなし）
 
 ブラウザで https://aistudio.google.com/generate-speech を開き（Google アカウントでログイン済みのブラウザ）、
-次のとおりに設定して **全文を1回で** 生成する（パートに分けると声色がずれやすいため）。
+次のとおりに設定して生成する。章に分かれている回は章ごとに1回ずつ（長すぎると崩れやすいため）。
+声・口調・Temperature は全部の章で同じにする（変えると途中で声が別人のようになる）。
 
 | 項目 | 値 |
 |---|---|
@@ -69,11 +90,7 @@ def write_ai_studio_doc(ep: str, script: dict) -> None:
 {v['style']}空行のところ（場面の変わり目）は、ふつうの句点より長めに間をとる。
 ```
 
-## 本文欄に貼る文
-
-```
-{transcript(script)}
-```
+{body_sections(script)}
 
 数字や英字は読み間違いを防ぐため、かなで書いてある（画面と字幕は script.json の text の表記）。
 
@@ -83,7 +100,7 @@ def write_ai_studio_doc(ep: str, script: dict) -> None:
 2. ダウンロード（WAV）して、リポジトリの一番上で:
 
 ```bash
-.venv/bin/python tools/register_audio.py {ep} voice ~/Downloads/<ダウンロードしたファイル>.wav --note "AI Studio・{v['voice']}"
+{register_lines(script, ep, v['voice'])}
 ```
 """
     out = episode_dir(ep) / "tts" / "ai_studio.md"
@@ -92,7 +109,7 @@ def write_ai_studio_doc(ep: str, script: dict) -> None:
     print(f"wrote {out}")
 
 
-def build_prompt(script: dict) -> str:
+def build_prompt(script: dict, part: str | None = None) -> str:
     """演出メモ＋台本。見出しの書き方は Gemini TTS の公式の書き方（AUDIO PROFILE / DIRECTOR'S NOTES / TRANSCRIPT）。
 
     モデルが読むのは TRANSCRIPT の部分だけ。文の間は改行で区切り、場面の変わり目は空行にする。
@@ -100,11 +117,11 @@ def build_prompt(script: dict) -> str:
     v = script["voice"]
     return (
         "# AUDIO PROFILE: 渋い声のドキュメンタリー・ナレーター（日本語）\n"
-        "## THE SCENE: 夜、静かなスタジオ。テクノロジーのニュースの裏側を、一次資料を読みながら淡々と語る。\n"
+        f"## THE SCENE: {v.get('scene', '夜、静かなスタジオ。テクノロジーのニュースの裏側を、一次資料を読みながら淡々と語る。')}\n"
         "### DIRECTOR'S NOTES\n"
         f"{v['style']}\n"
         "空行のところ（場面の変わり目）は、ふつうの句点より長めに間をとる。\n"
-        "#### TRANSCRIPT\n" + transcript(script)
+        "#### TRANSCRIPT\n" + transcript(script, part)
     )
 
 
@@ -154,6 +171,7 @@ def main() -> int:
     ap.add_argument("--temperature", type=float)
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--ai-studio-doc", action="store_true", help="AI Studio 用の手順書だけ書き出す")
+    ap.add_argument("--part", help="章に分かれている回で、1章だけ作る")
     args = ap.parse_args()
 
     script = load_script(args.episode)
@@ -164,12 +182,15 @@ def main() -> int:
     if args.ai_studio_doc:
         write_ai_studio_doc(args.episode, script)
         return 0
-    prompt = build_prompt(script)
-    bodies = request_bodies(prompt, voice, temperature)
+    d = episode_dir(args.episode) / "audio"
+    # 章に分かれている回は章ごとに1回ずつ（--part で1章だけ）
+    targets = [p["id"] for p in script["parts"]] if script.get("parts") else [None]
+    if args.part:
+        targets = [args.part]
 
     if args.dry_run:
         print(f"POST {API.format(model=model)}\n")
-        print(json.dumps(bodies[0][1], ensure_ascii=False, indent=2))
+        print(json.dumps(request_bodies(build_prompt(script, targets[0]), voice, temperature)[0][1], ensure_ascii=False, indent=2))
         return 0
 
     key = os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY")
@@ -177,7 +198,38 @@ def main() -> int:
         print("GEMINI_API_KEY が設定されていません（AI Studio で作る場合は tts/ai_studio.md を参照）", file=sys.stderr)
         return 2
 
-    url = API.format(model=model)
+    meta_path = d / "narration.source.json"
+    for part in targets:
+        res = synthesize(API.format(model=model), key, request_bodies(build_prompt(script, part), voice, temperature))
+        if res is None:
+            return 1
+        wav, mime, used = res
+        takes = d / "_takes"
+        takes.mkdir(parents=True, exist_ok=True)
+        stamp = dt.datetime.now().strftime("%Y%m%d-%H%M%S")
+        take = takes / f"gemini_{part or 'all'}_{voice}_{stamp}.wav"
+        take.write_bytes(wav)
+        info = {"source": "gemini", "model": model, "voice": voice, "temperature": temperature,
+                "request_format": used, "mime": mime, "take": take.name, "created": stamp}
+        if part:
+            dst = d / "parts" / f"{part}.wav"
+            dst.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copyfile(take, dst)
+            meta = json.loads(meta_path.read_text(encoding="utf-8")) if meta_path.exists() else {"mode": "parts", "parts": {}}
+            meta.setdefault("parts", {})[part] = info
+            meta_path.write_text(json.dumps(meta, ensure_ascii=False, indent=1), encoding="utf-8")
+        else:
+            dst = d / "narration.wav"
+            shutil.copyfile(take, dst)
+            meta_path.write_text(json.dumps(info, ensure_ascii=False, indent=2), encoding="utf-8")
+        with wave.open(io.BytesIO(wav)) as w:
+            sec = w.getnframes() / w.getframerate()
+        print(f"wrote {dst} ({sec:.1f}s, {model}, {voice}, format={used})")
+    return 0
+
+
+def synthesize(url: str, key: str, bodies: list[tuple[str, dict]]):
+    """(WAV のバイト列, mime, 使った形式) を返す。失敗したら None。"""
     res, used, errors = None, None, []
     for name, body in bodies:
         try:
@@ -191,32 +243,15 @@ def main() -> int:
                 break
     if res is None:
         print("\n".join(errors), file=sys.stderr)
-        return 1
-
+        return None
     parts = res.get("candidates", [{}])[0].get("content", {}).get("parts", [])
     audio = [p.get("inlineData") or p.get("inline_data") for p in parts]
     audio = [a for a in audio if a]
     if not audio:
         print("音声が返ってきませんでした:\n" + json.dumps(res, ensure_ascii=False)[:1500], file=sys.stderr)
-        return 1
+        return None
     mime = audio[0].get("mimeType") or audio[0].get("mime_type", "")
-    wav = to_wav(mime, b"".join(base64.b64decode(a["data"]) for a in audio))
-
-    d = episode_dir(args.episode) / "audio"
-    takes = d / "_takes"
-    takes.mkdir(parents=True, exist_ok=True)
-    stamp = dt.datetime.now().strftime("%Y%m%d-%H%M%S")
-    take = takes / f"gemini_{voice}_{stamp}.wav"
-    take.write_bytes(wav)
-    shutil.copyfile(take, d / "narration.wav")
-    (d / "narration.source.json").write_text(json.dumps({
-        "source": "gemini", "model": model, "voice": voice, "temperature": temperature,
-        "request_format": used, "mime": mime, "take": take.name, "created": stamp,
-    }, ensure_ascii=False, indent=2), encoding="utf-8")
-    with wave.open(io.BytesIO(wav)) as w:
-        sec = w.getnframes() / w.getframerate()
-    print(f"wrote {d / 'narration.wav'} ({sec:.1f}s, {model}, {voice}, format={used})")
-    return 0
+    return to_wav(mime, b"".join(base64.b64decode(a["data"]) for a in audio)), mime, used
 
 
 if __name__ == "__main__":

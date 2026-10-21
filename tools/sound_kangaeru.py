@@ -235,3 +235,93 @@ def design(tl: dict, total: float) -> tuple[np.ndarray, np.ndarray]:
     start = np.minimum(1, np.arange(n) / (2.5 * SR))
     music *= start
     return music, sfx
+
+
+# ---------- 本編（フル尺）: 場面の型と 3D の素材から、自動で音を付ける ----------
+
+ROOTS = [73.42, 87.31, 65.41, 98.0, 82.41, 73.42, 61.74, 87.31, 77.78, 73.42]  # 章ごとの低音（D, F, C, G, E…）
+
+
+def design_full(tl: dict, total: float) -> tuple[np.ndarray, np.ndarray]:
+    """(合成の音楽, 効果音)。章ごとに低音を変え、場面の頭でまばらにピアノを鳴らす。"""
+    n = int(total * SR)
+    scenes = tl["scenes"]
+    music = np.zeros(n)
+    sfx = np.zeros(n)
+    chapters = [s for s in scenes if s["type"] == "chapter"]
+    bounds = [c["from"] / FPS for c in chapters] + [total]
+    # 低音: 章ごとに根音を変えて、つなぎ目は重ねる
+    for i, c in enumerate(chapters):
+        a, b = bounds[i], min(total, bounds[i + 1] + 2.0)
+        seg = drone(b - a, ROOTS[i % len(ROOTS)])
+        env = np.ones(len(seg))
+        f = min(len(seg), int(2.0 * SR))
+        env[:f] = np.linspace(0, 1, f)
+        env[-f:] = np.linspace(1, 0, f)
+        place(music, seg * env, a, -14)
+    # ピアノ: 場面の頭で、前の音から 5 秒以上あいていれば1音
+    scale = [293.66, 349.23, 440.0, 392.0, 329.63, 523.25, 233.08, 261.63]
+    keys = np.zeros(n)
+    last = -99.0
+    for k, s in enumerate(scenes):
+        t = s["from"] / FPS + 0.3
+        if t - last >= 5.0 and s["type"] not in ("chapter",):
+            f = scale[(k * 3) % len(scale)]
+            place(keys, piano(f), t, -11)
+            place(keys, piano(f / 2, 5.0), t, -19)
+            last = t
+    music += reverb(keys, 3.2, 0.45)
+
+    for s in scenes:
+        t0 = s["from"] / FPS
+        dur = s["duration"] / FPS
+        clip = s.get("clip") or ""
+        ss = s["sentences"]
+        sent = lambda i: t0 + ss[min(i, len(ss) - 1)]["from"] / FPS if ss else t0  # noqa: E731
+        if s["type"] == "chapter":
+            place(sfx, riser(1.6), max(0, t0 - 1.4), -24)
+            place(sfx, reverb(boom(3.5, 60, 34), 3.0, 0.4), t0 + 0.1, -17)
+        elif s["type"] == "title":
+            place(sfx, riser(2.2), sent(1) - 2.2, -20)
+            place(sfx, reverb(boom(4.5, 58, 30), 3.5, 0.4), sent(1) - 0.1, -13)
+        elif s["type"] == "ending":
+            place(sfx, reverb(boom(5.0, 52, 28), 4.0, 0.5), sent(0) - 0.1, -16)
+        elif s["type"] == "anim":
+            g = s["items"].get("grow", "1")
+            gi = int(g) if str(g).isdigit() else 1
+            place(sfx, rumble(max(2.0, dur - (sent(gi) - t0))), sent(gi), -18)
+        elif s["type"] == "genre":
+            name = s["items"].get("name", "")
+            for i, ch in enumerate(name):
+                if ch != " ":
+                    place(sfx, key_click(), sent(0) + (36 * i / max(1, len(name))) / FPS + rng.uniform(-0.01, 0.01), -22)
+        elif s["type"] == "words" and s["items"].get("style") == "type":
+            for i in range(len(ss)):
+                text = (ss[i].get("short") or ss[i]["text"]).rstrip("。")
+                span = min(30, len(text) * 3) / FPS
+                for j in range(len(text)):
+                    place(sfx, key_click(), sent(i) - 4 / FPS + span * j / max(1, len(text)), -25 + rng.uniform(-2, 2))
+        elif s["type"] == "cta" and s["items"].get("subscribe") == "1":
+            hit = next((x for x in ss if "チャンネル登録" in x["text"]), ss[0])
+            pos = hit["text"].find("チャンネル登録")
+            tt = t0 + (hit["from"] + (hit["to"] - hit["from"]) * pos / len(hit["text"]) + 33) / FPS
+            place(sfx, key_click(), tt, -18)
+        if s["type"] == "still":
+            if clip == "k_louisville" or clip == "k_derby":
+                c = crowd(dur + 1.0)
+                e = np.ones(len(c))
+                f = min(len(c), int(1.0 * SR))
+                e[:f] = np.linspace(0, 1, f)
+                e[-f:] = np.linspace(1, 0, f)
+                place(sfx, reverb(c * e, 1.5, 0.3), t0, -21)
+            if clip in ("k_derby", "k_izakaya"):
+                place(sfx, clink(), t0 + 0.6, -25)
+            if clip == "k_reporter":
+                place(sfx, crackle(dur), t0, -34)
+            if clip == "k_strings":
+                place(sfx, heartbeat(dur), t0, -21)
+    sfx += lp(rng.standard_normal(n), 3000) * db(-58)
+    start = np.minimum(1, np.arange(n) / (2.5 * SR))
+    music *= start
+    music[-int(4 * SR):] *= np.linspace(1, 0, int(4 * SR))
+    return music, sfx

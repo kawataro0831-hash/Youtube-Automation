@@ -1,7 +1,8 @@
 # 声づくり（Google AI Studio の Generate speech・API キーなし）
 
 ブラウザで https://aistudio.google.com/generate-speech を開き（Google アカウントでログイン済みのブラウザ）、
-次のとおりに設定して **全文を1回で** 生成する（パートに分けると声色がずれやすいため）。
+次のとおりに設定して生成する。章に分かれている回は章ごとに1回ずつ（長すぎると崩れやすいため）。
+声・口調・Temperature は全部の章で同じにする（変えると途中で声が別人のようになる）。
 
 | 項目 | 値 |
 |---|---|
@@ -46,6 +47,7 @@
 なぜ人間は「自分らしさ」に殺されるのか？
 ```
 
+
 数字や英字は読み間違いを防ぐため、かなで書いてある（画面と字幕は script.json の text の表記）。
 
 ## できたら
@@ -54,5 +56,5 @@
 2. ダウンロード（WAV）して、リポジトリの一番上で:
 
 ```bash
-.venv/bin/python tools/register_audio.py kangaeru-01-1min voice ~/Downloads/<ダウンロードしたファイル>.wav --note "AI Studio・Algenib"
+.venv/bin/python tools/register_audio.py kangaeru-01-1min voice ~/Downloads/<ファイル>.wav --note "AI Studio・Algenib"
 ```
