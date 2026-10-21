@@ -154,11 +154,14 @@ def main() -> None:
     total = len(voice) / SR
     tl = json.loads((ROOT / "video" / "src" / "generated" / f"{args.episode}.json").read_text(encoding="utf-8"))
 
-    if script.get("sound") == "cinematic":
-        # 映画のような音（低い持続音・ピアノ・場面ごとの効果音）。中身は sound_kangaeru.py
-        import sound_kangaeru
+    if script.get("sound") in ("cinematic", "ambient"):
+        # cinematic: 映画のような音（sound_kangaeru.py）／ ambient: やわらかいパッドとベル（sound_flat.py）
+        if script["sound"] == "cinematic":
+            import sound_kangaeru as design_mod
+        else:
+            import sound_flat as design_mod
 
-        music, sfx = sound_kangaeru.design(tl, total)
+        music, sfx = design_mod.design(tl, total)
         if args.bgm:
             music = load_mono(args.bgm)
         music = fit(music, len(voice))

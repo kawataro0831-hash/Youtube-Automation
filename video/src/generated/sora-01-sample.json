@@ -1,0 +1,206 @@
+{
+  "episode": "sora-01-sample",
+  "channel": "せかいのしくみ（仮）",
+  "tagline": "身近なふしぎを、宇宙の目で",
+  "title": "見上げた空は、ぜんぶ過去。",
+  "subtitle": "光の速さ × 距離 × 時間",
+  "fps": 30,
+  "durationInFrames": 1363,
+  "audio": "ep/sora-01-sample/mix.wav",
+  "voiceSource": "openjtalk-temp",
+  "scenes": [
+    {
+      "id": "sky",
+      "type": "sky",
+      "from": 0,
+      "duration": 123,
+      "items": {
+        "time": "day"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s0",
+          "text": "空を見上げると、太陽が輝いている。",
+          "from": 19,
+          "to": 105
+        }
+      ]
+    },
+    {
+      "id": "sun",
+      "type": "sun",
+      "from": 123,
+      "duration": 141,
+      "items": {
+        "label": "8分20秒前の太陽",
+        "at": "いま"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s1",
+          "text": "でも、その光は「いま」の太陽ではない。",
+          "from": 9,
+          "to": 120
+        }
+      ]
+    },
+    {
+      "id": "distance",
+      "type": "distance",
+      "from": 264,
+      "duration": 176,
+      "items": {
+        "value": 150000000,
+        "unit": "km",
+        "display": "1億5000万 km"
+      },
+      "clip": null,
+      "sources": [
+        {
+          "kind": "official",
+          "name": "IAU 2012 決議 B2（1天文単位 = 149,597,870,700 m）",
+          "url": "https://www.iau.org/static/resolutions/IAU2012_English.pdf",
+          "status": "要確認",
+          "id": "au"
+        }
+      ],
+      "sentences": [
+        {
+          "id": "s2",
+          "text": "太陽から地球までは、およそ1億5000万キロメートル。",
+          "from": 9,
+          "to": 157
+        }
+      ]
+    },
+    {
+      "id": "photon",
+      "type": "photon",
+      "from": 440,
+      "duration": 308,
+      "items": {
+        "speed": "秒速 約30万 km",
+        "seconds": 499
+      },
+      "clip": null,
+      "sources": [
+        {
+          "kind": "official",
+          "name": "NIST CODATA 光速 c = 299,792,458 m/s",
+          "url": "https://physics.nist.gov/cgi-bin/cuu/Value?c",
+          "status": "要確認",
+          "id": "c"
+        }
+      ],
+      "sentences": [
+        {
+          "id": "s3",
+          "text": "光は、1秒に30万キロメートルも進む。",
+          "from": 9,
+          "to": 132
+        },
+        {
+          "id": "s4",
+          "text": "それでも、届くまでに8分20秒かかる。",
+          "from": 151,
+          "to": 290
+        }
+      ]
+    },
+    {
+      "id": "moon",
+      "type": "moon",
+      "from": 748,
+      "duration": 132,
+      "items": {
+        "label": "約1.3秒"
+      },
+      "clip": null,
+      "sources": [
+        {
+          "kind": "official",
+          "name": "NASA Moon Facts（地球からの平均距離 約38万4400 km）",
+          "url": "https://science.nasa.gov/moon/facts/",
+          "status": "要確認",
+          "id": "moon"
+        }
+      ],
+      "sentences": [
+        {
+          "id": "s5",
+          "text": "月の光なら、約1.3秒前。",
+          "from": 10,
+          "to": 112
+        }
+      ]
+    },
+    {
+      "id": "stars",
+      "type": "stars",
+      "from": 880,
+      "duration": 193,
+      "items": {
+        "name": "プロキシマ・ケンタウリ",
+        "dist": "約4.2光年"
+      },
+      "clip": null,
+      "sources": [
+        {
+          "kind": "official",
+          "name": "NASA Proxima Centauri b（主星まで約4.2光年）",
+          "url": "https://science.nasa.gov/exoplanet-catalog/proxima-centauri-b/",
+          "status": "要確認",
+          "id": "proxima"
+        }
+      ],
+      "sentences": [
+        {
+          "id": "s6",
+          "text": "太陽の次に近い星の光は、4年以上も前に出発したものだ。",
+          "from": 10,
+          "to": 174
+        }
+      ]
+    },
+    {
+      "id": "past",
+      "type": "sky",
+      "from": 1073,
+      "duration": 171,
+      "items": {
+        "time": "night"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s7",
+          "text": "つまり、空を見上げるたびに、私たちは過去を見ている。",
+          "from": 9,
+          "to": 138
+        }
+      ]
+    },
+    {
+      "id": "title",
+      "type": "title",
+      "from": 1244,
+      "duration": 119,
+      "items": {},
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s8",
+          "text": "見上げた空は、ぜんぶ過去なのだ。",
+          "from": 9,
+          "to": 81
+        }
+      ]
+    }
+  ]
+}

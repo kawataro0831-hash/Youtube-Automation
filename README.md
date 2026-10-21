@@ -6,6 +6,7 @@ YouTube の解説動画を、台本（JSON）から自動で組み立てる道�
 |---|---|---|---|
 | `kangaeru-01-1min` | 考える夜 | 「なぜ人間は『自分らしさ』に殺されるのか？」PROLOGUE の1分版。映画のような暗い画面・明朝体の字幕・黒帯 | `blender/render_kangaeru.sh`（`blender/kangaeru.py`） |
 | `uratori-01-1min` | ウラトリ | 「相次ぐ情報漏洩の裏側」の1分版。生成りの紙面＋黄色のマーカー | `blender/render_shots.sh`（`blender/shots.py`） |
+| `sora-01-sample` | せかいのしくみ（仮・新チャンネル） | 「見上げた空は、ぜんぶ過去。」約45秒のトンマナ試作。深い紺の宇宙・面と光だけの絵・丸ゴシック | なし（絵はすべてコード） |
 
 ```bash
 blender/render_kangaeru.sh                       # 考える夜の3D（静止画5枚＋影のアニメ）
@@ -19,6 +20,23 @@ VOICE=gemini ./make_video.sh kangaeru-01-1min    # Gemini の声 → 時刻表 �
 - 人物は顔を描かず、持ち物・影・操り人形で表す（作りものの人間が安っぽく見えないように）
 - 音は `tools/sound_kangaeru.py` で合成（低い持続音・ピアノ・群衆・氷・たばこ・タイプライター・低音の一撃）。外部の素材なし
 - 字幕は下の黒帯に焼き込み（`KangaeruMain` の `burnSubtitles` で切り替え）。`.srt` も出る
+
+### せかいのしくみ（仮）の作り
+
+科学解説アニメ（Kurzgesagt のような、線のない面と光の絵）を、**人が絵を描かずに**作る試み。
+
+- 絵は `video/src/flat/kit.tsx` の部品を、乱数の種（seed）と数式で組んで描く。同じ seed なら毎回同じ形
+  - 太陽（ゆらぐ炎・表面の粒・光のにじみ）／惑星（回る陸と雲・夜の側の影・ふちの光・大気）／星空（層ごとの奥行き・瞬き）／
+    丘（空気遠近法の3枚）／案内役の生きもの（このチャンネルのオリジナル。まばたき・呼吸・見上げる）／弾んで出る札
+  - カメラは層（`Layer` の depth）ごとに動く量を変えて奥行きを出す
+- 場面の型（`script.json` の `scenes[].type`）: `sky`（昼／夜）・`sun`・`distance`・`photon`・`moon`・`stars`・`title`。
+  台本に型と数字（`items`）を書けば絵ができるので、台本づくり（LLM）からそのままつながる
+- 色・文字は `video/src/flat/theme.ts` だけで決める。音は `tools/sound_flat.py`（パッド・ベル・札の音。外部の素材なし）
+- 数字の出典は `script.json` の `sources`（公開前に一次資料で確認する）
+
+```bash
+VOICE=temp ./make_video.sh sora-01-sample   # 仮の声で通し（本番は VOICE=gemini）
+```
 
 ## しくみ
 
