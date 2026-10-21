@@ -17,7 +17,7 @@ from pathlib import Path
 import numpy as np
 from scipy.signal import butter, sosfilt
 
-from common import ROOT, SR, episode_dir, load_mono, write_wav
+from common import ROOT, SR, episode_dir, load_mono, load_script, write_wav
 
 FPS = 30
 rng = np.random.default_rng(11)
@@ -144,20 +144,48 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("episode")
     ap.add_argument("--bgm", type=Path, help="合成の代わりに使う BGM ファイル")
-    ap.add_argument("--bgm-db", type=float, default=-24.0, help="BGM の大きさ（声の最大を 0 dB として）")
+    ap.add_argument("--bgm-db", type=float, help="BGM の大きさ（声の最大を 0 dB として）。既定は回の音の種類による")
     args = ap.parse_args()
+    script = load_script(args.episode)
 
     d = episode_dir(args.episode)
     voice = load_mono(d / "audio" / "narration.wav")
     voice = voice / (np.max(np.abs(voice)) or 1.0) * 0.9
     total = len(voice) / SR
-    tl = json.loads((ROOT / "video" / "src" / "generated" / "timeline.json").read_text(encoding="utf-8"))
+    tl = json.loads((ROOT / "video" / "src" / "generated" / f"{args.episode}.json").read_text(encoding="utf-8"))
 
+    if script.get("sound") == "cinematic":
+        # 映画のような音（低い持続音・ピアノ・場面ごとの効果音）。中身は sound_kangaeru.py
+        import sound_kangaeru
+
+        music, sfx = sound_kangaeru.design(tl, total)
+        if args.bgm:
+            music = load_mono(args.bgm)
+        music = fit(music, len(voice))
+        music = music / (np.max(np.abs(music)) or 1.0) * db(args.bgm_db if args.bgm_db is not None else -15.0)
+        music *= duck_envelope(voice, depth_db=-7.0)
+        sfx = fit(sfx, len(voice))
+    else:
+        music, sfx = uratori_sound(args, tl, voice, total)
+    mix = voice + music + sfx
+    with tempfile.TemporaryDirectory() as td:
+        raw = Path(td) / "raw.wav"
+        write_wav(raw, mix / max(1.0, np.max(np.abs(mix))))
+        out = ROOT / "video" / "public" / "ep" / args.episode / "mix.wav"
+        out.parent.mkdir(parents=True, exist_ok=True)
+        loudnorm(raw, out)
+    print(f"wrote {out} ({total:.1f}s)")
+
+
+def fit(x: np.ndarray, n: int) -> np.ndarray:
+    return np.pad(x, (0, max(0, n - len(x))))[:n]
+
+
+def uratori_sound(args, tl: dict, voice: np.ndarray, total: float) -> tuple[np.ndarray, np.ndarray]:
+    """ウラトリの音: やわらかいパッドの BGM と、紙・ポンなどの効果音。"""
     music = load_mono(args.bgm) if args.bgm else bgm(total)
-    if len(music) < len(voice):
-        music = np.pad(music, (0, len(voice) - len(music)))
-    music = music[: len(voice)]
-    music = music / (np.max(np.abs(music)) or 1.0) * db(args.bgm_db)
+    music = fit(music, len(voice))
+    music = music / (np.max(np.abs(music)) or 1.0) * db(args.bgm_db if args.bgm_db is not None else -24.0)
     music *= duck_envelope(voice)
 
     sfx = np.zeros(len(voice))
@@ -176,15 +204,7 @@ def main() -> None:
             place(sfx, pon(), t0 + sc["sentences"][0]["from"] / FPS, -22)
         if sc["type"] in ("news", "dots", "bars"):
             place(sfx, paper_fwip(0.22), t0 + 0.05, -26)
-
-    mix = voice + music + sfx
-    with tempfile.TemporaryDirectory() as td:
-        raw = Path(td) / "raw.wav"
-        write_wav(raw, mix / max(1.0, np.max(np.abs(mix))))
-        out = ROOT / "video" / "public" / "ep" / "mix.wav"
-        out.parent.mkdir(parents=True, exist_ok=True)
-        loudnorm(raw, out)
-    print(f"wrote {out} ({total:.1f}s)")
+    return music, sfx
 
 
 if __name__ == "__main__":

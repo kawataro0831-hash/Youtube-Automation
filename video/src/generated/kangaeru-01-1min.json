@@ -1,0 +1,224 @@
+{
+  "episode": "kangaeru-01-1min",
+  "channel": "考える夜",
+  "tagline": "当たり前を、少し違う角度から",
+  "title": "なぜ人間は「自分らしさ」に殺されるのか？（PROLOGUE 1分版）",
+  "subtitle": "自己像 × アイデンティティ × 後方互換性",
+  "fps": 30,
+  "durationInFrames": 2251,
+  "audio": "ep/kangaeru-01-1min/mix.wav",
+  "voiceSource": "openjtalk-temp",
+  "scenes": [
+    {
+      "id": "louisville",
+      "type": "still",
+      "from": 0,
+      "duration": 185,
+      "items": {
+        "place": "LOUISVILLE, KENTUCKY",
+        "year": "1970",
+        "move": "push"
+      },
+      "clip": "k_louisville",
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s0",
+          "text": "1970年、アメリカ南部のケンタッキー州ルイビル。",
+          "from": 19,
+          "to": 165
+        }
+      ]
+    },
+    {
+      "id": "derby",
+      "type": "still",
+      "from": 185,
+      "duration": 285,
+      "items": {
+        "move": "drift"
+      },
+      "clip": "k_derby",
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s1",
+          "text": "競馬場には酒の匂いが漂い、観客席では派手な帽子をかぶった人々が声を張り上げている。",
+          "from": 9,
+          "to": 266
+        }
+      ]
+    },
+    {
+      "id": "reporter",
+      "type": "still",
+      "from": 470,
+      "duration": 214,
+      "items": {
+        "move": "push",
+        "name": "HUNTER S. THOMPSON",
+        "nameJa": "ハンター・S・トンプソン",
+        "role": "記者・作家（1937–2005）",
+        "nameAt": 1
+      },
+      "clip": "k_reporter",
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s2",
+          "text": "この場所に、一人の記者がやってきた。",
+          "from": 9,
+          "to": 93
+        },
+        {
+          "id": "s3",
+          "text": "ハンター・S・トンプソン。",
+          "from": 123,
+          "to": 194
+        }
+      ]
+    },
+    {
+      "id": "outside",
+      "type": "diagram",
+      "from": 684,
+      "duration": 471,
+      "items": {
+        "event": "出来事",
+        "reporter": "記者"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s4",
+          "text": "本来、記者というものは出来事の外側に立つ。",
+          "from": 9,
+          "to": 118
+        },
+        {
+          "id": "s5",
+          "text": "しかしトンプソンは、まるで逆のことをやった。",
+          "from": 153,
+          "to": 247
+        },
+        {
+          "id": "s6",
+          "text": "記者自身が出来事の中へ入り込み、ついには物語の一部になってしまう。",
+          "from": 267,
+          "to": 453
+        }
+      ]
+    },
+    {
+      "id": "genre",
+      "type": "genre",
+      "from": 1155,
+      "duration": 138,
+      "items": {
+        "name": "HUNTER S. THOMPSON",
+        "label": "GONZO"
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s7",
+          "text": "彼の名前そのものが、一つのジャンルになっていった。",
+          "from": 9,
+          "to": 119
+        }
+      ]
+    },
+    {
+      "id": "shadow",
+      "type": "anim",
+      "from": 1293,
+      "duration": 385,
+      "items": {
+        "quote": "お前は、こういう人間で\nあり続けろ",
+        "quoteAt": 1
+      },
+      "clip": "k_shadow",
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s8",
+          "text": "最初は、本人がキャラクターを作っていた。",
+          "from": 9,
+          "to": 101
+        },
+        {
+          "id": "s9",
+          "text": "しかし、いつしか、キャラクターの方が本人に「お前はこういう人間であり続けろ」と要求し始める。",
+          "from": 119,
+          "to": 365
+        }
+      ]
+    },
+    {
+      "id": "us",
+      "type": "still",
+      "from": 1678,
+      "duration": 95,
+      "items": {
+        "move": "push"
+      },
+      "clip": "k_window",
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s10",
+          "text": "これは有名人だけの話ではない。",
+          "from": 9,
+          "to": 76
+        }
+      ]
+    },
+    {
+      "id": "strings",
+      "type": "still",
+      "from": 1773,
+      "duration": 194,
+      "items": {
+        "move": "pullup"
+      },
+      "clip": "k_strings",
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s11",
+          "text": "自分らしさを確立した人間ほど、自分らしさから逃げられなくなるのではないか。",
+          "from": 9,
+          "to": 174
+        }
+      ]
+    },
+    {
+      "id": "title",
+      "type": "title",
+      "from": 1967,
+      "duration": 284,
+      "items": {
+        "title": "なぜ人間は\n「自分らしさ」に\n殺されるのか？",
+        "titleAt": 1
+      },
+      "clip": null,
+      "sources": [],
+      "sentences": [
+        {
+          "id": "s12",
+          "text": "今夜考えたいのは、この奇妙な問題である。",
+          "from": 9,
+          "to": 113
+        },
+        {
+          "id": "s13",
+          "text": "なぜ人間は「自分らしさ」に殺されるのか？",
+          "from": 132,
+          "to": 246
+        }
+      ]
+    }
+  ]
+}

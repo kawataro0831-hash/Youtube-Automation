@@ -19,6 +19,8 @@ export type Timeline = {
   episode: string;
   channel: string;
   tagline: string;
+  title?: string;
+  subtitle?: string;
   fps: number;
   durationInFrames: number;
   audio: string;

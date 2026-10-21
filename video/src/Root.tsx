@@ -1,6 +1,8 @@
 import {Composition, Still} from 'remotion';
 import {FontTest} from './FontTest';
-import timeline from './generated/timeline.json';
+import timeline from './generated/uratori-01-1min.json';
+import kangaeru01 from './generated/kangaeru-01-1min.json';
+import {KangaeruMain} from './kangaeru/Main';
 import {Main, Timeline} from './uratori/Main';
 import {PaperNotice, PaperReport} from './uratori/Textures';
 
@@ -17,6 +19,15 @@ export const RemotionRoot: React.FC = () => {
         width={1920}
         height={1080}
         defaultProps={{timeline: tl}}
+      />
+      <Composition
+        id="Kangaeru"
+        component={KangaeruMain}
+        durationInFrames={(kangaeru01 as Timeline).durationInFrames}
+        fps={30}
+        width={1920}
+        height={1080}
+        defaultProps={{timeline: kangaeru01 as Timeline, burnSubtitles: true}}
       />
       {/* Blender の紙に貼る画像 */}
       <Still id="PaperNotice" component={PaperNotice} width={1240} height={1754} defaultProps={{variant: 0}} />

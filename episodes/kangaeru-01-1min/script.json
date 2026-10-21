@@ -1,0 +1,195 @@
+{
+  "id": "kangaeru-01-1min",
+  "composition": "Kangaeru",
+  "title": "なぜ人間は「自分らしさ」に殺されるのか？（PROLOGUE 1分版）",
+  "channel": "考える夜",
+  "tagline": "当たり前を、少し違う角度から",
+  "subtitle": "自己像 × アイデンティティ × 後方互換性",
+  "sound": "cinematic",
+  "note": "本編台本の PROLOGUE から行を選んで約1分に縮めた試作（文は台本のまま。s11 の「あるいは、」と s7 の前後だけ省いた）。",
+  "voice": {
+    "model": "gemini-3.8-flash-tts",
+    "voice": "Algenib",
+    "alternatives": [
+      "Charon",
+      "Orus",
+      "Alnilam"
+    ],
+    "temperature": 1.0,
+    "style": "低く、渋い、50代の男性ナレーター。深夜のドキュメンタリー番組のように、静かに、ゆっくりと、聞き手を物語の中へ引き込む語り。声を張らない。句点のあとはしっかり間をとる。「」の中の台詞だけ、少し低く、圧をかけるように。最後の問いは、ささやくように静かに。"
+  },
+  "sentences": [
+    {
+      "id": "s0",
+      "text": "1970年、アメリカ南部のケンタッキー州ルイビル。",
+      "read": "せんきゅうひゃくななじゅうねん。アメリカ南部の、ケンタッキー州ルイビル。"
+    },
+    {
+      "id": "s1",
+      "text": "競馬場には酒の匂いが漂い、観客席では派手な帽子をかぶった人々が声を張り上げている。"
+    },
+    {
+      "id": "s2",
+      "text": "この場所に、一人の記者がやってきた。"
+    },
+    {
+      "id": "s3",
+      "text": "ハンター・S・トンプソン。",
+      "read": "ハンター・エス・トンプソン。"
+    },
+    {
+      "id": "s4",
+      "text": "本来、記者というものは出来事の外側に立つ。"
+    },
+    {
+      "id": "s5",
+      "text": "しかしトンプソンは、まるで逆のことをやった。"
+    },
+    {
+      "id": "s6",
+      "text": "記者自身が出来事の中へ入り込み、ついには物語の一部になってしまう。"
+    },
+    {
+      "id": "s7",
+      "text": "彼の名前そのものが、一つのジャンルになっていった。"
+    },
+    {
+      "id": "s8",
+      "text": "最初は、本人がキャラクターを作っていた。"
+    },
+    {
+      "id": "s9",
+      "text": "しかし、いつしか、キャラクターの方が本人に「お前はこういう人間であり続けろ」と要求し始める。"
+    },
+    {
+      "id": "s10",
+      "text": "これは有名人だけの話ではない。"
+    },
+    {
+      "id": "s11",
+      "text": "自分らしさを確立した人間ほど、自分らしさから逃げられなくなるのではないか。"
+    },
+    {
+      "id": "s12",
+      "text": "今夜考えたいのは、この奇妙な問題である。"
+    },
+    {
+      "id": "s13",
+      "text": "なぜ人間は「自分らしさ」に殺されるのか？"
+    }
+  ],
+  "scenes": [
+    {
+      "id": "louisville",
+      "type": "still",
+      "clip": "k_louisville",
+      "sentences": [
+        "s0"
+      ],
+      "items": {
+        "place": "LOUISVILLE, KENTUCKY",
+        "year": "1970",
+        "move": "push"
+      }
+    },
+    {
+      "id": "derby",
+      "type": "still",
+      "clip": "k_derby",
+      "sentences": [
+        "s1"
+      ],
+      "items": {
+        "move": "drift"
+      }
+    },
+    {
+      "id": "reporter",
+      "type": "still",
+      "clip": "k_reporter",
+      "sentences": [
+        "s2",
+        "s3"
+      ],
+      "items": {
+        "move": "push",
+        "name": "HUNTER S. THOMPSON",
+        "nameJa": "ハンター・S・トンプソン",
+        "role": "記者・作家（1937–2005）",
+        "nameAt": 1
+      }
+    },
+    {
+      "id": "outside",
+      "type": "diagram",
+      "sentences": [
+        "s4",
+        "s5",
+        "s6"
+      ],
+      "items": {
+        "event": "出来事",
+        "reporter": "記者"
+      }
+    },
+    {
+      "id": "genre",
+      "type": "genre",
+      "sentences": [
+        "s7"
+      ],
+      "items": {
+        "name": "HUNTER S. THOMPSON",
+        "label": "GONZO"
+      }
+    },
+    {
+      "id": "shadow",
+      "type": "anim",
+      "clip": "k_shadow",
+      "sentences": [
+        "s8",
+        "s9"
+      ],
+      "items": {
+        "quote": "お前は、こういう人間で\nあり続けろ",
+        "quoteAt": 1
+      }
+    },
+    {
+      "id": "us",
+      "type": "still",
+      "clip": "k_window",
+      "sentences": [
+        "s10"
+      ],
+      "items": {
+        "move": "push"
+      }
+    },
+    {
+      "id": "strings",
+      "type": "still",
+      "clip": "k_strings",
+      "sentences": [
+        "s11"
+      ],
+      "items": {
+        "move": "pullup"
+      }
+    },
+    {
+      "id": "title",
+      "type": "title",
+      "sentences": [
+        "s12",
+        "s13"
+      ],
+      "items": {
+        "title": "なぜ人間は\n「自分らしさ」に\n殺されるのか？",
+        "titleAt": 1
+      }
+    }
+  ],
+  "sources": {}
+}

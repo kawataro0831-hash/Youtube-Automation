@@ -1,7 +1,24 @@
 # Youtube-Automation
 
-YouTube の解説動画を、台本（JSON）から自動で組み立てる道具一式。
-最初の1本は **ウラトリ #01「相次ぐ情報漏洩の裏側」の1分版**（雰囲気確認用の試作）。
+YouTube の解説動画を、台本（JSON）から自動で組み立てる道具一式。いまある回:
+
+| 回 | チャンネル | 中身 | 3D の素材 |
+|---|---|---|---|
+| `kangaeru-01-1min` | 考える夜 | 「なぜ人間は『自分らしさ』に殺されるのか？」PROLOGUE の1分版。映画のような暗い画面・明朝体の字幕・黒帯 | `blender/render_kangaeru.sh`（`blender/kangaeru.py`） |
+| `uratori-01-1min` | ウラトリ | 「相次ぐ情報漏洩の裏側」の1分版。生成りの紙面＋黄色のマーカー | `blender/render_shots.sh`（`blender/shots.py`） |
+
+```bash
+blender/render_kangaeru.sh                       # 考える夜の3D（静止画5枚＋影のアニメ）
+VOICE=gemini ./make_video.sh kangaeru-01-1min    # Gemini の声 → 時刻表 → 音 → 書き出し
+```
+
+### 考える夜の作り
+
+- 場面: 1970年ルイビルの夕景（尖塔の影）／バーボンのグラス（Cycles）／帽子・サングラス・シガレットホルダーの静物（Cycles）／
+  「出来事の外から中へ」の図／名前がジャンルになる文字／伸びていく影（EEVEE のアニメ）／夜の窓辺／木の操り人形／タイトル
+- 人物は顔を描かず、持ち物・影・操り人形で表す（作りものの人間が安っぽく見えないように）
+- 音は `tools/sound_kangaeru.py` で合成（低い持続音・ピアノ・群衆・氷・たばこ・タイプライター・低音の一撃）。外部の素材なし
+- 字幕は下の黒帯に焼き込み（`KangaeruMain` の `burnSubtitles` で切り替え）。`.srt` も出る
 
 ## しくみ
 

@@ -9,9 +9,11 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@fontsource/cormorant-garamond": "5.3.0",
     "@fontsource/noto-sans-jp": "5.3.0",
     "@fontsource/noto-serif-jp": "5.3.1",
     "@fontsource/shippori-mincho": "5.3.0",
+    "@fontsource/special-elite": "5.3.0",
     "@remotion/cli": "4.0.537",
     "@remotion/fonts": "4.0.537",
     "@remotion/media-utils": "4.0.537",

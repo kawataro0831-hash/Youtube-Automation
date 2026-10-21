@@ -6,7 +6,7 @@
   .venv/bin/python tools/build_timeline.py uratori-01-1min
 
 出力:
-  video/src/generated/timeline.json  Remotion が読む時刻表（フレーム）
+  video/src/generated/<ep>.json      Remotion が読む時刻表（フレーム）
   episodes/<ep>/build/subtitles.srt  YouTube に上げる字幕
   episodes/<ep>/build/alignment.json 文ごとの秒と、仮の声のときは正解との差
 """
@@ -165,13 +165,14 @@ def main() -> None:
         })
     timeline = {
         "episode": script["id"], "channel": script["channel"], "tagline": script["tagline"],
-        "fps": FPS, "durationInFrames": fr(total), "audio": "ep/mix.wav",
+        "title": script.get("title", ""), "subtitle": script.get("subtitle", ""),
+        "fps": FPS, "durationInFrames": fr(total), "audio": f"ep/{script['id']}/mix.wav",
         "voiceSource": json.loads(src.read_text(encoding="utf-8")).get("source") if src.exists() else "unknown",
         "scenes": tl_scenes,
     }
     gen = ROOT / "video" / "src" / "generated"
     gen.mkdir(parents=True, exist_ok=True)
-    (gen / "timeline.json").write_text(json.dumps(timeline, ensure_ascii=False, indent=2), encoding="utf-8")
+    (gen / f"{script['id']}.json").write_text(json.dumps(timeline, ensure_ascii=False, indent=2), encoding="utf-8")
 
     build = d / "build"
     build.mkdir(exist_ok=True)

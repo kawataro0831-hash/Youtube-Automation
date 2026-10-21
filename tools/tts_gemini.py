@@ -32,12 +32,8 @@ from common import episode_dir, load_script, read_text
 API = "https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
 
 
-def build_prompt(script: dict) -> str:
-    """演出メモ＋台本。見出しの書き方は Gemini TTS の公式の書き方（AUDIO PROFILE / DIRECTOR'S NOTES / TRANSCRIPT）。
-
-    モデルが読むのは TRANSCRIPT の部分だけ。文の間は改行で区切り、場面の変わり目は空行にする。
-    """
-    v = script["voice"]
+def transcript(script: dict) -> str:
+    """読み上げる本文。文の間は改行、場面の変わり目は空行。"""
     scene_of = {sid: sc["id"] for sc in script["scenes"] for sid in sc["sentences"]}
     lines, prev = [], None
     for s in script["sentences"]:
@@ -45,13 +41,59 @@ def build_prompt(script: dict) -> str:
             lines.append("")
         lines.append(read_text(s))
         prev = scene_of[s["id"]]
+    return "\n".join(lines)
+
+
+def write_ai_studio_doc(ep: str, script: dict) -> None:
+    """AI Studio の画面に貼る設定・口調・本文を tts/ai_studio.md に書き出す。"""
+    v = script["voice"]
+    alt = " / ".join(v.get("alternatives", []))
+    doc = f"""# 声づくり（Google AI Studio の Generate speech）
+
+| 項目 | 値 |
+|---|---|
+| モデル | Gemini 3.8 Flash TTS |
+| 声（Voice） | **{v['voice']}**（別案: {alt}） |
+| Temperature | {v.get('temperature', 1.0)} |
+| 話し手 | 1人 |
+
+## Style（口調）欄に貼る文
+
+```
+{v['style']}空行のところ（場面の変わり目）は、ふつうの句点より長めに間をとる。
+```
+
+## 本文欄に貼る文（1回で全文を読ませる）
+
+```
+{transcript(script)}
+```
+
+数字や英字は読み間違いを防ぐため、かなで書いてあります（画面と字幕は script.json の text の表記）。
+
+## できた WAV
+
+`episodes/{ep}/audio/narration.wav` に置いて、`./make_video.sh {ep}`。
+"""
+    out = episode_dir(ep) / "tts" / "ai_studio.md"
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(doc, encoding="utf-8")
+    print(f"wrote {out}")
+
+
+def build_prompt(script: dict) -> str:
+    """演出メモ＋台本。見出しの書き方は Gemini TTS の公式の書き方（AUDIO PROFILE / DIRECTOR'S NOTES / TRANSCRIPT）。
+
+    モデルが読むのは TRANSCRIPT の部分だけ。文の間は改行で区切り、場面の変わり目は空行にする。
+    """
+    v = script["voice"]
     return (
         "# AUDIO PROFILE: 渋い声のドキュメンタリー・ナレーター（日本語）\n"
         "## THE SCENE: 夜、静かなスタジオ。テクノロジーのニュースの裏側を、一次資料を読みながら淡々と語る。\n"
         "### DIRECTOR'S NOTES\n"
         f"{v['style']}\n"
         "空行のところ（場面の変わり目）は、ふつうの句点より長めに間をとる。\n"
-        "#### TRANSCRIPT\n" + "\n".join(lines)
+        "#### TRANSCRIPT\n" + transcript(script)
     )
 
 
@@ -100,6 +142,7 @@ def main() -> int:
     ap.add_argument("--voice")
     ap.add_argument("--temperature", type=float)
     ap.add_argument("--dry-run", action="store_true")
+    ap.add_argument("--ai-studio-doc", action="store_true", help="AI Studio 用の手順書だけ書き出す")
     args = ap.parse_args()
 
     script = load_script(args.episode)
@@ -107,6 +150,9 @@ def main() -> int:
     model = args.model or v["model"]
     voice = args.voice or v["voice"]
     temperature = args.temperature if args.temperature is not None else v.get("temperature", 1.0)
+    if args.ai_studio_doc:
+        write_ai_studio_doc(args.episode, script)
+        return 0
     prompt = build_prompt(script)
     bodies = request_bodies(prompt, voice, temperature)
 
