@@ -4,6 +4,19 @@
 映像・字幕・章立て・効果音はこのまま使い、声と曲だけをブラウザ（AI Studio・Flow Music）で作って差し替える。
 手順は 1分版の `episodes/kangaeru-01-1min/HANDOFF.md` と同じで、違うのは **章ごと** に作ること。
 
+## 手元の Claude Code に任せる場合
+
+指示書は `.claude/skills/finish-audio/`（Claude Code のスキル）。下の 0. の準備をしてから、リポジトリの一番上で:
+
+```bash
+read -s GEMINI_API_KEY && export GEMINI_API_KEY   # API で声を作るときだけ。キーを貼って Enter（画面にも履歴にも残らない）
+claude --chrome                                   # Chrome を操作できる状態で起動（AI Studio・Flow Music を使うため）
+```
+
+Claude Code に `/finish-audio kangaeru-01` と打つ。最初に「声の作り方・声の種類・曲のプラン」を聞かれ、
+途中で「声を聞いて選ぶ」「曲のテイクを選ぶ」「確認用の短い音を聞く」「動画の指定の時刻を見る」を頼まれる（Claude は音を聞けないため）。
+以下の 1.〜5. は、自分の手で進めるときの手順。
+
 ## 0. 準備（初回だけ・手元の Mac）
 
 ```bash
@@ -65,6 +78,8 @@ tools/render_chunks.sh kangaeru-01                     # → out/kangaeru-01.mp4
 
 ## 4. 確かめること
 
+- 機械で確かめる: `.venv/bin/python tools/check_audio.py kangaeru-01 voice`（声）／`align`（文の切れ目・動画で見る時刻）／
+  `music`（曲の長さ）／`preview`（`out/preview/kangaeru-01/` に章と曲の変わり目の短い音）
 - 声: 章の頭と終わりで言葉が切れていないか、読み間違い（`tts/ai_studio.md` の本文はかなに直してある所がある）
 - 文の切れ目: `episodes/kangaeru-01/build/alignment.json`。Gemini の声で字幕がずれていたら
   `tools/build_timeline.py kangaeru-01 --thresh -34` のように変えて作り直す
@@ -74,8 +89,10 @@ tools/render_chunks.sh kangaeru-01                     # → out/kangaeru-01.mp4
 
 ## 5. 残す
 
+声と曲のファイルは大きい（30分の声で約170MB）ので git に入れない。出どころの記録と時刻表だけ commit し、
+`episodes/kangaeru-01/audio/parts/`・`episodes/kangaeru-01/music/`・`out/kangaeru-01.mp4` は Google Drive などに控える。
+
 ```bash
-git add -f episodes/kangaeru-01/audio/parts/*.wav
-git add episodes/kangaeru-01/audio/narration.source.json episodes/kangaeru-01/music video/src/generated/kangaeru-01.json
+git add episodes/kangaeru-01/audio/narration.source.json episodes/kangaeru-01/music/sources.json video/src/generated/kangaeru-01.json
 git commit -m "考える夜 #01: Gemini の声と Flow Music の曲に差し替え" && git push
 ```

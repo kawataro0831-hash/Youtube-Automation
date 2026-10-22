@@ -11,3 +11,7 @@ video/public/ep/
 episodes/*/music/_takes/
 
 episodes/*/audio/parts/
+
+# 曲のファイル（Flow Music で作ったもの）は大きいので git に入れない。出どころは music/sources.json に残す
+episodes/*/music/*
+!episodes/*/music/sources.json

@@ -44,6 +44,7 @@ def main() -> None:
     v.add_argument("file", type=Path)
     v.add_argument("--part", help="章に分かれている回の章 id（prologue, ch1 など）")
     v.add_argument("--note", default="")
+    v.add_argument("--source", default="gemini-ai-studio", help="出どころ（API で作ったテイクを選び直したときは gemini）")
     m = sub.add_parser("music")
     m.add_argument("cue")
     m.add_argument("file", type=Path)
@@ -77,7 +78,7 @@ def main() -> None:
         meta = json.loads(meta_path.read_text(encoding="utf-8")) if meta_path.exists() else {"mode": "parts", "parts": {}}
         v = script.get("voice", {})
         meta.setdefault("parts", {})[args.part] = {
-            "source": "gemini-ai-studio", "model": v.get("model"), "voice_planned": v.get("voice"),
+            "source": args.source, "model": v.get("model"), "voice_planned": v.get("voice"),
             "note": args.note, "original_file": src.name, "registered": STAMP}
         meta_path.write_text(json.dumps(meta, ensure_ascii=False, indent=1), encoding="utf-8")
         rest = [p for p in pids if meta["parts"].get(p, {}).get("source", "openjtalk-temp") == "openjtalk-temp"]
@@ -96,7 +97,7 @@ def main() -> None:
             sf.write(str(dst), a, 48000, subtype="PCM_16")
         v = script.get("voice", {})
         (d / "audio" / "narration.source.json").write_text(json.dumps({
-            "source": "gemini-ai-studio", "model": v.get("model"), "voice_planned": v.get("voice"),
+            "source": args.source, "model": v.get("model"), "voice_planned": v.get("voice"),
             "note": args.note, "original_file": src.name, "registered": STAMP,
         }, ensure_ascii=False, indent=2), encoding="utf-8")
         print(f"声を置きました: {dst}（{info}）")

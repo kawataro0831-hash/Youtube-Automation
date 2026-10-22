@@ -72,17 +72,16 @@ Flow Music（旧 ProducerAI。Google Labs の音楽ツール）で、曲ごと�
 
 ## 5. 残す
 
+声と曲のファイルは git に入れない（手元と Google Drive などに控える）。出どころの記録と時刻表だけ commit する。
+
 ```bash
-git add -f episodes/kangaeru-01-1min/audio/narration.wav   # 声は .gitignore の対象なので -f で
-git add episodes/kangaeru-01-1min/music video/src/generated/kangaeru-01-1min.json
+git add episodes/kangaeru-01-1min/audio/narration.source.json episodes/kangaeru-01-1min/music/sources.json video/src/generated/kangaeru-01-1min.json
 git commit -m "考える夜 1分版: Gemini の声と Flow Music の曲に差し替え"
 git push
 ```
 
-## 手元の Claude に頼むときの文（そのまま貼る）
+## 手元の Claude Code に任せる場合
 
-> このリポジトリのブランチ `claude/relaxed-sagan-mnoqsa` の `episodes/kangaeru-01-1min/HANDOFF.md` の手順どおりに進めてください。
-> Claude in Chrome で、ログイン済みの Chrome から AI Studio（Gemini 3.8 Flash TTS）で渋めの声を1テイクで作り、
-> Google Flow Music で m1〜m4 の曲を作ってください（歌なし。各曲2テイク以上作って、場面に合うものを選ぶ）。
-> できたファイルは tools/register_audio.py で置き、./make_video.sh kangaeru-01-1min で書き出して、確かめることの項目を確認してから見せてください。
-> 生成の前に、操作している Chrome が私の Mac のものか確認してください。
+指示書は `.claude/skills/finish-audio/`（Claude Code のスキル）。0. の準備をしてから、リポジトリの一番上で
+`claude --chrome` を起動し、`/finish-audio kangaeru-01-1min` と打つ（API で声を作るなら、起動の前に
+`read -s GEMINI_API_KEY && export GEMINI_API_KEY` でキーを渡す）。手順はフル尺の `episodes/kangaeru-01/HANDOFF.md` と同じ。

@@ -119,6 +119,16 @@ def align(x: np.ndarray, texts: list[str], thresh_db: float) -> tuple[list[dict]
 
 
 PART_GAP = 0.8  # 章の終わりの余韻
+EDGE_PAD = (0.3, 0.6)  # 章ごとの声の頭と終わりに残す無音（秒）
+
+
+def tidy_edges(x: np.ndarray) -> np.ndarray:
+    """AI Studio や API で作った声の、頭と終わりの長すぎる無音を EDGE_PAD まで詰める。"""
+    peak = float(np.max(np.abs(x))) or 1.0
+    idx = np.where(np.abs(x) > peak * 10 ** (-45 / 20))[0]
+    if len(idx) == 0:
+        return x
+    return x[max(0, idx[0] - int(EDGE_PAD[0] * SR)): min(len(x), idx[-1] + int(EDGE_PAD[1] * SR))]
 
 
 def assemble_parts(script: dict, d, meta: dict, thresh: float):
@@ -149,6 +159,7 @@ def assemble_parts(script: dict, d, meta: dict, thresh: float):
             # 仮の声は作ったときの切れ目が分かっているので、それをそのまま使う
             times = [{"start": truth[s["id"]]["start"], "end": truth[s["id"]]["end"]} for s in sents]
         else:
+            x = tidy_edges(x)
             times, _, _ = align(x, [read_text(s) for s in sents], thresh)
         for s, tt in zip(sents, times):
             by_id[s["id"]] = {"start": round(t + tt["start"], 3), "end": round(t + tt["end"], 3), "text": s["text"]}
