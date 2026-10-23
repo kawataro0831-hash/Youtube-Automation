@@ -1,8 +1,10 @@
-# ブラウザでの作業（Claude in Chrome）
+# ブラウザでの作業（AI Studio・Flow Music）
 
-前提:
-- Claude Code を `claude --chrome` で起動している（または `/chrome` で接続済み）
-- Chrome で、人の Google アカウントにログインしている
+ブラウザを操作する道具（Claude Code なら Claude in Chrome。`claude --chrome` で起動するか `/chrome` で接続）があればそれで操作する。
+道具が無いとき（Codex など）は、この手順を人にやってもらい、ダウンロードしたファイルの場所を教えてもらう。
+ファイルを置く（`register_audio.py`）・確かめる（`check_audio.py`）のは、どちらの場合もエージェントがやる。
+
+前提: ブラウザで、人の Google アカウントにログインしている
 
 ログイン画面・CAPTCHA・年齢確認・支払いの画面が出たら、そこで止まって人に頼む。
 画面の作りが下の手順と違っても、**設定の中身**（何を選び、何を入れるか）は変えない。

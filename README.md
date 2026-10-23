@@ -20,8 +20,8 @@ blender/render_kangaeru.sh                       # 考える夜の3D（静止画
 VOICE=gemini ./make_video.sh kangaeru-01-1min    # Gemini の声（API キー）→ 時刻表 → 音 → 書き出し
 ```
 
-声と曲の差し替えは、手元の Claude Code に `/finish-audio <回>` で任せられる（指示書は `.claude/skills/finish-audio/`。
-`claude --chrome` で起動）。自分の手で進めるときは `episodes/kangaeru-01/HANDOFF.md`（作ったファイルは `tools/register_audio.py` で置く）。
+声と曲の差し替えは、手元の Claude Code（`/finish-audio <回>`。`claude --chrome` で起動）か Codex（`$finish-audio <回>`）に任せられる。
+指示書は `.agents/skills/finish-audio/`、エージェント共通の決まりごとは `AGENTS.md`。自分の手で進めるときは `episodes/kangaeru-01/HANDOFF.md`（作ったファイルは `tools/register_audio.py` で置く）。
 差し替えた声と曲は `tools/check_audio.py` で機械的に確かめてから、確認用の短い音（`preview`）を耳で聞く。
 曲は場面ごとに切り替えられる（`script.json` の `music`。区間の確認は `tools/music_cues.py`）。
 

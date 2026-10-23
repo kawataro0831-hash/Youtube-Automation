@@ -82,6 +82,6 @@ git push
 
 ## 手元の Claude Code に任せる場合
 
-指示書は `.claude/skills/finish-audio/`（Claude Code のスキル）。0. の準備をしてから、リポジトリの一番上で
-`claude --chrome` を起動し、`/finish-audio kangaeru-01-1min` と打つ（API で声を作るなら、起動の前に
-`read -s GEMINI_API_KEY && export GEMINI_API_KEY` でキーを渡す）。手順はフル尺の `episodes/kangaeru-01/HANDOFF.md` と同じ。
+指示書は `.agents/skills/finish-audio/`（Claude Code・Codex 共通のスキル）。Claude Code なら `claude --chrome` で起動して
+`/finish-audio kangaeru-01-1min`、Codex なら `codex -c 'sandbox_workspace_write.network_access=true'` で起動して
+`$finish-audio kangaeru-01-1min`。API キーの渡し方など、起動の前の準備はフル尺の `episodes/kangaeru-01/HANDOFF.md` と同じ。

@@ -3,7 +3,8 @@
 声色がずれないよう、台本の全文を1回で読ませる（1分なら1回で足りる）。
 文の切れ目は tools/build_timeline.py が無音から見つける。
 
-  export GEMINI_API_KEY=...            # Google AI Studio の API キー（環境変数で渡す。ファイルに書かない）
+  export GEMINI_API_KEY=...            # Google AI Studio の API キー（環境変数で渡す。リポジトリの中には書かない）
+                                       # 環境変数が使えないとき（Codex）は ~/.config/youtube-automation/gemini.key から読む
   .venv/bin/python tools/tts_gemini.py uratori-01-1min
   .venv/bin/python tools/tts_gemini.py uratori-01-1min --voice Gacrux   # 声を変えて作り直す
   .venv/bin/python tools/tts_gemini.py uratori-01-1min --dry-run        # 送る内容だけ表示
@@ -26,10 +27,23 @@ import sys
 import urllib.error
 import urllib.request
 import wave
+from pathlib import Path
 
 from common import episode_dir, load_script, read_text
 
 API = "https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
+# 環境変数が使えないとき（Codex は名前に KEY を含む環境変数をコマンドに渡さない）に読むファイル。中身はキーだけ
+KEY_FILE = Path.home() / ".config" / "youtube-automation" / "gemini.key"
+
+
+def api_key() -> tuple[str | None, str]:
+    """(キー, どこから読んだか)。キーそのものは表示しない。"""
+    for name in ("GEMINI_API_KEY", "GOOGLE_API_KEY"):
+        if os.environ.get(name):
+            return os.environ[name].strip(), f"環境変数 {name}"
+    if KEY_FILE.exists():
+        return KEY_FILE.read_text(encoding="utf-8").strip() or None, f"ファイル {KEY_FILE}"
+    return None, "なし"
 
 
 def transcript(script: dict, part: str | None = None) -> str:
@@ -172,7 +186,20 @@ def main() -> int:
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--ai-studio-doc", action="store_true", help="AI Studio 用の手順書だけ書き出す")
     ap.add_argument("--part", help="章に分かれている回で、1章だけ作る")
+    ap.add_argument("--check-key", action="store_true", help="API キーがあるか（どこから読むか）だけ表示する")
+    ap.add_argument("--list-models", action="store_true", help="この API キーで使える TTS のモデル名を表示する")
     args = ap.parse_args()
+
+    if args.check_key or args.list_models:
+        key, where = api_key()
+        print(f"API キー: {'あり' if key else 'なし'}（{where}）")
+        if args.list_models and key:
+            req = urllib.request.Request("https://generativelanguage.googleapis.com/v1beta/models?pageSize=1000",
+                                         headers={"x-goog-api-key": key})
+            with urllib.request.urlopen(req, timeout=60) as r:
+                names = [m["name"].split("/")[-1] for m in json.loads(r.read()).get("models", [])]
+            print("\n".join(n for n in names if "tts" in n.lower()) or "TTS のモデルが見つかりません")
+        return 0 if key else 2
 
     script = load_script(args.episode)
     v = script["voice"]
@@ -193,9 +220,10 @@ def main() -> int:
         print(json.dumps(request_bodies(build_prompt(script, targets[0]), voice, temperature)[0][1], ensure_ascii=False, indent=2))
         return 0
 
-    key = os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY")
+    key, _ = api_key()
     if not key:
-        print("GEMINI_API_KEY が設定されていません（AI Studio で作る場合は tts/ai_studio.md を参照）", file=sys.stderr)
+        print(f"API キーがありません。環境変数 GEMINI_API_KEY か {KEY_FILE} に置く"
+              "（AI Studio で作る場合は tts/ai_studio.md を参照）", file=sys.stderr)
         return 2
 
     meta_path = d / "narration.source.json"

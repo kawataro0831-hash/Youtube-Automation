@@ -4,17 +4,32 @@
 映像・字幕・章立て・効果音はこのまま使い、声と曲だけをブラウザ（AI Studio・Flow Music）で作って差し替える。
 手順は 1分版の `episodes/kangaeru-01-1min/HANDOFF.md` と同じで、違うのは **章ごと** に作ること。
 
-## 手元の Claude Code に任せる場合
+## 手元の Claude Code・Codex に任せる場合
 
-指示書は `.claude/skills/finish-audio/`（Claude Code のスキル）。下の 0. の準備をしてから、リポジトリの一番上で:
+指示書は `.agents/skills/finish-audio/`（Claude Code・Codex 共通のスキル）。下の 0. の準備をしてから、リポジトリの一番上で:
+
+**Claude Code**
 
 ```bash
 read -s GEMINI_API_KEY && export GEMINI_API_KEY   # API で声を作るときだけ。キーを貼って Enter（画面にも履歴にも残らない）
 claude --chrome                                   # Chrome を操作できる状態で起動（AI Studio・Flow Music を使うため）
 ```
 
-Claude Code に `/finish-audio kangaeru-01` と打つ。最初に「声の作り方・声の種類・曲のプラン」を聞かれ、
-途中で「声を聞いて選ぶ」「曲のテイクを選ぶ」「確認用の短い音を聞く」「動画の指定の時刻を見る」を頼まれる（Claude は音を聞けないため）。
+→ `/finish-audio kangaeru-01` と打つ。
+
+**Codex**（名前に KEY を含む環境変数はコマンドに渡らない・既定ではネットにつながらない、ため起動の仕方が違う）
+
+```bash
+# API で声を作るときだけ、最初に一度: キーを本人だけが読めるファイルに置く（キーを貼って Enter）
+mkdir -p ~/.config/youtube-automation && (umask 077; read -s k && printf %s "$k" > ~/.config/youtube-automation/gemini.key)
+codex -c 'sandbox_workspace_write.network_access=true'   # API・npm・書き出しの初回にネットが要る
+```
+
+→ `$finish-audio kangaeru-01` と打つ（または「kangaeru-01 の声と曲を差し替えて」）。ブラウザを操作する道具が無いときは、
+AI Studio・Flow Music の画面の作業は自分でやり、ダウンロードしたファイルの場所を Codex に伝える（置く・確かめるのは Codex）。
+
+どちらも最初に「声の作り方・声の種類・曲のプラン」を聞かれ、
+途中で「声を聞いて選ぶ」「曲のテイクを選ぶ」「確認用の短い音を聞く」「動画の指定の時刻を見る」を頼まれる（Claude も Codex も音を聞けないため）。
 以下の 1.〜5. は、自分の手で進めるときの手順。
 
 ## 0. 準備（初回だけ・手元の Mac）
